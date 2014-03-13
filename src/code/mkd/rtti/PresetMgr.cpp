@@ -1,3 +1,7 @@
+/***********************************
+ * mkdemo 2011-2013                *
+ * author: Maciej Kurowski 'kurak' *
+ ***********************************/
 #include "pch.h"
 #include "PresetMgr.h"
 #include "Filesystem.h"

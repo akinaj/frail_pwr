@@ -4,11 +4,9 @@
 ***********************************/
 #include "pch.h"
 #include "Character.h"
-#include "PrefabMgr.h"
 #include "Game.h"
 #include "Level.h"
 #include "contrib/DebugDrawer.h"
-#include "BulletManager.h"
 #include "scripting/LuaSimpleBinding.h"
 #include "Rocket.h"
 
@@ -32,7 +30,11 @@ START_RTTI_INIT(Character);
     FIELD_FLOAT(m_damageMultiplier);
     FIELD_FLOAT(m_meleeRange);
     FIELD_FLOAT(m_meleeConeSize);
-
+    FIELD_FLOAT(m_collisionCapsuleHeight);
+    FIELD_FLOAT(m_collisionCapsuleRadius);
+    FIELD_VEC3(m_visStartForwardVector);
+    FIELD_VEC3(m_visStartOffset);
+    FIELD_FLOAT(m_bodyScale);
     FIELD_ENUM_GEN(m_conflictSide, EConflictSide);
 }
 END_RTTI_INIT();
@@ -40,12 +42,18 @@ END_RTTI_INIT();
 EXPORT_VOID_ARG_METHOD_SCRIPT(Character, addHealth, float);
 EXPORT_VOID_ARG_METHOD_SCRIPT(Character, setIsVisibleInSightQueries, bool);
 EXPORT_VOID_ARG_METHOD_SCRIPT(Character, teleportTo, const mkVec3&);
+EXPORT_VOID_METHOD_SCRIPT(Character, jump);
+EXPORT_VOID_ARG_METHOD_SCRIPT(Character, setDirection, const mkVec3&);
+EXPORT_VOID_ARG_METHOD_SCRIPT(Character, setSpeed, float);
 
 START_SCRIPT_REGISTRATION(Character, ctx);
 {
     ctx->registerFunc("AddHealth", VOID_METHOD_SCRIPT(Character, addHealth));
     ctx->registerFunc("SetIsVisibleInSightQueries", VOID_METHOD_SCRIPT(Character, setIsVisibleInSightQueries));
     ctx->registerFunc("TeleportTo", VOID_METHOD_SCRIPT(Character, teleportTo));
+    ctx->registerFunc("Jump", VOID_METHOD_SCRIPT(Character, jump));
+    ctx->registerFunc("SetDirection", VOID_METHOD_SCRIPT(Character, setDirection));
+    ctx->registerFunc("SetSpeed", VOID_METHOD_SCRIPT(Character, setSpeed));
 }
 END_SCRIPT_REGISTRATION(ctx);
 
@@ -159,6 +167,13 @@ Character::Character()
     m_animDurations["Backflip"] = 900.f;
     m_animDurations["HighJump"] = 1000.f;
     m_animDurations["Jump"] = 900.f;
+    m_collisionCapsuleHeight = 1.f;
+    m_collisionCapsuleRadius = 0.5f;
+
+    m_visStartForwardVector = mkVec3::UNIT_Z;
+    m_visStartOffset = mkVec3::ZERO;
+
+    m_bodyScale = 1.f;
 }
 
 void Character::jump()
@@ -481,8 +496,6 @@ void Character::shoot( const mkVec3& origin, const mkVec3& dir, float max_range 
         btCollisionObject* object = ray_callback.m_collisionObject;
         PhysicsObjUserData* user_data = (PhysicsObjUserData*)object->getUserPointer();
 
-        getLevel()->getBulletMgr()->addBullet(origin, bullet_to_ogre(ray_callback.m_hitPointWorld), user_data != 0);
-
         if (user_data != 0)
         {
             if (user_data->type & PhysicsObjUserData::CharacterObject)
@@ -500,10 +513,6 @@ void Character::shoot( const mkVec3& origin, const mkVec3& dir, float max_range 
                 user_data->game_obj->takeDamage(dmg_info);
             }
         }
-    }
-    else
-    {
-        getLevel()->getBulletMgr()->addBullet(origin, bullet_to_ogre(ray_end), false);
     }
 }
 
@@ -536,11 +545,7 @@ void Character::onCreate()
 {
     __super::onCreate();
 
-    Prefab* prefab = getPrefab();
     Ogre::SceneManager* smgr = g_game->getOgreSceneMgr();
-
-    m_visStartForwardVector = mkVec3(prefab->vis_forward_vec.x, prefab->vis_forward_vec.y, prefab->vis_forward_vec.z);
-    m_visStartOffset = mkVec3(prefab->vis_offset.x, prefab->vis_offset.y, prefab->vis_offset.z);
 
     // HACK - spawn character slightly higher than requested with world pos,
     // because (especially after deserialization) when spawned exactly on ground
@@ -554,8 +559,7 @@ void Character::onCreate()
     m_physicsGhostObject = new btPairCachingGhostObject();
     m_physicsGhostObject->setWorldTransform(transform);
 
-    MK_ASSERT(prefab->physics_shape->isConvex());
-    btConvexShape* capsule = (btConvexShape*)prefab->physics_shape;
+    btConvexShape* capsule = new btCapsuleShape(m_collisionCapsuleRadius, m_collisionCapsuleHeight);
 
     m_physicsGhostObject->setCollisionShape(capsule);
     m_physicsGhostObject->setCollisionFlags(btCollisionObject::CF_CHARACTER_OBJECT);
@@ -576,6 +580,9 @@ void Character::onCreate()
 
     setHorizontalSightAngle(m_horSightAngleRad);
 
+    if (getVisSceneNode())
+        getVisSceneNode()->setScale(m_bodyScale, m_bodyScale, m_bodyScale);
+
     m_visAnim.setMesh(getVisMesh());
     //m_visAnim.setDrawElementBoxes(true);
 }
@@ -592,9 +599,8 @@ void Character::onDebugDraw()
 {
     m_visAnim.debugDraw();
 
-    static float VERT_OFFSET = 1.f;
-    float vert_offset = getPrefab() ? getPrefab()->vis_scale*100.f : VERT_OFFSET;
-    mkVec3 origin = getSimPos() + mkVec3::UNIT_Y * vert_offset;
+    float VERT_OFFSET = getBodyScale() * 100.f;
+    mkVec3 origin = getSimPos() + mkVec3::UNIT_Y * VERT_OFFSET;
 
     static float WIDTH = 1.f;
     static float HEIGHT = 0.1f;
@@ -914,8 +920,7 @@ mkVec3 Character::getRespawnPos() const
 float Character::getWalkAnimSpeed() const
 {
     static float BASE_SPEED = 3.f; // 0.01 for robot.mesh "Walk" anim
-    float scale = getPrefab() ? getPrefab()->vis_scale : 1.f;
-    float mul = m_currentSpeed / (BASE_SPEED * scale);
+    float mul = m_currentSpeed / (BASE_SPEED * getBodyScale());
 
     return mul;
 }
@@ -1238,4 +1243,9 @@ void Character::hitAngerMode()
         }
     }
 
+}
+
+float Character::getBodyScale() const
+{
+    return m_bodyScale;
 }

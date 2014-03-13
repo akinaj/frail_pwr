@@ -1,3 +1,7 @@
+/***********************************
+ * mkdemo 2011-2013                *
+ * author: Maciej Kurowski 'kurak' *
+ ***********************************/
 #include "pch.h"
 #include "GameObject.h"
 #include "Game.h"
@@ -241,4 +245,19 @@ void GameObject::_callScriptMethod( const mkString& method_name ) const
 {
     if (getScriptContext())
         getScriptContext()->tryCallFunc(method_name.c_str());
+}
+
+void GameObject::setScriptName( const mkString& script_name )
+{
+    MK_ASSERT_MSG(!getScriptContext(), "Trying to change script name for object after script context creation."
+        " Object name: '%s', original script name: '%s', override script name: '%s'.",
+        getName().c_str(), ScriptName.c_str(), script_name.c_str());
+
+    if (!ScriptName.empty())
+    {
+        log_info("Replacing script '%s' with '%s' in object '%s'",
+           ScriptName.c_str(), script_name.c_str(), getName().c_str());
+    }
+
+    ScriptName = script_name;
 }

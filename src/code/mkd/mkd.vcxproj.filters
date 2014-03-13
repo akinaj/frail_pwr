@@ -84,9 +84,6 @@
     <ClCompile Include="pch.cpp">
       <Filter>System</Filter>
     </ClCompile>
-    <ClCompile Include="PrefabMgr.cpp">
-      <Filter>System</Filter>
-    </ClCompile>
     <ClCompile Include="utils.cpp">
       <Filter>System</Filter>
     </ClCompile>
@@ -129,16 +126,10 @@
     <ClCompile Include="ActorAI.cpp">
       <Filter>Game</Filter>
     </ClCompile>
-    <ClCompile Include="BulletManager.cpp">
-      <Filter>Game</Filter>
-    </ClCompile>
     <ClCompile Include="Camera.cpp">
       <Filter>Game</Filter>
     </ClCompile>
     <ClCompile Include="Character.cpp">
-      <Filter>Game</Filter>
-    </ClCompile>
-    <ClCompile Include="DynamicBody.cpp">
       <Filter>Game</Filter>
     </ClCompile>
     <ClCompile Include="Game.cpp">
@@ -171,9 +162,6 @@
     <ClCompile Include="ExplodingObject.cpp">
       <Filter>Game\Objects</Filter>
     </ClCompile>
-    <ClCompile Include="MeshObject.cpp">
-      <Filter>Game\Objects</Filter>
-    </ClCompile>
     <ClCompile Include="PlayerSpawner.cpp">
       <Filter>Game\Objects</Filter>
     </ClCompile>
@@ -187,9 +175,6 @@
       <Filter>Game\Objects</Filter>
     </ClCompile>
     <ClCompile Include="TestGameObject.cpp">
-      <Filter>Game\Objects</Filter>
-    </ClCompile>
-    <ClCompile Include="VolumeTrigger.cpp">
       <Filter>Game\Objects</Filter>
     </ClCompile>
     <ClCompile Include="GameObject.cpp">
@@ -270,6 +255,9 @@
     <ClCompile Include="BoidActorController.cpp">
       <Filter>Game\ActorControllers\SwarmControllers</Filter>
     </ClCompile>
+    <ClCompile Include="CylinderVolumeTrigger.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="contrib\DebugDrawer.h">
@@ -297,9 +285,6 @@
       <Filter>System</Filter>
     </ClInclude>
     <ClInclude Include="Prefab.h">
-      <Filter>System</Filter>
-    </ClInclude>
-    <ClInclude Include="PrefabMgr.h">
       <Filter>System</Filter>
     </ClInclude>
     <ClInclude Include="settings.h">
@@ -350,9 +335,6 @@
     <ClInclude Include="ActorAI.h">
       <Filter>Game</Filter>
     </ClInclude>
-    <ClInclude Include="BulletManager.h">
-      <Filter>Game</Filter>
-    </ClInclude>
     <ClInclude Include="Camera.h">
       <Filter>Game</Filter>
     </ClInclude>
@@ -360,9 +342,6 @@
       <Filter>Game</Filter>
     </ClInclude>
     <ClInclude Include="DamageType.h">
-      <Filter>Game</Filter>
-    </ClInclude>
-    <ClInclude Include="DynamicBody.h">
       <Filter>Game</Filter>
     </ClInclude>
     <ClInclude Include="Game.h">
@@ -398,9 +377,6 @@
     <ClInclude Include="ExplodingObject.h">
       <Filter>Game\Objects</Filter>
     </ClInclude>
-    <ClInclude Include="MeshObject.h">
-      <Filter>Game\Objects</Filter>
-    </ClInclude>
     <ClInclude Include="PlayerSpawner.h">
       <Filter>Game\Objects</Filter>
     </ClInclude>
@@ -414,9 +390,6 @@
       <Filter>Game\Objects</Filter>
     </ClInclude>
     <ClInclude Include="TestGameObject.h">
-      <Filter>Game\Objects</Filter>
-    </ClInclude>
-    <ClInclude Include="VolumeTrigger.h">
       <Filter>Game\Objects</Filter>
     </ClInclude>
     <ClInclude Include="GameObject.h">
@@ -493,6 +466,9 @@
     </ClInclude>
     <ClInclude Include="BoidActorController.h">
       <Filter>Game\ActorControllers\SwarmControllers</Filter>
+    </ClInclude>
+    <ClInclude Include="CylinderVolumeTrigger.h">
+      <Filter>Game</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -6,7 +6,7 @@
 		"Name" : "Test1",
 		"m_worldTransform.position" : "80.0 5.0 80.0",
 		"m_worldTransform.orientation" : "0.0 0.0 0.0 1.0",
-		"m_prefabName" : "actor_ai_robot"
+		"m_meshName" : "robot.mesh"
 	},
     
     "Preset" :

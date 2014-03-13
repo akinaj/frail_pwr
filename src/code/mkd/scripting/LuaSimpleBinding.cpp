@@ -1,3 +1,7 @@
+/***********************************
+ * mkdemo 2011-2013                *
+ * author: Maciej Kurowski 'kurak' *
+ ***********************************/
 #include "pch.h"
 #include "LuaSimpleBinding.h"
 #include "utils.h"
@@ -479,6 +483,19 @@ namespace lua_simple
         return 1;
     }
 
+    void createLuaTableWithObjectRefs(lua_State* L, const TGameObjectVec& objects)
+    {
+        lua_newtable(L);
+
+        for (size_t i = 0; i < objects.size(); ++i)
+        {
+            lua_pushnumber(L, i+1);
+            ObjectRefBase* obj = pushNewLuaObject<ObjectRefBase>(L);
+            *obj = ObjectRefBase(objects[i]);
+            lua_rawset(L, -3);
+        }
+    }
+
     int LuaSimpleContext::CallFunction( lua_State* L, void (*ptr)(TGameObjectVec&, const mkVec3&, float) )
     {
         TGameObjectVec out_vec;
@@ -488,15 +505,19 @@ namespace lua_simple
 
         ptr(out_vec, *arg1, arg2);
 
-        lua_newtable(L);
+        createLuaTableWithObjectRefs(L, out_vec);
 
-        for (size_t i = 0; i < out_vec.size(); ++i)
-        {
-            lua_pushnumber(L, i+1);
-            ObjectRefBase* obj = pushNewLuaObject<ObjectRefBase>(L);
-            *obj = ObjectRefBase(out_vec[i]);
-            lua_rawset(L, -3);
-        }
+        return 1;
+    }
+
+    int LuaSimpleContext::CallFunctionVoidPtr( lua_State* L, void (*ptr)(void*, TGameObjectVec&) )
+    {
+        GameObject* arg1 = (GameObject*)(lua_topointer(L, 1));
+
+        TGameObjectVec out_vec;
+        ptr(arg1, out_vec);
+
+        createLuaTableWithObjectRefs(L, out_vec);
 
         return 1;
     }

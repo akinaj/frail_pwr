@@ -1,3 +1,7 @@
+/***********************************
+ * mkdemo 2011-2013                *
+ * author: Maciej Kurowski 'kurak' *
+ ***********************************/
 #pragma once
 #include "GameObject.h"
 
@@ -18,5 +22,5 @@ private:
 
     Player* m_spawnedPlayer;
 
-    mkString m_playerPrefab;
+    mkString m_playerPreset;
 };

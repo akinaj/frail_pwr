@@ -7,13 +7,10 @@
 #include "Character.h"
 #include "LevelObjectsMgr.h"
 
-class PrefabMgr;
 class ActorControllerFactory;
-class MeshObject;
 class ActorAI;
 class CtfMgr;
 class Player;
-class BulletManager;
 
 class Level : public rtti::IObjectProvider
 {
@@ -30,14 +27,11 @@ public:
 
     Ogre::SceneManager* getOgreSceneMgr() const;
     btDynamicsWorld* getPhysicsWorld() const;
-    PrefabMgr* getPrefabMgr() const;
     ActorControllerFactory* getActorControllerFactory() const;
 
 private:
     void loadGameObjects(const mkString& props_file_name);
     bool isKeyDown(OIS::KeyCode kc) const;
-
-    // New stuff - almost all above will be removed afterwards
 
 private:
     mutable int m_currFrameFindObjectsByIdQueriesNum;
@@ -84,7 +78,6 @@ public:
     // New gameplay stuff
 public:
     CtfMgr* getCtfMgr() const;
-    BulletManager* getBulletMgr() const { return m_bulletMgr; }
 
     Player* getPlayer() const { return m_localPlayer; }
     void setLocalPlayer(Player* player);
@@ -92,7 +85,6 @@ public:
 private:
     CtfMgr* m_CtfMgr;
     Player* m_localPlayer;
-    BulletManager* m_bulletMgr;
 
     void initGameplayObjects();
     void releaseGameplayObjects();

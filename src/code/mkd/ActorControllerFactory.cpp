@@ -17,6 +17,8 @@
 #include "Experiment3HTNActorController.h"
 #include "Experiment3BTActorController.h"
 
+// TODO: remove this factory, make actor controllers ordinary GameObjects and use RTTI for instantiating controllers dynamically with their class name
+
 #define CREATE_CONTROLLER(class_prefix) if (are_strings_equal_case_insensitive(controller_id, #class_prefix)) { \
                                             IActorController* result = new class_prefix##ActorController(ai);   \
                                             m_createdControllers.push_back(result);                             \

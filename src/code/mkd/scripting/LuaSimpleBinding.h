@@ -1,3 +1,7 @@
+/***********************************
+ * mkdemo 2011-2013                *
+ * author: Maciej Kurowski 'kurak' *
+ ***********************************/
 #pragma once
 #include "GameObject.h"
 #include "ObjectRef.h"
@@ -216,6 +220,7 @@ private:
     static int CallFunctionVoidPtr(lua_State* L, void (*ptr)(void*, bool));
     static int CallFunctionVoidPtr(lua_State* L, void (*ptr)(void*, const mkQuat&));
     static int CallFunctionVoidPtr(lua_State* L, mkQuat (*ptr)(void*));
+    static int CallFunctionVoidPtr(lua_State* L, void (*ptr)(void*, TGameObjectVec&));
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Low-level implementation part

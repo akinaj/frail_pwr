@@ -1,8 +1,0 @@
-name: actor_boss_ninja
-mass: -1.0f
-physics_shape: capsule-shape 0.9 3.5
-mesh_name: ninja.mesh
-material: NinjaRed
-vis_scale: 0.022
-forward_vec: 0.0, 0.0, -1.0
-vis_offset: 0.0, -2.6, 0.0

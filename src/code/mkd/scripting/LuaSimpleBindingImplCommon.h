@@ -1,3 +1,7 @@
+/***********************************
+ * mkdemo 2011-2013                *
+ * author: Maciej Kurowski 'kurak' *
+ ***********************************/
 #pragma once
 
 // This file should be included only in Lua binding implementation. To ensure this, it does not include lua.hpp,

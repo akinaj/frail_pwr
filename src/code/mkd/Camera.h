@@ -61,9 +61,6 @@ private:
     float m_yaw;
     float m_roll;
 
-    float m_naturalMovementPt;
-    float m_standingTime;
-
     mkVec3 m_forward;
 };
 

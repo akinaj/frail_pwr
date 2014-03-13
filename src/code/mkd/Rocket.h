@@ -1,3 +1,7 @@
+/***********************************
+ * mkdemo 2011-2013                *
+ * author: Maciej Kurowski 'kurak' *
+ ***********************************/
 #pragma once
 #include "ModelObject.h"
 #include "ObjectRef.h"

@@ -1,5 +1,0 @@
-name: flag_red
-mass: -1.0f
-physics_shape: capsule-shape 0.45 1.8
-mesh_name: flag.mesh
-material: flag_red

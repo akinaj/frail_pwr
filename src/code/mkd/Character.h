@@ -165,6 +165,8 @@ public:
     float getSmellRange() const { return m_smellRange; }
 
     void runAnimation(const mkString& animName, float duration);
+
+    float getBodyScale() const;
 private:
     void smoothChangeDirection();
     void smoothRotate();
@@ -230,9 +232,6 @@ private:
     
     float m_deathTime;
 
-    mkVec3 m_visStartForwardVector; // forward vector of vis mesh before any transforms
-    mkVec3 m_visStartOffset; // pivot offset
-
     AnimatedMeshContext m_visAnim;
 
     // tempshit
@@ -266,8 +265,6 @@ public:
     void hitFireball(const mkVec3& targetPos);
     void hitAngerMode();
 private:
-    // Serialized fields
-    //////////////////////////////////////////////////////////////////////////
     float m_maxSpeed;
     bool m_canJump;
     float m_sightDist;
@@ -284,4 +281,9 @@ private:
     float m_meleeRange;
     float m_meleeConeSize;
     mkVec3 m_targetPos;
+    mkVec3 m_visStartForwardVector; // forward vector of vis mesh before any transforms
+    mkVec3 m_visStartOffset; // pivot offset
+    float m_collisionCapsuleHeight;
+    float m_collisionCapsuleRadius;
+    float m_bodyScale;
 };

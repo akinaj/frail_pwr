@@ -1,0 +1,87 @@
+{
+    "StaticCollidableMesh" :
+    {
+        "m_meshName" : "arena_b.mesh"
+    },
+    
+    "PlayerSpawner" :
+    {
+        "m_worldSpawnPos" : { 0.0, 2.0, 22.0 }
+    },
+    
+    "DynamicLight" :
+    {
+        "m_worldPos" : { 200.0, 200.0, 200.0 },
+        "m_diffuse" : { 1.0, 1.0, 1.0, 1.0 },
+        "m_specular" : { 1.0, 1.0, 1.0, 1.0 }
+    },
+
+    "RenderSettingsSetter" :
+    {
+        "Preset" : "Default",
+        "m_ambientLight" : { 0.5, 0.5, 0.5 }
+    },
+    
+    "AISpawner" :
+    {
+        "m_spawnOrigin" : { 0.0, 2.0, -22.0 },
+        "m_spawnRadius" : 1.0,
+        "m_aiNum" : 1,
+        "m_presetName" : "AISandboxBoss"
+    },
+//COORDINATOR	
+	"GameObject" :
+	{
+		"ScriptName" : "tournament_arena/coordinator.lua",
+		"m_radius" : "32.0"
+	},
+//POWER LAKE
+	"CylinderVolumeTrigger" :
+	{
+		"Preset" : "power_lake_r8",
+		"ScriptName" : "tournament_arena/power_lake.lua"
+		"Name" : "cvt_power_lake_1"
+		"m_worldTransform.position" : { 30.0, 0.0, 0.0 },
+	},
+//HEALING BADGE	
+	"CylinderVolumeTrigger" :
+	{
+		"Preset" : "healing_bandage",
+		"ScriptName" : "tournament_arena/healing_bandage.lua",
+		"Name" : "cvt_hp",
+		"m_worldTransform.position" : { -22.0, 0.0, 0.0 },
+	},
+//DOUBLE DAMAGE	
+	"CylinderVolumeTrigger" :
+	{
+		"Preset" : "double_damage",
+		"ScriptName" : "tournament_arena/double_damage.lua",
+		"Name" : "cvt_dd",
+		"m_worldTransform.position" : { 0.0, 0.0, 0.0 }
+	},
+//BARRELS
+	"ExplodingObject" :
+    {
+        "Preset" : "barrel_e_r8",
+		"Name" : "eo_b1",
+        "m_worldTransform.position" : { -3.0, 0.625, 3.0 }
+    },
+	"ExplodingObject" :
+    {
+        "Preset" : "barrel_e_r8",
+		"Name" : "eo_b2",
+        "m_worldTransform.position" : { -3.0, 0.625, -3.0 }
+    },
+	"ExplodingObject" :
+    {
+        "Preset" : "barrel_e_r8",
+		"Name" : "eo_b3",
+        "m_worldTransform.position" : { 3.0, 0.625, 3.0 }
+    },
+	"ExplodingObject" :
+    {
+        "Preset" : "barrel_e_r8",
+		"Name" : "eo_b4",
+        "m_worldTransform.position" : { 3.0, 0.625, -3.0 }
+    }
+}

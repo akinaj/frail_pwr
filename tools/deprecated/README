@@ -1,0 +1,7 @@
+Deprecated tools, not used anymore. Scripts contain relative paths to src and build directories,
+so if for some reason you'd like to run these tools, move them back to "tools" directory, for example:
+
+ tools/deprecated/compile_prefabs.sh -> tools/compile_prefabs.sh
+ tools/deprecated/maze_gen/gen_level_mesh.sh -> tools/maze_gen/gen_level_mesh.sh
+
+or just fix all relative paths

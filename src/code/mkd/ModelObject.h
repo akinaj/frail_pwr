@@ -1,3 +1,7 @@
+/***********************************
+ * mkdemo 2011-2013                *
+ * author: Maciej Kurowski 'kurak' *
+ ***********************************/
 #pragma once
 #include "GameObject.h"
 
@@ -14,8 +18,6 @@ struct Transform
     }
 };
 
-struct Prefab;
-
 class ModelObject : public GameObject
 {
     DECLARE_RTTI(ModelObject);
@@ -27,10 +29,6 @@ public:
     virtual void onDestroy();
 
     virtual void onUpdate();
-
-    // Changes initial prefab name. Note it will not be effective after
-    // onCreate is called, so this should be called only on uninitialized objects
-    void setPrefabName(const mkString& prefab_name);
 
     const Transform& getWorldTransform() const;
     const mkVec3& getWorldPosition() const;
@@ -49,9 +47,6 @@ public:
     Ogre::SceneNode* getVisSceneNode() const;
     Ogre::Entity* getVisMesh() const;
 
-protected:
-    Prefab* getPrefab() const;
-
 private:
     void createVis();
     void destroyVis();
@@ -61,8 +56,8 @@ private:
     // Serialized fields
 private:
     Transform m_worldTransform;
-    mkString m_prefabName;
-    mkString m_meshName; // used only when m_prefabName is not set
+    mkString m_meshName;
+    mkString m_overrideMaterialName;
 
 protected:
     bool m_castsShadows;

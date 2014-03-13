@@ -8,7 +8,6 @@
 #include "ActorAI.h"
 #include "IActorController.h"
 #include "contrib/DebugDrawer.h"
-#include "MeshObject.h"
 #include "Level.h"
 #include "ActorControllerFactory.h"
 #include "scripting/LuaSimpleBinding.h"
@@ -32,9 +31,23 @@ START_RTTI_INIT(ActorAI);
 }
 END_RTTI_INIT();
 
+static void _script_findSpottedActors(GameObject* actor, TGameObjectVec& out_vec)
+{
+    if (!actor->getTypeInfo()->isDerivedOrExact(&ActorAI::Type))
+        return;
+
+    const CharacterVec& actors = static_cast<ActorAI*>(actor)->getSpottedActors();
+    out_vec.reserve(actors.size());
+    for (size_t i = 0; i < actors.size(); ++i)
+        out_vec.push_back(actors[i]);
+}
+
+EXPORT_VOID_METHOD_SCRIPT(ActorAI, drawSensesInfo);
+
 START_SCRIPT_REGISTRATION(ActorAI, ctx);
 {
-    
+    ctx->registerFunc("GetSpottedActors", _script_findSpottedActors);
+    ctx->registerFunc("DrawSensesInfo", VOID_METHOD_SCRIPT(ActorAI, drawSensesInfo));
 }
 END_SCRIPT_REGISTRATION(ctx);
 
@@ -85,7 +98,8 @@ void ActorAI::onCreate()
     user_data->type = PhysicsObjUserData::CharacterObject | PhysicsObjUserData::EnemyObject;
     ghost_obj->setUserPointer(user_data);
 
-    setController(getLevel()->getActorControllerFactory()->create(m_characterCtrlName.c_str(), this));
+    if (!m_characterCtrlName.empty())
+        setController(getLevel()->getActorControllerFactory()->create(m_characterCtrlName.c_str(), this));
 }
 
 void ActorAI::onDestroy()
@@ -126,6 +140,9 @@ void ActorAI::onDebugDraw()
         if (m_controller)
             m_controller->onDebugDraw();
     }
+
+    if (getScriptContext())
+        getScriptContext()->tryCallFunc("onDebugDraw");
 }
 
 void ActorAI::drawSensesInfo()

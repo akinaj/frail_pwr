@@ -1,7 +1,10 @@
+/***********************************
+ * mkdemo 2011-2013                *
+ * author: Maciej Kurowski 'kurak' *
+ ***********************************/
 #include "pch.h"
 #include "ExplodingObject.h"
 #include "scripting/LuaSimpleBinding.h"
-#include "DynamicBody.h"
 #include "Game.h"
 #include "Level.h"
 #include "contrib/DebugDrawer.h"

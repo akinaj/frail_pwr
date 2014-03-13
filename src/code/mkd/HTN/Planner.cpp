@@ -47,9 +47,9 @@ namespace HTN {
             }
 
             std::stringstream ss;
-            for(int i=0; i<plan.size(); ++i){
+            for(size_t i=0; i<plan.size(); ++i){
                 ss << plan[i]->getName() << " ";
-                for(int j=0; j<plan[i]->getParameters().size(); ++j){
+                for(size_t j=0; j<plan[i]->getParameters().size(); ++j){
                     ss << plan[i]->getParameters()[j] << " ";
                 }
                 ss << ";";

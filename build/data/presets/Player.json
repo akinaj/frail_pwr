@@ -11,5 +11,13 @@
 		"m_damageMultiplier" : "1.0",
 		"m_meleeRange": "2.0",
 		"m_meleeConeSize" : "45.0",
+        "m_rangedLaunchPosHelperName" : "Joint17", 
+        "m_collisionCapsuleRadius" : "0.45",
+        "m_collisionCapsuleHeight" : "1.1",
+        "m_meshName" : "ninja.mesh",
+        "m_visStartForwardVector" : "0.0 0.0 -1.0",
+        "m_visStartOffset" : "0.0 -0.98 0.0",
+        "m_bodyScale" : "0.01",
+        "m_overrideMaterialName" : "NinjaGreen"
     }
 }

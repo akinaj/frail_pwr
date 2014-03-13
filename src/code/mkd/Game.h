@@ -5,7 +5,6 @@
 #pragma once
 #include "Camera.h"
 
-class PrefabMgr;
 class ActorControllerFactory;
 class Level;
 namespace rtti { class PresetMgr; }
@@ -23,7 +22,6 @@ public:
 
     Ogre::SceneManager* getOgreSceneMgr() const;
     btDynamicsWorld* getPhysicsWorld() const;
-    PrefabMgr* getPrefabMgr() const;
     ActorControllerFactory* getActorControllerFactory() const;
     Level* getCurrentLevel() const;
     rtti::PresetMgr* getPresetMgr() const;
@@ -83,7 +81,6 @@ private:
     float m_logicTime;
     float m_slomo;
 
-    PrefabMgr* m_prefabMgr;
     ActorControllerFactory* m_actorControllerFactory;
     rtti::PresetMgr* m_presetMgr;
 

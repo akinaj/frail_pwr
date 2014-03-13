@@ -26,9 +26,10 @@
     {
         "m_spawnOrigin" : { 120.0, 2.4400, 80.2527 },
         "m_spawnRadius" : 7.0,
-        "m_aiNum" : 5,
+        "m_aiNum" : 1,
         //"m_presetName" : "RobotBlue"
-		"m_presetName" : "AIBlueStateMachine"
+		"m_presetName" : "AIScripted",
+        "m_overrideScriptName" : "ai/test.lua"
     },
     
     "ModelObject" :
@@ -36,15 +37,6 @@
         "Preset" : "TestScripted",
 		"m_worldTransform.position" : { 80.3516, 2.8807, 80.7614 }
     },
-	
-	"CylinderVolumeTrigger" :
-	{
-		"ScriptName" : "arena_a/lava_lake_a.lua",
-		"Name" : "mid_lava_12"
-		"m_worldTransform.position" : { 130, 0.0, 104 },
-		"m_prefabName" : "barrel1",
-		"m_radius" : 100.0
-	},
     
     "ModelObject" :
     {

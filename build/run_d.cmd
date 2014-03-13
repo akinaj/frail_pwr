@@ -1,0 +1,1 @@
+bin\mkdemo_d.exe

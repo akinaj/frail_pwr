@@ -1,3 +1,7 @@
+/***********************************
+ * mkdemo 2011-2013                *
+ * author: Maciej Kurowski 'kurak' *
+ ***********************************/
 #pragma once
 #include "rtti/TypeInfo.h"
 #include "DamageType.h"
@@ -95,6 +99,10 @@ public:
     // Just a workaround for missing messaging system :(
     // TODO fix it after aisandbox
     void _callScriptMethod(const mkString& method_name) const;
+
+    // Overrides object's script name. Note it will only have effect when called before
+    // script context creation (which is done in onPostCreate)
+    void setScriptName(const mkString& script_name);
 
 protected:
     lua_simple::LuaSimpleContext* getScriptContext() const;

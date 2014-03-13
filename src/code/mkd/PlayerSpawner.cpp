@@ -1,3 +1,7 @@
+/***********************************
+ * mkdemo 2011-2013                *
+ * author: Maciej Kurowski 'kurak' *
+ ***********************************/
 #include "pch.h"
 #include "PlayerSpawner.h"
 #include "Player.h"
@@ -10,7 +14,7 @@ START_RTTI_INIT(PlayerSpawner);
     FIELD_VEC3(m_worldSpawnPos);
     FIELD_BOOL(m_alreadySpawned);
     FIELD_PTR(m_spawnedPlayer);
-    FIELD_STRING(m_playerPrefab);
+    FIELD_STRING(m_playerPreset);
 }
 END_RTTI_INIT();
 
@@ -18,8 +22,8 @@ PlayerSpawner::PlayerSpawner()
 {
     m_worldSpawnPos = mkVec3::ZERO;
     m_alreadySpawned = false;
-    //m_playerPrefab = "player_character";
-    m_playerPrefab = "actor_ninja";
+
+    m_playerPreset = "Default";
 }
 
 void PlayerSpawner::onPostCreate()
@@ -30,10 +34,9 @@ void PlayerSpawner::onPostCreate()
     if (m_alreadySpawned)
         return;
 
-    Player* player = getLevel()->createObject<Player>(false, "Default");
+    Player* player = getLevel()->createObject<Player>(false, m_playerPreset);
 
     player->setConflictSide(EConflictSide::RedTeam);
-    player->setPrefabName(m_playerPrefab);
     player->setWorldPosition(m_worldSpawnPos);
     player->initStandaloneObject();
 

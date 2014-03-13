@@ -9,14 +9,11 @@
 #include "ActorAI.h"
 #include "ActorControllerFactory.h"
 #include "Filesystem.h"
-#include "MeshObject.h"
-#include "PrefabMgr.h"
 #include "serialization/SerializationJSON.h"
 #include "rtti/TypeManager.h"
 #include "rtti/PresetMgr.h"
 #include "ctf/CtfMgr.h"
 #include "Player.h"
-#include "BulletManager.h"
 
 Level::Level()
     : m_localPlayer(NULL)
@@ -124,11 +121,6 @@ Ogre::SceneManager* Level::getOgreSceneMgr() const
 btDynamicsWorld* Level::getPhysicsWorld() const
 {
     return g_game->getPhysicsWorld();
-}
-
-PrefabMgr* Level::getPrefabMgr() const
-{
-    return g_game->getPrefabMgr();
 }
 
 ActorControllerFactory* Level::getActorControllerFactory() const
@@ -271,7 +263,6 @@ void Level::initGameplayObjects()
     // Create gameplay objects not deserialized from level
 
     m_CtfMgr = createObject<CtfMgr>();
-    m_bulletMgr = createObject<BulletManager>();
 }
 
 void Level::releaseGameplayObjects()

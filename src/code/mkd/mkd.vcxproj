@@ -196,6 +196,7 @@
     <ClCompile Include="contrib\DebugDrawer.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Use</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="CylinderVolumeTrigger.cpp" />
     <ClCompile Include="Experiment1BTActorController.cpp" />
     <ClCompile Include="Experiment1HTNActorController.cpp" />
     <ClCompile Include="Experiment3BTActorController.cpp" />
@@ -216,7 +217,6 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Hybrid|Win32'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="PrefabMgr.cpp" />
     <ClCompile Include="utils.cpp" />
     <ClCompile Include="rtti\FieldInfo.cpp" />
     <ClCompile Include="rtti\PresetMgr.cpp" />
@@ -240,10 +240,8 @@
     <ClCompile Include="scripting\LuaSimpleRttiBinding.cpp" />
     <ClCompile Include="AnimatedMeshContext.cpp" />
     <ClCompile Include="ActorAI.cpp" />
-    <ClCompile Include="BulletManager.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Character.cpp" />
-    <ClCompile Include="DynamicBody.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Level.cpp" />
@@ -256,13 +254,11 @@
     <ClCompile Include="AISpawner.cpp" />
     <ClCompile Include="DynamicLight.cpp" />
     <ClCompile Include="ExplodingObject.cpp" />
-    <ClCompile Include="MeshObject.cpp" />
     <ClCompile Include="PlayerSpawner.cpp" />
     <ClCompile Include="RenderSettingsSetter.cpp" />
     <ClCompile Include="Rocket.cpp" />
     <ClCompile Include="StaticCollidableMesh.cpp" />
     <ClCompile Include="TestGameObject.cpp" />
-    <ClCompile Include="VolumeTrigger.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GameObjectScriptBinding.cpp" />
     <ClCompile Include="ModelObject.cpp" />
@@ -279,6 +275,7 @@
     <ClInclude Include="BT\Decorator.h" />
     <ClInclude Include="BT\Parser.h" />
     <ClInclude Include="contrib\DebugDrawer.h" />
+    <ClInclude Include="CylinderVolumeTrigger.h" />
     <ClInclude Include="Experiment1BTActorController.h" />
     <ClInclude Include="Experiment1HTNActorController.h" />
     <ClInclude Include="Experiment3BTActorController.h" />
@@ -298,7 +295,6 @@
     <ClInclude Include="pch.h" />
     <ClInclude Include="PhysicsObjectUserData.h" />
     <ClInclude Include="Prefab.h" />
-    <ClInclude Include="PrefabMgr.h" />
     <ClInclude Include="settings.h" />
     <ClInclude Include="Types.h" />
     <ClInclude Include="utils.h" />
@@ -315,11 +311,9 @@
     <ClInclude Include="scripting\LuaSimpleRttiBinding.h" />
     <ClInclude Include="AnimatedMeshContext.h" />
     <ClInclude Include="ActorAI.h" />
-    <ClInclude Include="BulletManager.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Character.h" />
     <ClInclude Include="DamageType.h" />
-    <ClInclude Include="DynamicBody.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Level.h" />
@@ -333,13 +327,11 @@
     <ClInclude Include="AISpawner.h" />
     <ClInclude Include="DynamicLight.h" />
     <ClInclude Include="ExplodingObject.h" />
-    <ClInclude Include="MeshObject.h" />
     <ClInclude Include="PlayerSpawner.h" />
     <ClInclude Include="RenderSettingsSetter.h" />
     <ClInclude Include="Rocket.h" />
     <ClInclude Include="StaticCollidableMesh.h" />
     <ClInclude Include="TestGameObject.h" />
-    <ClInclude Include="VolumeTrigger.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="ModelObject.h" />
     <ClInclude Include="ctf\CtfMgr.h" />

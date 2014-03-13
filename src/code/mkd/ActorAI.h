@@ -7,7 +7,6 @@
 #include "ObjectRef.h"
 
 class IActorController;
-class MeshObject;
 class TeamFlag;
 
 class ActorAI : public Character

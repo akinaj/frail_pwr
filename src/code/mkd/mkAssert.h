@@ -1,3 +1,7 @@
+/***********************************
+ * mkdemo 2011-2013                *
+ * author: Maciej Kurowski 'kurak' *
+ ***********************************/
 #pragma once
 
 // Based on http://cnicholson.net/2009/02/stupid-c-tricks-adventures-in-assert/

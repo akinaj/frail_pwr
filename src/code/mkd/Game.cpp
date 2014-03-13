@@ -4,10 +4,8 @@
  ***********************************/
 #include "pch.h"
 #include "Game.h"
-#include "PrefabMgr.h"
 #include "Player.h"
 #include "PhysicsObjectUserData.h"
-#include "DynamicBody.h"
 #include "ActorAI.h"
 #include "contrib/DebugDrawer.h"
 #include "ActorControllerFactory.h"
@@ -31,7 +29,6 @@ Game::Game()
     , m_lastDt(0.f)
     , m_logicTime(0.f)
     , m_slomo(1.f)
-    , m_prefabMgr(NULL)
     , m_actorControllerFactory(NULL)
     , m_disableShadows(false)
 {
@@ -59,9 +56,6 @@ bool Game::init(const mkString& cmd_line)
     m_physicsWorld->setDebugDrawer(g_debugPhysicsDrawer);
 #endif
 
-    m_prefabMgr = new PrefabMgr;
-    m_prefabMgr->load("data/prefabs.db", m_physicsWorld);
-
     m_actorControllerFactory = new ActorControllerFactory;
 
     m_level = new Level();
@@ -78,9 +72,6 @@ void Game::clear()
     m_level->clear();
     delete m_level;
     m_level = NULL;
-
-    delete m_prefabMgr;
-    m_prefabMgr = NULL;
 
     delete DebugDrawer::getSingletonPtr();
 
@@ -455,11 +446,6 @@ Ogre::SceneManager* Game::getOgreSceneMgr() const
 btDynamicsWorld* Game::getPhysicsWorld() const
 {
     return m_physicsWorld;
-}
-
-PrefabMgr* Game::getPrefabMgr() const
-{
-    return m_prefabMgr;
 }
 
 ActorControllerFactory* Game::getActorControllerFactory() const

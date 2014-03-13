@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="windows-1250"?>
 <VisualStudioProject
 	ProjectType="Visual C++"
-	Version="9.00"
+	Version="9,00"
 	Name="mkd"
 	ProjectGUID="{468913B5-2AA0-492A-97A4-E51349DF3892}"
 	RootNamespace="mkd"
@@ -351,18 +351,6 @@
 				>
 			</File>
 			<File
-				RelativePath=".\Prefab.h"
-				>
-			</File>
-			<File
-				RelativePath=".\PrefabMgr.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\PrefabMgr.h"
-				>
-			</File>
-			<File
 				RelativePath=".\settings.h"
 				>
 			</File>
@@ -527,14 +515,6 @@
 				>
 			</File>
 			<File
-				RelativePath=".\BulletManager.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\BulletManager.h"
-				>
-			</File>
-			<File
 				RelativePath=".\Camera.cpp"
 				>
 			</File>
@@ -552,14 +532,6 @@
 			</File>
 			<File
 				RelativePath=".\DamageType.h"
-				>
-			</File>
-			<File
-				RelativePath=".\DynamicBody.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\DynamicBody.h"
 				>
 			</File>
 			<File
@@ -662,6 +634,14 @@
 					>
 				</File>
 				<File
+					RelativePath=".\CylinderVolumeTrigger.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\CylinderVolumeTrigger.h"
+					>
+				</File>
+				<File
 					RelativePath=".\DynamicLight.cpp"
 					>
 				</File>
@@ -675,14 +655,6 @@
 				</File>
 				<File
 					RelativePath=".\ExplodingObject.h"
-					>
-				</File>
-				<File
-					RelativePath=".\MeshObject.cpp"
-					>
-				</File>
-				<File
-					RelativePath=".\MeshObject.h"
 					>
 				</File>
 				<File
@@ -723,14 +695,6 @@
 				</File>
 				<File
 					RelativePath=".\TestGameObject.h"
-					>
-				</File>
-				<File
-					RelativePath=".\VolumeTrigger.cpp"
-					>
-				</File>
-				<File
-					RelativePath=".\VolumeTrigger.h"
 					>
 				</File>
 				<Filter

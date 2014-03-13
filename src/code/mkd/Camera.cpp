@@ -23,21 +23,6 @@ void CameraFPP::update( float dt, float mouse_dx, float mouse_dy )
     if (m_target)
         m_pos = m_target->CameraTarget_getWorldPosition();
 
-    const float kNaturalMovementStr = 0.0f;
-
-    if (m_lastPos == m_pos)
-    {
-        m_naturalMovementPt = 0;
-    }
-    else
-    {
-        m_naturalMovementPt += dt;
-    }
-
-    const float xoffs = cosf(m_naturalMovementPt * 3) * kNaturalMovementStr;
-    const float yoffs = sinf(m_naturalMovementPt * 6) * kNaturalMovementStr;
-
-
     const float kMaxAbsRoll = (float)M_PI_2 * 0.99f;
 
     const float kMouseSensitivity = 0.005f;
@@ -45,7 +30,7 @@ void CameraFPP::update( float dt, float mouse_dx, float mouse_dy )
     const float x_rot_speed = -0.5f * kMouseSensitivity;
 
     m_yaw += x_rot_speed * mouse_dx;
-    m_roll += y_rot_speed * mouse_dy; // todo roll czy pitch? :)
+    m_roll += y_rot_speed * mouse_dy; // todo lol roll czy pitch? :)
 
     m_roll = clamp(m_roll, -kMaxAbsRoll, kMaxAbsRoll);
 
@@ -55,11 +40,9 @@ void CameraFPP::update( float dt, float mouse_dx, float mouse_dy )
     m_forward =  yaw_rot * roll_rot * m_forwardUnit;
     m_forward.normalise();
 
-    const mkVec3 natural_movement_offset = getRightVec().normalisedCopy() * xoffs * 2 + mkVec3(0, yoffs, 0);
+    const mkVec3 lookat = m_pos + m_forward;
 
-    const mkVec3 lookat = m_pos + natural_movement_offset + m_forward;
-
-    m_cam->setPosition(m_pos + natural_movement_offset);
+    m_cam->setPosition(m_pos);
     m_cam->lookAt(lookat);
 
     m_lastLookat = lookat;

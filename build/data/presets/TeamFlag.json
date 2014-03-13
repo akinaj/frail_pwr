@@ -5,13 +5,15 @@
     {
         "Name" : "Blue",
         "m_team" : "BlueTeam",
-        "m_prefabName" : "flag_blue"
+        "m_meshName" : "flag.mesh",
+        "m_overrideMaterialName" : "flag_blue"
     },
     
     "Preset" :
     {
         "Name" : "Red",
         "m_team" : "RedTeam",
-        "m_prefabName" : "flag_red"
+        "m_meshName" : "flag.mesh",
+        "m_overrideMaterialName" : "flag_red"
     },
 }

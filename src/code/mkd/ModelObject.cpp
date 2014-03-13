@@ -1,19 +1,22 @@
+/***********************************
+ * mkdemo 2011-2013                *
+ * author: Maciej Kurowski 'kurak' *
+ ***********************************/
 #include "pch.h"
 #include "ModelObject.h"
 #include "Game.h"
 #include "Level.h"
-#include "PrefabMgr.h"
 #include "scripting/LuaSimpleBinding.h"
 
 IMPLEMENT_RTTI_SCRIPTED(ModelObject, GameObject);
 
 START_RTTI_INIT(ModelObject);
 {
-    FIELD_STRING(m_prefabName);
     FIELD_STRING(m_meshName);
     FIELD_VEC3(m_worldTransform.position);
     FIELD_QUAT(m_worldTransform.orientation);
     FIELD_BOOL(m_castsShadows);
+    FIELD_STRING(m_overrideMaterialName);
 }
 END_RTTI_INIT();
 
@@ -63,30 +66,22 @@ void ModelObject::onUpdate()
 
 void ModelObject::createVis()
 {
+    if (m_meshName.empty())
+    {
+        log_error("Mesh name of ModelObject named '%s' is not set!" 
+            " Hint: one can use GameObject class for objects with no visualization", getName().c_str());
+
+        return;
+    }
+
     Ogre::SceneManager* smgr = getLevel()->getOgreSceneMgr();
     m_visSceneNode = smgr->getRootSceneNode()->createChildSceneNode(m_worldTransform.position, m_worldTransform.orientation);
 
-    Prefab* prefab = getPrefab();
-    if (prefab && prefab->mesh_name != "none")
-    {
-        m_visMesh = smgr->createEntity(prefab->mesh_name.c_str());
+    m_visMesh = smgr->createEntity(m_meshName);
+    m_visSceneNode->attachObject(m_visMesh);
 
-        if (prefab->material_name != "default")
-            m_visMesh->setMaterialName(prefab->material_name.c_str());
-
-        m_visSceneNode->attachObject(m_visMesh);
-        m_visSceneNode->setScale(prefab->vis_scale, prefab->vis_scale, prefab->vis_scale);
-    }
-    else if (!m_meshName.empty())
-    {
-        m_visMesh = smgr->createEntity(m_meshName);
-        m_visSceneNode->attachObject(m_visMesh);
-    }
-    else
-    {
-        log_error("Neither prefab name nor mesh name of ModelObject named '%s' is set!" 
-            " Hint: one can use GameObject class for objects with no visualization", getName().c_str());
-    }
+    if (!m_overrideMaterialName.empty())
+        m_visMesh->setMaterialName(m_overrideMaterialName);
 
     if (getVisMesh())
         getVisMesh()->setCastShadows(m_castsShadows);
@@ -166,19 +161,6 @@ Ogre::SceneNode* ModelObject::getVisSceneNode() const
 Ogre::Entity* ModelObject::getVisMesh() const
 {
     return m_visMesh;
-}
-
-Prefab* ModelObject::getPrefab() const
-{
-    if (m_prefabName.empty())
-        return NULL;
-
-    return getLevel()->getPrefabMgr()->get(m_prefabName.c_str());
-}
-
-void ModelObject::setPrefabName( const mkString& prefab_name )
-{
-    m_prefabName = prefab_name;
 }
 
 mkVec3 ModelObject::pointWorldToLocal( const mkVec3& world_pt ) const

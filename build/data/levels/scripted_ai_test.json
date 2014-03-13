@@ -1,0 +1,25 @@
+{
+    "StaticCollidableMesh" :
+    {
+        "m_meshName" : "level.mesh"
+    },
+    
+    "PlayerSpawner" :
+    {
+        "m_worldSpawnPos" : { 114.3516, 10.8807, 98.7614 }
+    },
+    
+    "DynamicLight" :
+    {
+        "m_worldPos" : { 194.0, 48.0, 212.0 }
+    },
+    
+    "AISpawner" :
+    {
+        "m_spawnOrigin" : { 120.0, 2.4400, 80.2527 },
+        "m_spawnRadius" : 7.0,
+        "m_aiNum" : 1,
+		"m_presetName" : "AIScripted",
+        "m_overrideScriptName" : "ai/test.lua"
+    }
+}

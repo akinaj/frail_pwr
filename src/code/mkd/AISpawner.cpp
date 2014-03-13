@@ -1,3 +1,7 @@
+/***********************************
+ * mkdemo 2011-2013                *
+ * author: Maciej Kurowski 'kurak' *
+ ***********************************/
 #include "pch.h"
 #include "AISpawner.h"
 #include "Level.h"
@@ -14,6 +18,7 @@ START_RTTI_INIT(AISpawner);
     FIELD_STRING(m_presetName);
     FIELD_INT32(m_conflictSide);
     FIELD_BOOL(m_alreadySpawned);
+    FIELD_STRING(m_overrideScriptName);
 }
 END_RTTI_INIT();
 
@@ -44,6 +49,9 @@ void AISpawner::spawnAIs()
         mkVec3 pos = m_spawnOrigin + getRandomHorizontalDir() * m_spawnRadius * randFloat(0.33f, 1.f);
 
         ActorAI* ai = getLevel()->createObject<ActorAI>(false, m_presetName);
+
+        if (!m_overrideScriptName.empty())
+            ai->setScriptName(m_overrideScriptName);
 
         ai->setWorldPosition(pos);
         ai->initStandaloneObject();

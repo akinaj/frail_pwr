@@ -7,7 +7,7 @@
 		"ScriptName" : "test_lava_lake.lua",
 		"m_radius" : "7.0",
 		"m_worldTransform.position" : "120 0.5 78",
-		"m_prefabName" : "barrel1"
+		"m_meshName" : "barrel.mesh"
 	},
 // lava lake	
 	"Preset":

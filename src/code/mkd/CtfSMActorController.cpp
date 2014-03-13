@@ -7,7 +7,6 @@
 #include "CtfSMActorController.h"
 #include "contrib/DebugDrawer.h"
 #include "Level.h"
-#include "MeshObject.h"
 #include "ctf/CtfMgr.h"
 #include "ctf/TeamFlag.h"
 

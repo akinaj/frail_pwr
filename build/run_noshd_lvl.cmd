@@ -1,0 +1,1 @@
+bin\mkdemo -disable_shadows -level %*

@@ -1,3 +1,7 @@
+/***********************************
+ * mkdemo 2011-2013                *
+ * author: Maciej Kurowski 'kurak' *
+ ***********************************/
 #pragma once
 #include "GameObject.h"
 #include "ActorAI.h"
@@ -19,6 +23,7 @@ private:
     int m_aiNum;
 
     mkString m_presetName;
+    mkString m_overrideScriptName;
 
     EConflictSide::TYPE m_conflictSide;
 
