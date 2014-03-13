@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<tasks>
+	<task name="glGetGold" main="1">
+		<postconditions>
+			<post>MoreEqual NPCGold WinGold</post>
+		</postconditions>
+	</task>
+	<task name="glDigGold">
+		<postconditions>
+			<post>MoreEqual NPCGold WinGold</post>
+		</postconditions>
+	</task>
+	<task name="glBuy" />
+	<task name="glGoto" />
+</tasks>

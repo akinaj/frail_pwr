@@ -1,0 +1,16 @@
+How to create ActorController
+==============================
+
+To control ActorAI, one has to create its own ActorController - a class inheriting from IActorController interface. For real usage, see TestActorController and StateMachineActorController.
+
+Steps:
+1. Create your controller class in new files (it is important that your class name ends with "ActorController")
+2. Inherit it from IActorController and override pure virtual methods
+3. Include your class header file in src/code/mkd/ActorControllerFactory.cpp
+4. Add new entry for your controller in ActorControllerFactory::create - if your class name is MyTestActorController, your entry should be CREATE_CONTROLLER(MyTest)
+
+Please note:
+1. Actor can be controlled by only one controller at a time
+2. Controller class headers should not be included anywhere outside ActorControllerFactory
+3. Controllers shouldn't be istantiated explicitly, just use factory
+4. When adding new compilation unit (.cpp file) it is required to include "pch.h" before anything else

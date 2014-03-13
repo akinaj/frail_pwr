@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<aliases>
+	<alias>WinGold 1000.0</alias>
+	<alias>PickaxePrice 200.0</alias>
+	<alias>HelmetPrice 400.0</alias>
+	<alias>LanternPrice 600.0</alias>
+</aliases>
+<node type="PrioritySelector">
+	<node type="Sequence" usefulness="1.0">
+		<node type="Condition">
+			<pre>Less NPCGold WinGold</pre>
+		</node>
+		<node type="Selector">
+			<node type="Action" action="GotoMine" interruptible="1">
+				<pre>Equal IsGoldSpotReached False</pre>
+			</node>
+			<node type="Action" action="DigGold" interruptible="0" duration="1000" />
+		</node>
+	</node>
+	<node type="Sequence" usefulness="2.0">
+		<node type="Condition">
+			<pre>Equal IsPickaxeBought False</pre>
+			<pre>MoreEqual NPCGold PickaxePrice</pre>
+		</node>
+		<node type="Selector">
+			<node type="Action" action="GotoShop" interruptible="1">
+				<pre>Equal IsShopSpotReached False</pre>
+			</node>
+			<node type="Action" action="BuyPickaxe" interruptible="0" duration="1000" />
+		</node>
+	</node>
+	<node type="Sequence" usefulness="2.0">
+		<node type="Condition">
+			<pre>Equal IsHelmetBought False</pre>
+			<pre>MoreEqual NPCGold HelmetPrice</pre>
+		</node>
+		<node type="Selector">
+			<node type="Action" action="GotoShop" interruptible="1">
+				<pre>Equal IsShopSpotReached False</pre>
+			</node>
+			<node type="Action" action="BuyHelmet" interruptible="0" duration="1000" />
+		</node>
+	</node>
+	<node type="Sequence" usefulness="2.0">
+		<node type="Condition">
+			<pre>Equal IsLanternBought False</pre>
+			<pre>MoreEqual NPCGold LanternPrice</pre>
+		</node>
+		<node type="Selector">
+			<node type="Action" action="GotoShop" interruptible="1">
+				<pre>Equal IsShopSpotReached False</pre>
+			</node>
+			<node type="Action" action="BuyLantern" interruptible="0" duration="1000" />
+		</node>
+	</node>
+</node>

@@ -1,0 +1,59 @@
+{
+    "StaticCollidableMesh" :
+    {
+        "m_meshName" : "dust2.mesh"
+    },
+    
+    "PlayerSpawner" :
+    {
+        "m_worldSpawnPos" : { -4.0, 2.0, 3.0 }
+    },
+    
+    "DynamicLight" :
+    {
+        "m_worldPos" : { -200.0, 200.0, 200.0 },
+        "m_diffuse" : { 1.0, 1.0, 1.0, 1.0 },
+        "m_specular" : { 1.0, 1.0, 1.0, 1.0 }
+    },
+
+    "RenderSettingsSetter" :
+    {
+        "Preset" : "Default",
+        "m_ambientLight" : { 0.5, 0.5, 0.5 }
+    },
+    
+    "AISpawner" :
+    {
+        "m_spawnOrigin" : { -28.0, 4.0, 44.0 },
+        "m_spawnRadius" : 4.0,
+        "m_aiNum" : 5,
+        "m_presetName" : "AIBlueCtfSMDust2"
+    }, 
+    
+    "AISpawner" :
+    {
+        "m_spawnOrigin" : { 28.0, 4.0, -44.0 },
+        "m_spawnRadius" : 4.0,
+        "m_aiNum" : 5,
+        "m_presetName" : "AIRedCtfSMDust2"
+    }, 
+
+    "TeamFlag" :
+    {
+        "Preset" : "Blue",
+        "m_initialWorldPos" :  { -28.0, 2.0, 44.0 }
+    },
+    
+    "TeamFlag" :
+    {
+        "Preset" : "Red",
+        "m_initialWorldPos" :  { 28.0, 2.0, -44.0 }
+    }, 
+    
+    "ModelObject" :
+    {
+        "m_meshName" : "dust2-deco.mesh",
+        "m_worldTransform.position" : { 0.0, 0.0, 0.0 }
+    }
+
+}

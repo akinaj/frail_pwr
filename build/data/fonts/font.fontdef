@@ -1,0 +1,7 @@
+verdana
+{
+	type 		truetype
+	source 		fonts/verdana.ttf
+	size 		16
+	resolution 	100
+}

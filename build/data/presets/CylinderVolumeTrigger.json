@@ -1,0 +1,202 @@
+{
+	"Class" : "CylinderVolumeTrigger",
+	
+	"Preset":
+	{
+		"Name" : "test_lava_lake",
+		"ScriptName" : "test_lava_lake.lua",
+		"m_radius" : "7.0",
+		"m_worldTransform.position" : "120 0.5 78",
+		"m_prefabName" : "barrel1"
+	},
+// lava lake	
+	"Preset":
+	{	
+		"Name" : "lava_lake_r4",
+		"ScriptName" : "arena_a/lava_lake_a.lua",
+		"m_meshName" : "lava_r4.mesh",
+		"m_radius" : "4.0"
+	},
+	"Preset":
+	{	
+		"Name" : "lava_lake_r2",
+		"ScriptName" : "arena_a/lava_lake_a.lua",
+		"m_meshName" : "lava_r2.mesh",
+		"m_radius" : "2.0"
+	},
+//power lake
+	"Preset":
+	{
+		"Name" : "power_lake_r2",		
+		"m_radius" : "2.0",
+		"m_meshName" : "cloud_r2.mesh"
+	},
+	"Preset":
+	{
+		"Name" : "power_lake_r4",		
+		"m_radius" : "4.0",
+		"m_meshName" : "cloud_r4.mesh"
+	},
+	"Preset":
+	{
+		"Name" : "power_lake_r8",		
+		"m_radius" : "8.0",
+		"m_meshName" : "cloud_r8.mesh"
+	},
+	"Preset":
+	{
+		"Name" : "power_lake_r2b",		
+		"ScriptName" : "arena_b/power_lake.lua",
+		"m_radius" : "2.0",
+		"m_meshName" : "cloud_r2.mesh"
+	},
+//invisibility brushes	
+	"Preset":
+	{
+		"Name" : "invisiblity_bush_r2",	
+		"ScriptName" : "arena_a/invisibility_bush.lua",
+		"m_meshName" : "camouflage_r2.mesh",
+		"m_radius" : "2.0"
+	},
+	"Preset":
+	{
+		"Name" : "invisiblity_bush_r1",
+		"ScriptName" : "arena_a/invisibility_bush.lua",
+		"m_meshName" : "camouflage_r1.mesh",
+		"m_radius" : "1.0"
+	},
+//healing bandage	
+	"Preset":
+	{
+		"Name" : "healing_bandage",
+		"ScriptName" : "arena_a/healing_bandage.lua",
+		"m_meshName" : "aidkit.mesh",
+		"m_radius" : "0.75"
+	},
+//dissapearing lava
+	"Preset":
+	{
+		"Name" : "lava_lake_1",
+		"Extends" : "lava_lake_r4",
+		"m_worldTransform.position" : " -4.0, 0.0 4.0 "
+	},
+//teleport	
+	"Preset":
+	{
+		"Name" : "teleport",
+		"ScriptName" : "arena_a/teleport.lua",
+		"m_meshName" : "teleport-frame.mesh"
+		"m_radius" : "2.0"
+	},
+//double damage
+	"Preset":
+	{
+		"Name" : "double_damage",
+		"ScriptName" : "arena_a/double_damage.lua",
+		"m_meshName" : "quad.mesh",
+		"m_radius" : "0.75"
+	},
+//snares of hatred
+	"Preset" :
+	{
+		"Name" : "snares_of_hatred_r2_a",
+		"ScriptName" : "arena_a/snare_of_hatred.lua",
+		"m_meshName" : "spikes_2.mesh",
+		"m_radius" : "2.0"
+	},
+	"Preset" :
+	{
+		"Name" : "snares_of_hatred_r1_a",
+		"ScriptName" : "arena_a/snare_of_hatred.lua",
+		"m_meshName" : "spikes_2.mesh",
+		"m_radius" : "2.0"
+	},
+	"Preset" :
+	{
+		"Name" : "snares_of_hatred_r4_a",
+		"ScriptName" : "arena_a/snare_of_hatred.lua",
+		"m_meshName" : "spikes_2.mesh",
+		"m_radius" : "2.0"
+	},
+	"Preset" :
+	{
+		"Name" : "snares_of_hatred_r2_b",
+		"ScriptName" : "arena_b/snare_of_hatred.lua",
+		"m_meshName" : "spikes_2.mesh",
+		"m_radius" : "2.0"
+	},
+	"Preset" :
+	{
+		"Name" : "snares_of_hatred_r1_b",
+		"ScriptName" : "arena_b/snare_of_hatred.lua",
+		"m_meshName" : "spikes_2.mesh",
+		"m_radius" : "2.0"
+	},
+	"Preset" :
+	{
+		"Name" : "snares_of_hatred_r4_b",
+		"ScriptName" : "arena_b/snare_of_hatred.lua",
+		"m_meshName" : "spikes_2.mesh",
+		"m_radius" : "2.0"
+	},
+//land mines
+	"Preset" :
+	{
+		"Name" : "land_mine_r2",
+		"ScriptName" : "arena_b/land_mine.lua",
+		"m_meshName" : "ghost.mesh",
+		"m_radius" : "10.0"
+	},
+//knockback_traps
+	"Preset" :
+	{
+		"Name" : "knockback_trap_r2",
+		"ScriptName" : "arena_b/knockback_trap.lua",
+		"m_meshName" : "pushtrap1.mesh",
+		"m_radius" : "1.0"
+	},
+	"Preset" :
+	{
+		"Name" : "knockback_trap_r1",
+		"ScriptName" : "arena_b/knockback_trap.lua",
+		"m_meshName" : "pushtrap05.mesh",
+		"m_radius" : "0.5"
+	},
+//claymore trap	
+	"Preset" :
+	{
+		"Name" : "claymore_trap_r2",
+		"ScriptName" : "arena_b/claymore_trap.lua",
+		"m_meshName" : "foottrap1.mesh",
+		"m_radius" : "1.0"
+	},
+	"Preset" :
+	{
+		"Name" : "claymore_trap_r1",
+		"ScriptName" : "arena_b/claymore_trap.lua",
+		"m_meshName" : "foottrap05.mesh",
+		"m_radius" : "0.5"
+	},
+//klucz
+	"Preset" :
+	{
+		"Name" : "key",
+		"ScriptName" : "arena_c/key.lua",
+		"m_meshName" : "crystal-2.mesh",
+		"m_radius" : "0.5"
+	},
+	"Preset" :
+	{
+		"Name" : "key2",
+		"ScriptName" : "arena_c/key.lua",
+		"m_meshName" : "crystal-1.mesh",
+		"m_radius" : "0.5"
+	},
+	"Preset" :
+	{
+		"Name" : "key3",
+		"ScriptName" : "arena_c/key.lua",
+		"m_meshName" : "crystal-3.mesh",
+		"m_radius" : "0.5"
+	}
+}	

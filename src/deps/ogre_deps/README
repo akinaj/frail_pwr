@@ -1,0 +1,1 @@
+OGRE dependencies - boost headers and libraries required by OGRE to compile mkdemo. Please note only required headers are included - it's not full boost package.

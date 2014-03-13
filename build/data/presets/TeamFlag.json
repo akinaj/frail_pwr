@@ -1,0 +1,17 @@
+{
+	"Class" : "TeamFlag",
+    
+    "Preset" :
+    {
+        "Name" : "Blue",
+        "m_team" : "BlueTeam",
+        "m_prefabName" : "flag_blue"
+    },
+    
+    "Preset" :
+    {
+        "Name" : "Red",
+        "m_team" : "RedTeam",
+        "m_prefabName" : "flag_red"
+    },
+}

@@ -1,0 +1,538 @@
+{
+    "StaticCollidableMesh" :
+    {
+        "m_meshName" : "arena_a.mesh"
+    },
+    
+    "RenderSettingsSetter" :
+    {
+        "Preset" : "Default",
+        "m_ambientLight" : [0.5, 0.5, 0.5]
+    },
+
+    "PlayerSpawner" :
+    {
+        "m_worldSpawnPos" : [20.0, 2.0, 32.0]
+    },
+    
+    "AISpawner" :
+    {
+        "m_spawnOrigin" : [-30.0, 2.0, -20.0],
+        "m_spawnRadius" : 1.0,
+        "m_aiNum" : 1,
+        "m_presetName" : "AISandboxBoss"
+    },
+    
+    "DynamicLight" :
+    {
+        "m_worldPos" : [-200.0, 200.0, 200.0],
+        "m_diffuse" : [1.0, 1.0, 1.0, 1.0],
+        "m_specular" : [1.0, 1.0, 1.0, 1.0]
+    },	
+	
+ 	"GameObject" :
+	{
+		"ScriptName" : "arena_a/coordinator_a.lua"
+	},
+	
+ 	"CylinderVolumeTrigger" :
+	{
+		"Preset" : "lava_lake_r4",
+		"Name" : "lava_mid_lava_1",
+		"m_worldTransform.position" : [-4.0, 0.0, 4.0]
+	},
+
+	"CylinderVolumeTrigger" :
+	{
+		"Preset" : "lava_lake_r4",
+		"Name" : "lava_third_left_lava",
+		"m_worldTransform.position" : [-28.0, 0.0, -28.0]
+	},
+	
+	"CylinderVolumeTrigger" :
+	{
+		"Preset" : "lava_lake_r4",
+		"Name" : "lava_second_right_lava_base",
+		"m_worldTransform.position" : [2.0, 0.0, 30.0]
+	},
+	
+	"CylinderVolumeTrigger" :
+	{
+		"Preset" : "lava_lake_r4",
+		"Name" : "lava_third_right_lava",
+		"m_worldTransform.position" : [32.0, 0.0, 30.0]
+	},
+	
+	"CylinderVolumeTrigger" :
+	{
+		"Preset" : "lava_lake_r4",
+		"Name" : "lava_second_left_lava_base",
+		"m_worldTransform.position" : [-30.0, 0.0, -2.0]
+	},
+	
+	"CylinderVolumeTrigger" :
+	{
+		"Preset" : "lava_lake_r4",
+		"Name" : "lava_first_left_lava_base",
+		"m_worldTransform.position" : [-26.0, 0.0, 18.0]
+	},
+	
+	"CylinderVolumeTrigger" :
+	{
+		"Preset" : "lava_lake_r4",
+		"Name" : "lava_first_right_lava_base",
+		"m_worldTransform.position" : [-18.0, 0.0, 26.0]
+	},
+	
+	"CylinderVolumeTrigger" :
+	{
+		"Preset" : "lava_lake_r4",
+		"Name" : "lava_third_mid_lava",
+		"m_worldTransform.position" : [22.0, 0.0, -26.0]
+	},
+	
+ 	"CylinderVolumeTrigger" :
+	{
+		"Preset" : "power_lake_r8",
+		"Name" : "power_lake_1",
+		"ScriptName" : "arena_a/power_lake.lua",
+		"m_worldTransform.position" : [-40.0, 0.0, 40.0]
+	},
+
+	"CylinderVolumeTrigger" :
+	{
+		"Preset" : "power_lake_r8",
+		"Name" : "power_lake_1",
+		"ScriptName" : "arena_a/power_lake.lua",
+		"m_worldTransform.position" : [40.0, 0.0, -40.0]
+	},
+ 		
+	"CylinderVolumeTrigger" :
+	{
+		"Preset" : "invisiblity_bush_r1",
+		"Name" : "invisiblity_bush_1",
+		"m_worldTransform.position" : [-7.0, 0.0, -39.0]
+	},		
+		
+	"CylinderVolumeTrigger" :
+	{
+		"Preset" : "invisiblity_bush_r2",
+		"Name" : "invisiblity_bush_2",
+		"m_worldTransform.position" : [0.0, 0.0, -17.0]
+	},		
+		
+	"CylinderVolumeTrigger" :
+	{
+		"Preset" : "invisiblity_bush_r2",
+		"Name" : "invisiblity_bush_3",
+		"m_worldTransform.position" : [10.0, 0.0, -34.0]
+	},		
+		
+	"CylinderVolumeTrigger" :
+	{
+		"Preset" : "invisiblity_bush_r2",
+		"Name" : "invisiblity_bush_4",
+		"m_worldTransform.position" : [24.0, 0.0, 14.0]
+	},		
+		
+	"CylinderVolumeTrigger" :
+	{
+		"Preset" : "invisiblity_bush_r2",
+		"Name" : "invisiblity_bush_5",
+		"m_worldTransform.position" : [34.0, 0.0, 20.0]
+	},
+	
+ 
+	"ExplodingObject" :
+    {
+        "Preset" : "barrel_e_r4",
+		"Name" : "first_left_barrel_base",
+        "m_worldTransform.position" : [-35.0, 0.625, 25.0]
+    },
+	
+	"ExplodingObject" :
+    {
+        "Preset" : "barrel_e_r4",
+		"Name" : "second_left_barrel_base",
+        "m_worldTransform.position" : [-16.0, 0.625, 2.0]
+    },
+	
+	"ExplodingObject" :
+    {
+        "Preset" : "barrel_e_r4",
+		"Name" : "second_right_barrel_base",
+        "m_worldTransform.position" : [-1.0, 0.625, 17.0]
+    },
+	
+	"ExplodingObject" :
+    {
+        "Preset" : "barrel_e_r4",
+		"Name" : "first_forest_top_barrel",
+        "m_worldTransform.position" : [-19.0, 0.625, -19.0]
+    },	
+	
+	"ExplodingObject" :
+    {
+        "Preset" : "barrel_e_r4",
+		"Name" : "second_forest_top_barrel",
+        "m_worldTransform.position" : [-19.0, 0.625, -33.0]
+    },
+	"ExplodingObject" :
+    {
+        "Preset" : "barrel_e_r4",
+		"Name" : "third_forest_top_barrel",
+        "m_worldTransform.position" : [12.0, 0.625, -27.0]
+    },
+	
+	"ExplodingObject" :
+    {
+        "Preset" : "barrel_e_r4",
+		"Name" : "first_forest_bot_barrel",
+        "m_worldTransform.position" : [36.0, 0.625, -3.0]
+    },
+	
+	"ExplodingObject" :
+    {
+        "Preset" : "barrel_e_r4",
+		"Name" : "second_forest_bot_barrel",
+        "m_worldTransform.position" : [17.0, 0.625, -3.0]
+    },
+
+	"ExplodingObject" :
+    {
+        "Preset" : "barrel_e_r4",
+		"Name" : "third_forest_bot_barrel",
+        "m_worldTransform.position" : [24.0, 0.625, 9.0]
+    },
+
+ 	"ExplodingObject" :
+    {
+        "Preset" : "barrel_e_r2",
+        "Name" : "b_1_1",
+        "m_worldTransform.position" : [-16.0, 0.625, 16.0]
+    },
+
+    "ExplodingObject" :
+    {
+        "Preset" : "barrel_e_r2",
+        "Name" : "b_1_2",
+        "m_worldTransform.position" : [-15.0, 0.625, 16.0]
+    },
+
+    "ExplodingObject" :
+    {
+        "Preset" : "barrel_e_r2",
+        "Name" : "b_1_3",
+        "m_worldTransform.position" : [-14.0, 0.625, 16.0]
+    },
+
+    "ExplodingObject" :
+    {
+        "Preset" : "barrel_e_r2",
+        "Name" : "b_1_4",
+        "m_worldTransform.position" : [-16.0, 0.625, 15.0]
+    },
+
+    "ExplodingObject" :
+    {
+        "Preset" : "barrel_e_r2",
+        "Name" : "b_1_5",
+        "m_worldTransform.position" : [-16.0, 0.625, 14.0]
+    },
+
+    "ExplodingObject" :
+    {
+        "Preset" : "barrel_e_r2",
+        "Name" : "b_1_6",
+        "m_worldTransform.position" : [-15.0, 0.625, 15.0]
+    },
+	
+     "ExplodingObject" :
+    {
+        "Preset" : "barrel_e_r2",
+        "Name" : "b_2_1",
+        "m_worldTransform.position" : [-24.0, 0.625, 34.0]
+    },
+
+    "ExplodingObject" :
+    {
+        "Preset" : "barrel_e_r2",
+        "Name" : "b_2_2",
+        "m_worldTransform.position" : [-25.0, 0.625, 34.0]
+    },
+
+    "ExplodingObject" :
+    {
+        "Preset" : "barrel_e_r2",
+        "Name" : "b_2_3",
+        "m_worldTransform.position" : [-25.0, 0.625, 35.0]
+    },
+
+    "ExplodingObject" :
+    {
+        "Preset" : "barrel_e_r2",
+        "Name" : "b_2_4",
+        "m_worldTransform.position" : [-24.0, 0.625, 35.0]
+    },
+	
+     "ExplodingObject" :
+    {
+        "Preset" : "barrel_s_r4",
+        "Name" : "bod_01",
+        "m_worldTransform.position" : [-25.0, 0.625, -34.0]
+    },
+    "ExplodingObject" :
+    {
+        "Preset" : "barrel_s_r4",
+        "Name" : "bod_02",
+        "m_worldTransform.position" : [-9.0, 0.625, -18.0]
+    },
+    "ExplodingObject" :
+    {
+        "Preset" : "barrel_s_r4",
+        "Name" : "bod_03",
+        "m_worldTransform.position" : [19.0, 0.625, 7.0]
+    },
+    "ExplodingObject" :
+    {
+        "Preset" : "barrel_s_r4",
+        "Name" : "bod_04",
+        "m_worldTransform.position" : [22.0, 0.625, 23.0]
+    },
+    "ExplodingObject" :
+    {
+        "Preset" : "barrel_s_r2",
+        "Name" : "bod_05",
+        "m_worldTransform.position" : [10.0, 0.625, 19.0]
+    },
+    "ExplodingObject" :
+    {
+        "Preset" : "barrel_s_r4",
+        "Name" : "bod_06",
+        "m_worldTransform.position" : [7.0, 0.625, 9.0]
+    },
+    "ExplodingObject" :
+    {
+        "Preset" : "barrel_s_r2",
+        "Name" : "bod_07",
+        "m_worldTransform.position" : [-6.0, 0.625, -6.0]
+    },
+    "ExplodingObject" :
+    {
+        "Preset" : "barrel_s_r4",
+        "Name" : "bod_08",
+        "m_worldTransform.position" : [-20.0, 0.625, -7.0]
+    },
+	
+     "ExplodingObject" :
+    {
+        "Preset" : "barrel_b_r4",
+        "Name" : "beam_01",
+        "m_worldTransform.position" : [-35.0, 0.625, -26.0]
+    },
+    "ExplodingObject" :
+    {
+        "Preset" : "barrel_b_r4",
+        "Name" : "beam_02",
+        "m_worldTransform.position" : [8.0, 0.625, -16.0]
+    },
+    "ExplodingObject" :
+    {
+        "Preset" : "barrel_b_r2",
+        "Name" : "beam_03",
+        "m_worldTransform.position" : [32.0, 0.625, 36.0]
+    },
+    "ExplodingObject" :
+    {
+        "Preset" : "barrel_b_r4",
+        "Name" : "beam_04",
+        "m_worldTransform.position" : [6.0, 0.625, 36.0]
+    },
+    "ExplodingObject" :
+    {
+        "Preset" : "barrel_b_r4",
+        "Name" : "beam_05",
+        "m_worldTransform.position" : [-36.0, 0.625, -6.0]
+    },
+	
+ 	"CylinderVolumeTrigger":
+	{
+		"Preset" : "snares_of_hatred_r2_a",
+		"Name" : "cvt_snares_1",
+		"m_worldTransform.position" : [12.0, -0.02, 26.5]
+	},
+	"ModelObject":
+	{
+		"Preset": "snares_r2",
+		"Name" : "snares_r2_1",
+		"m_worldTransform.position" : [12.0, 0.0, 26.5]
+	},
+
+	"CylinderVolumeTrigger":
+	{
+		"Preset" : "snares_of_hatred_r2_a",
+		"Name" : "cvt_snares_2",
+		"m_worldTransform.position" : [12.0, 0.0, 29.5]
+	},
+	"ModelObject":
+	{
+		"Preset": "snares_r2",
+		"Name" : "snares_r2_2",
+		"m_worldTransform.position" : [12.0, 0.0, 29.5]
+	},
+
+	"CylinderVolumeTrigger":
+	{
+		"Preset" : "snares_of_hatred_r2_a",
+		"Name" : "cvt_snares_3",
+		"m_worldTransform.position" : [12.0, -0.02, 32.5]
+	},
+	"ModelObject":
+	{
+		"Preset": "snares_r2",
+		"Name" : "snares_r2_3",
+		"m_worldTransform.position" : [12.0, 0.0, 32.5]
+	},
+	
+	"CylinderVolumeTrigger":
+	{
+		"Preset" : "snares_of_hatred_r2_a",
+		"Name" : "cvt_snares_10",
+		"m_worldTransform.position" : [12.0, 0.0, 35.5]
+	},
+	"ModelObject":
+	{
+		"Preset": "snares_r2",
+		"Name" : "snares_r2_10",
+		"m_worldTransform.position" : [12.0, 0.0, 35.5]
+	},
+	
+	"CylinderVolumeTrigger":
+	{
+		"Preset" : "snares_of_hatred_r2_a",
+		"Name" : "cvt_snares_4",
+		"m_worldTransform.position" : [-35.0, 0.0, -9.0]
+	},
+	"ModelObject":
+	{
+		"Preset": "snares_r2",
+		"Name" : "snares_r2_4",
+		"m_worldTransform.position" : [-35.0, 0.0, -9.0]
+	},
+
+	"CylinderVolumeTrigger":
+	{
+		"Preset" : "snares_of_hatred_r2_a",
+		"Name" : "cvt_snares_5",
+		"m_worldTransform.position" : [-32.0, -0.02, -9.0]
+	},
+	"ModelObject":
+	{
+		"Preset": "snares_r2",
+		"Name" : "snares_r2_5",
+		"m_worldTransform.position" : [-32.0, 0.0, -9.0]
+	},
+
+	"CylinderVolumeTrigger":
+	{
+		"Preset" : "snares_of_hatred_r2_a",
+		"Name" : "cvt_snares_6",
+		"m_worldTransform.position" : [-29.0, 0.0, -9.0]
+	},
+	"ModelObject":
+	{
+		"Preset": "snares_r2",
+		"Name" : "snares_r2_6",
+		"m_worldTransform.position" : [-29.0, 0.0, -9.0]
+	},
+	
+	"CylinderVolumeTrigger":
+	{
+		"Preset" : "snares_of_hatred_r2_a",
+		"Name" : "cvt_snares_12",
+		"m_worldTransform.position" : [-26.0, -0.02, -9.0]
+	},
+	"ModelObject":
+	{
+		"Preset": "snares_r2",
+		"Name" : "snares_r2_12",
+		"m_worldTransform.position" : [-26.0, 0.0, -9.0]
+	},
+
+	"CylinderVolumeTrigger":
+	{
+		"Preset" : "snares_of_hatred_r2_a",
+		"Name" : "cvt_snares_7",
+		"m_worldTransform.position" : [5.0, -0.02, 1.5]
+	},
+	"ModelObject":
+	{
+		"Preset": "snares_r2",
+		"Name" : "snares_r2_7",
+		"m_worldTransform.position" : [5.0, 0.0, 1.5]
+	},
+
+	"CylinderVolumeTrigger":
+	{
+		"Preset" : "snares_of_hatred_r2_a",
+		"Name" : "cvt_snares_8",
+		"m_worldTransform.position" : [3.0, 0.0, -0.5]
+	},
+	"ModelObject":
+	{
+		"Preset": "snares_r2",
+		"Name" : "snares_r2_8",
+		"m_worldTransform.position" : [3.0, 0.0, -0.5]
+	},
+
+	"CylinderVolumeTrigger":
+	{
+		"Preset" : "snares_of_hatred_r2_a",
+		"Name" : "cvt_snares_9",
+		"m_worldTransform.position" : [1.0, -0.02, -2.5]
+	},
+	"ModelObject":
+	{
+		"Preset": "snares_r2",
+		"Name" : "snares_r2_9",
+		"m_worldTransform.position" : [1.0, 0.0, -2.5]
+	},
+	
+	"CylinderVolumeTrigger":
+	{
+		"Preset" : "snares_of_hatred_r2_a",
+		"Name" : "cvt_snares_11",
+		"m_worldTransform.position" : [-1.0, 0.0, -4.5]
+	},
+	"ModelObject":
+	{
+		"Preset": "snares_r2",
+		"Name" : "snares_r2_11",
+		"m_worldTransform.position" : [-1.0, 0.0, -4.5]
+	},
+	
+ 	"CylinderVolumeTrigger" :
+	{
+		"Preset" : "teleport",
+		"Name" : "teleport_1",
+		"m_worldTransform.position" : [38.0, 0.0, 34.0]
+	},
+	"ModelObject":
+	{
+		"Preset": "teleport_1",
+		"Name" : "cvt_teleport_1_1",
+		"m_worldTransform.position" : [38.0, 0.0, 34.0]
+	},
+	"CylinderVolumeTrigger" :
+	{
+		"Preset" : "teleport",
+		"Name" : "teleport_2",
+		"m_worldTransform.position" : [-34.0, 0.0, -38.0]
+	},
+	"ModelObject":
+	{
+		"Preset": "teleport_1",
+		"Name" : "cvt_teleport_2_1",
+		"m_worldTransform.position" : [-34.0, 0.0, -38.0]
+	}
+}

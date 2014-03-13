@@ -1,0 +1,5 @@
+name: actor_ai
+mass: -1.0f
+physics_shape: capsule-shape 0.45 1.8
+mesh_name: actor.mesh
+material: actor

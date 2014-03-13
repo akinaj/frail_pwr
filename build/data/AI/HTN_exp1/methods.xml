@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<aliases>
+	<alias>WinGold 1000.0</alias>
+	<alias>PickaxePrice 200.0</alias>
+	<alias>HelmetPrice 400.0</alias>
+	<alias>LanternPrice 600.0</alias>
+</aliases>
+<methods>
+	<method name="mthGetGold" usefulness="1.0" runAll="0">
+		<goals>
+			<goal>glGetGold</goal>
+		</goals>
+		<subtasks>
+			<sub>glBuy Pickaxe PickaxePrice</sub>
+			<sub>glDigGold</sub>
+		</subtasks>
+	</method>
+	<method name="mthDigGold" usefulness="1.0" runAll="0">
+		<goals>
+			<goal>glDigGold</goal>
+		</goals>
+		<preconditions>
+			<pre>Less NPCGold WinGold</pre>
+		</preconditions>
+		<subtasks>
+			<sub>glGoto Mine</sub>
+			<sub>opDigGold</sub>
+		</subtasks>
+	</method>
+	<method name="mthBuy" usefulness="2.0" runAll="0">
+		<goals>
+			<goal>glBuy</goal>
+		</goals>
+		<preconditions>
+			<pre>Equal $0 False</pre>
+			<pre>MoreEqual NPCGold $1</pre>
+		</preconditions>
+		<subtasks>
+			<sub>glGoto Shop</sub>
+			<sub>opBuy $0 $1</sub>
+		</subtasks>
+	</method>
+	<method name="mthGoto">
+		<goals>
+			<goal>glGoto</goal>
+		</goals>
+		<preconditions>
+			<pre>Equal $0 False</pre>
+		</preconditions>
+		<subtasks>
+			<sub>opGoto $0</sub>
+		</subtasks>
+	</method>
+</methods>

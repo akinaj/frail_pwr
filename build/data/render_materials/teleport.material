@@ -1,0 +1,33 @@
+material "teleport"
+{
+	receive_shadows on
+	technique teleport_technique
+	{
+		pass teleport_standard
+		{
+			ambient 1 1 1 1
+			diffuse 1 1 1 0.8
+			specular 0 0 0 0 25.5
+			emissive 0 0 0 1
+
+			scene_blend alpha_blend
+			depth_write off
+
+			texture_unit teleport_Diffuse#0
+			{
+				texture itemscolors.png
+				tex_coord_set 0
+				colour_op modulate
+
+				filtering anisotropic
+				max_anisotropy 8
+			}
+
+			texture_unit
+    			{
+       				anim_texture transparency.png 60 2
+       				alpha_op_ex source2 src_current src_texture
+    			}
+		}
+	}
+}

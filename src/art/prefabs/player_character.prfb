@@ -1,0 +1,4 @@
+name: player_character
+mass: -1.0f
+physics_shape: capsule-shape 0.48 2.0
+mesh_name: none

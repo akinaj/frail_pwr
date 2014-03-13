@@ -1,0 +1,80 @@
+{
+	"Class" : "ExplodingObject",
+	
+	"Preset":
+	{
+		"Name" : "barrel_e_r4",
+		"ScriptName" : "arena_a/barrel_a.lua",
+        "m_mass" : "6.0",
+        "m_size" :  "0.4 0.625 0.4",
+        "m_originOffset" : "0 -0.625 0 ",
+        "m_meshName" : "barrel_e.mesh",
+		"m_worldTransform.position" : "0.0, -1.0, 0.0",
+        "m_damage" : "15.0",
+        "m_damageType" : "Fire",
+        "m_damageRadius" : "4.0",
+		"m_castsShadows" : "false"
+	},
+ 	"Preset":
+	{
+		"Extends" : "barrel_e_r4",
+		"Name" : "barrel_e_r2",
+        "m_damage" : "5.0",
+		"m_damageRadius" : "2.0"
+	},
+	"Preset":
+	{
+		"Extends" : "barrel_e_r4",
+		"Name" : "barrel_e_r8",
+		"m_damageRadius" : "8.0"
+	},
+ 	"Preset":
+	{
+		"m_mass" : "6.0",
+        "m_size" :  "0.4 0.625 0.4",
+        "m_originOffset" : "0 -0.625 0 ",
+        "m_damage" : "5.0",
+        "m_damageType" : "Fire",
+		"Name" : "barrel_s_r4",
+		"ScriptName" : "arena_a/barrel_of_destruction.lua",
+		"m_meshName" : "barrel_s.mesh",
+		"m_castsShadows" : "false"
+	},
+	"Preset":
+	{
+		"Extends" : "barrel_s_r4",
+		"Name" : "barrel_s_r2",
+		"ScriptName" : "arena_a/barrel_of_destruction.lua",
+		"m_damageRadius" : "2.0"
+	},
+	"Preset":
+	{
+		"Extends" : "barrel_s_r4",
+		"Name" : "barrel_s_r8",
+		"m_damageRadius" : "8.0"
+	},
+ 	"Preset":
+	{
+		"m_mass" : "6.0",
+        "m_size" :  "0.4 0.625 0.4",
+        "m_originOffset" : "0 -0.625 0 ",
+        "m_damage" : "5.0",
+        "m_damageType" : "Fire",
+		"Name" : "barrel_b_r4",
+		"m_meshName" : "barrel_b.mesh",
+		"ScriptName" : "arena_a/beam_of_destruction.lua",
+		"m_castsShadows" : "false"
+	},	
+	"Preset":
+	{
+		"Extends" : "barrel_b_r4",
+		"Name" : "barrel_b_r2",
+		"m_damageRadius" : "2.0"
+	},
+	"Preset":
+	{
+		"Extends" : "barrel_b_r4",
+		"Name" : "barrel_b_r8",
+		"m_damageRadius" : "8.0"
+	}
+}	

@@ -1,0 +1,46 @@
+{
+    "StaticCollidableMesh" :
+    {
+        "m_meshName" : "2nomansland.mesh"
+    },
+    
+    "PlayerSpawner" :
+    {
+        "m_worldSpawnPos" : { -7.0, 4.0, -43.0 }
+    },
+    
+    "DynamicLight" :
+    {
+        "m_worldPos" : { 200.0, 200.0, 200.0 },
+        "m_diffuse" : { 1.0, 1.0, 1.0, 1.0 },
+        "m_specular" : { 1.0, 1.0, 1.0, 1.0 }
+    },
+
+    "RenderSettingsSetter" :
+    {
+        "Preset" : "Default",
+        "m_ambientLight" : { 0.5, 0.5, 0.5 }
+    },
+	
+	"AISpawner" :
+    {
+        "m_spawnOrigin" : { 15.0, 2.0, 0.0 },
+        "m_spawnRadius" : 1.0,
+        "m_aiNum" : 1,
+        "m_presetName" : "NinjaExperimentBoss"
+    },
+    
+    "AISpawner" :
+    {
+        "m_spawnOrigin" : { 0.0, 2.0, 0.0 },
+        "m_spawnRadius" : 4.0,
+        "m_aiNum" : 1,
+        "m_presetName" : "NinjaExperiment3"
+    }, 
+    
+    "ModelObject" :
+    {
+        "m_meshName" : "2nomansland-deco.mesh",
+        "m_worldTransform.position" : { 0.0, 0.0, 0.0 }
+    }
+}

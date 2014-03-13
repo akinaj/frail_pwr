@@ -1,0 +1,10 @@
+{
+	"Class" : "RenderSettingsSetter",
+    
+    "Preset" :
+    {
+        "Name" : "Default",
+        "m_ambientLight" : "0.3 0.3 0.3"
+    },
+    
+}

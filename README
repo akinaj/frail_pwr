@@ -1,0 +1,28 @@
+FRAIL - Framework for AI Laboratories
+2013
+===
+
+1. Authors
+Maciej Kurowski
+Andrzej Cwenar
+Milosz Mazur
+Sebastian Lasisz
+
+2. Contents
+- build: compiled binaries, its dependencies and runtime content
+- doc
+- src: 
+  * code
+  * deps
+  * art
+- tools
+
+3. Licensing
+This software is based on mkdemo by Maciej Kurowski licensed to authors of this software under
+Attribution-ShareAlike 3.0 Unported License (cc-by-sa) http://creativecommons.org/licenses/by-sa/3.0/
+As such, this software is under the same license. Human readable summary is below, for full license see http://creativecommons.org/licenses/by-sa/3.0/legalcode
+
+You are free to copy, distribute and transmit the work, to adapt the work and to make commercial use of the work.
+Under the following conditions:
+Attribution - you must attribute original author (specifically, you're not allowed to remove or alter Licensing part of this README file or remove author info from source files in src/code/mkd)
+Share Alike — If you alter, transform, or build upon this work, you may distribute the resulting work only under the same or similar license to this one.

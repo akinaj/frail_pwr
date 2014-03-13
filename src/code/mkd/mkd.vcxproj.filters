@@ -1,0 +1,498 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Contrib">
+      <UniqueIdentifier>{135c0469-adb4-4ba4-88ba-6ea9561e98d6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System">
+      <UniqueIdentifier>{8562a2a3-d0f6-4be7-8200-292866620cd0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\RTTI">
+      <UniqueIdentifier>{4fb2b792-0bae-4008-ae96-41c96f890656}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\Serialization">
+      <UniqueIdentifier>{fb24ada5-d462-455a-843e-70a4541e96fa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\Scripting">
+      <UniqueIdentifier>{e8fe6e28-acbf-4374-b3fc-f2cfe06f88f0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\Animation">
+      <UniqueIdentifier>{570b7c21-5318-44c4-84f3-5620952c156b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game">
+      <UniqueIdentifier>{61e93aab-b946-4d40-861e-6d1f77af3a2e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Level">
+      <UniqueIdentifier>{82157d05-3149-4461-9c0c-88fde5252e35}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\ActorControllers">
+      <UniqueIdentifier>{123a3eab-267a-49a7-8e49-03a2b5d6c7e8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\ActorControllers\Factory">
+      <UniqueIdentifier>{e1ce7cd2-774e-4cb3-afd3-75586c20e035}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Objects">
+      <UniqueIdentifier>{b6d2eac9-c14a-44d4-a800-196837392ca8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Objects\Generic">
+      <UniqueIdentifier>{abee723f-9efe-4c0b-9a1e-91f4999474db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Objects\CTF">
+      <UniqueIdentifier>{46d6ff57-b16d-4f44-976d-30a472c50342}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\ActorControllers\HTN">
+      <UniqueIdentifier>{4a2ed27c-8564-4a89-b992-d19aa508f5ac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\ActorControllers\BT">
+      <UniqueIdentifier>{8caf0c79-5fc9-4d2c-be1f-5f999a13d611}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\ActorControllers\Experiments">
+      <UniqueIdentifier>{e0d464c6-b5cf-4ad0-97c1-4540b4ca653b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\ActorControllers\HTNControllers">
+      <UniqueIdentifier>{a3897c2a-5601-4ab7-b776-388376276fc3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\ActorControllers\BTControllers">
+      <UniqueIdentifier>{b2be35fa-642a-413a-a7dc-942cf8d46039}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\ActorControllers\FSMControllers">
+      <UniqueIdentifier>{b4fce682-20cf-408d-885a-fa6f63152957}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\ActorControllers\SwarmControllers">
+      <UniqueIdentifier>{eeecc544-0674-4a7c-baf0-2b8bcc8c4567}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="contrib\DebugDrawer.cpp">
+      <Filter>Contrib</Filter>
+    </ClCompile>
+    <ClCompile Include="PhysicsDebugDraw.cpp">
+      <Filter>Contrib</Filter>
+    </ClCompile>
+    <ClCompile Include="Filesystem.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="LevelObjectsMgr.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="mkAssert.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="pch.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="PrefabMgr.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="utils.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="rtti\FieldInfo.cpp">
+      <Filter>System\RTTI</Filter>
+    </ClCompile>
+    <ClCompile Include="rtti\PresetMgr.cpp">
+      <Filter>System\RTTI</Filter>
+    </ClCompile>
+    <ClCompile Include="rtti\TypeInfo.cpp">
+      <Filter>System\RTTI</Filter>
+    </ClCompile>
+    <ClCompile Include="rtti\TypeInfoTest.cpp">
+      <Filter>System\RTTI</Filter>
+    </ClCompile>
+    <ClCompile Include="rtti\TypeManager.cpp">
+      <Filter>System\RTTI</Filter>
+    </ClCompile>
+    <ClCompile Include="serialization\SerializationJSON.cpp">
+      <Filter>System\Serialization</Filter>
+    </ClCompile>
+    <ClCompile Include="scripting\LuaSimpleBinding.cpp">
+      <Filter>System\Scripting</Filter>
+    </ClCompile>
+    <ClCompile Include="scripting\LuaSimpleBindingTest.cpp">
+      <Filter>System\Scripting</Filter>
+    </ClCompile>
+    <ClCompile Include="scripting\LuaSimpleMathBinding.cpp">
+      <Filter>System\Scripting</Filter>
+    </ClCompile>
+    <ClCompile Include="scripting\LuaSimpleObjectRefBinding.cpp">
+      <Filter>System\Scripting</Filter>
+    </ClCompile>
+    <ClCompile Include="scripting\LuaSimpleRttiBinding.cpp">
+      <Filter>System\Scripting</Filter>
+    </ClCompile>
+    <ClCompile Include="AnimatedMeshContext.cpp">
+      <Filter>System\Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="ActorAI.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="BulletManager.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Character.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="DynamicBody.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Level.cpp">
+      <Filter>Game\Level</Filter>
+    </ClCompile>
+    <ClCompile Include="CtfSMActorController.cpp">
+      <Filter>Game\ActorControllers</Filter>
+    </ClCompile>
+    <ClCompile Include="TestActorController.cpp">
+      <Filter>Game\ActorControllers</Filter>
+    </ClCompile>
+    <ClCompile Include="UserActorController.cpp">
+      <Filter>Game\ActorControllers</Filter>
+    </ClCompile>
+    <ClCompile Include="ActorControllerFactory.cpp">
+      <Filter>Game\ActorControllers\Factory</Filter>
+    </ClCompile>
+    <ClCompile Include="AISpawner.cpp">
+      <Filter>Game\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="DynamicLight.cpp">
+      <Filter>Game\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="ExplodingObject.cpp">
+      <Filter>Game\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="MeshObject.cpp">
+      <Filter>Game\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerSpawner.cpp">
+      <Filter>Game\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderSettingsSetter.cpp">
+      <Filter>Game\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Rocket.cpp">
+      <Filter>Game\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="StaticCollidableMesh.cpp">
+      <Filter>Game\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="TestGameObject.cpp">
+      <Filter>Game\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="VolumeTrigger.cpp">
+      <Filter>Game\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>Game\Objects\Generic</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObjectScriptBinding.cpp">
+      <Filter>Game\Objects\Generic</Filter>
+    </ClCompile>
+    <ClCompile Include="ModelObject.cpp">
+      <Filter>Game\Objects\Generic</Filter>
+    </ClCompile>
+    <ClCompile Include="ctf\CtfMgr.cpp">
+      <Filter>Game\Objects\CTF</Filter>
+    </ClCompile>
+    <ClCompile Include="ctf\TeamFlag.cpp">
+      <Filter>Game\Objects\CTF</Filter>
+    </ClCompile>
+    <ClCompile Include="htn\Goal.cpp">
+      <Filter>Game\ActorControllers\HTN</Filter>
+    </ClCompile>
+    <ClCompile Include="htn\Method.cpp">
+      <Filter>Game\ActorControllers\HTN</Filter>
+    </ClCompile>
+    <ClCompile Include="htn\Operator.cpp">
+      <Filter>Game\ActorControllers\HTN</Filter>
+    </ClCompile>
+    <ClCompile Include="htn\Planner.cpp">
+      <Filter>Game\ActorControllers\HTN</Filter>
+    </ClCompile>
+    <ClCompile Include="htn\Task.cpp">
+      <Filter>Game\ActorControllers\HTN</Filter>
+    </ClCompile>
+    <ClCompile Include="BT\Behavior.cpp">
+      <Filter>Game\ActorControllers\BT</Filter>
+    </ClCompile>
+    <ClCompile Include="BT\Composite.cpp">
+      <Filter>Game\ActorControllers\BT</Filter>
+    </ClCompile>
+    <ClCompile Include="BT\Decorator.cpp">
+      <Filter>Game\ActorControllers\BT</Filter>
+    </ClCompile>
+    <ClCompile Include="BT\Parser.cpp">
+      <Filter>Game\ActorControllers\BT</Filter>
+    </ClCompile>
+    <ClCompile Include="htn\Parser.cpp">
+      <Filter>Game\ActorControllers\HTN</Filter>
+    </ClCompile>
+    <ClCompile Include="BT\Actions.cpp">
+      <Filter>Game\ActorControllers\BT</Filter>
+    </ClCompile>
+    <ClCompile Include="BT\BlackBoard.cpp">
+      <Filter>Game\ActorControllers\BT</Filter>
+    </ClCompile>
+    <ClCompile Include="BT\Condition.cpp">
+      <Filter>Game\ActorControllers\BT</Filter>
+    </ClCompile>
+    <ClCompile Include="Experiment1BTActorController.cpp">
+      <Filter>Game\ActorControllers\Experiments</Filter>
+    </ClCompile>
+    <ClCompile Include="Experiment1HTNActorController.cpp">
+      <Filter>Game\ActorControllers\Experiments</Filter>
+    </ClCompile>
+    <ClCompile Include="Experiment3BTActorController.cpp">
+      <Filter>Game\ActorControllers\Experiments</Filter>
+    </ClCompile>
+    <ClCompile Include="Experiment3HTNActorController.cpp">
+      <Filter>Game\ActorControllers\Experiments</Filter>
+    </ClCompile>
+    <ClCompile Include="HTNActorController.cpp">
+      <Filter>Game\ActorControllers\HTNControllers</Filter>
+    </ClCompile>
+    <ClCompile Include="StateMachineActorController.cpp">
+      <Filter>Game\ActorControllers\FSMControllers</Filter>
+    </ClCompile>
+    <ClCompile Include="BTActorController.cpp">
+      <Filter>Game\ActorControllers\BTControllers</Filter>
+    </ClCompile>
+    <ClCompile Include="BoidActorController.cpp">
+      <Filter>Game\ActorControllers\SwarmControllers</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="contrib\DebugDrawer.h">
+      <Filter>Contrib</Filter>
+    </ClInclude>
+    <ClInclude Include="Filesystem.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="FixedString.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="LevelObjectsMgr.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="mkAssert.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectRef.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="pch.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="PhysicsObjectUserData.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="Prefab.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="PrefabMgr.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="settings.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="Types.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="utils.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="rtti\FieldInfo.h">
+      <Filter>System\RTTI</Filter>
+    </ClInclude>
+    <ClInclude Include="rtti\PresetMgr.h">
+      <Filter>System\RTTI</Filter>
+    </ClInclude>
+    <ClInclude Include="rtti\TypeInfo.h">
+      <Filter>System\RTTI</Filter>
+    </ClInclude>
+    <ClInclude Include="rtti\TypeManager.h">
+      <Filter>System\RTTI</Filter>
+    </ClInclude>
+    <ClInclude Include="serialization\Serialization.h">
+      <Filter>System\Serialization</Filter>
+    </ClInclude>
+    <ClInclude Include="serialization\SerializationJSON.h">
+      <Filter>System\Serialization</Filter>
+    </ClInclude>
+    <ClInclude Include="scripting\LuaSimpleBinding.h">
+      <Filter>System\Scripting</Filter>
+    </ClInclude>
+    <ClInclude Include="scripting\LuaSimpleBindingImplCommon.h">
+      <Filter>System\Scripting</Filter>
+    </ClInclude>
+    <ClInclude Include="scripting\LuaSimpleMathBinding.h">
+      <Filter>System\Scripting</Filter>
+    </ClInclude>
+    <ClInclude Include="scripting\LuaSimpleObjectRefBinding.h">
+      <Filter>System\Scripting</Filter>
+    </ClInclude>
+    <ClInclude Include="scripting\LuaSimpleRttiBinding.h">
+      <Filter>System\Scripting</Filter>
+    </ClInclude>
+    <ClInclude Include="AnimatedMeshContext.h">
+      <Filter>System\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="ActorAI.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="BulletManager.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Character.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="DamageType.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="DynamicBody.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Level.h">
+      <Filter>Game\Level</Filter>
+    </ClInclude>
+    <ClInclude Include="CtfSMActorController.h">
+      <Filter>Game\ActorControllers</Filter>
+    </ClInclude>
+    <ClInclude Include="IActorController.h">
+      <Filter>Game\ActorControllers</Filter>
+    </ClInclude>
+    <ClInclude Include="TestActorController.h">
+      <Filter>Game\ActorControllers</Filter>
+    </ClInclude>
+    <ClInclude Include="UserActorController.h">
+      <Filter>Game\ActorControllers</Filter>
+    </ClInclude>
+    <ClInclude Include="ActorControllerFactory.h">
+      <Filter>Game\ActorControllers\Factory</Filter>
+    </ClInclude>
+    <ClInclude Include="AISpawner.h">
+      <Filter>Game\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="DynamicLight.h">
+      <Filter>Game\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="ExplodingObject.h">
+      <Filter>Game\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="MeshObject.h">
+      <Filter>Game\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerSpawner.h">
+      <Filter>Game\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderSettingsSetter.h">
+      <Filter>Game\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Rocket.h">
+      <Filter>Game\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="StaticCollidableMesh.h">
+      <Filter>Game\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="TestGameObject.h">
+      <Filter>Game\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="VolumeTrigger.h">
+      <Filter>Game\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject.h">
+      <Filter>Game\Objects\Generic</Filter>
+    </ClInclude>
+    <ClInclude Include="ModelObject.h">
+      <Filter>Game\Objects\Generic</Filter>
+    </ClInclude>
+    <ClInclude Include="ctf\CtfMgr.h">
+      <Filter>Game\Objects\CTF</Filter>
+    </ClInclude>
+    <ClInclude Include="ctf\TeamFlag.h">
+      <Filter>Game\Objects\CTF</Filter>
+    </ClInclude>
+    <ClInclude Include="htn\Goal.h">
+      <Filter>Game\ActorControllers\HTN</Filter>
+    </ClInclude>
+    <ClInclude Include="htn\Method.h">
+      <Filter>Game\ActorControllers\HTN</Filter>
+    </ClInclude>
+    <ClInclude Include="htn\Operator.h">
+      <Filter>Game\ActorControllers\HTN</Filter>
+    </ClInclude>
+    <ClInclude Include="htn\Planner.h">
+      <Filter>Game\ActorControllers\HTN</Filter>
+    </ClInclude>
+    <ClInclude Include="htn\Task.h">
+      <Filter>Game\ActorControllers\HTN</Filter>
+    </ClInclude>
+    <ClInclude Include="BT\Behavior.h">
+      <Filter>Game\ActorControllers\BT</Filter>
+    </ClInclude>
+    <ClInclude Include="BT\Composite.h">
+      <Filter>Game\ActorControllers\BT</Filter>
+    </ClInclude>
+    <ClInclude Include="BT\Decorator.h">
+      <Filter>Game\ActorControllers\BT</Filter>
+    </ClInclude>
+    <ClInclude Include="BT\Parser.h">
+      <Filter>Game\ActorControllers\BT</Filter>
+    </ClInclude>
+    <ClInclude Include="htn\Parser.h">
+      <Filter>Game\ActorControllers\HTN</Filter>
+    </ClInclude>
+    <ClInclude Include="BT\Actions.h">
+      <Filter>Game\ActorControllers\BT</Filter>
+    </ClInclude>
+    <ClInclude Include="BT\BlackBoard.h">
+      <Filter>Game\ActorControllers\BT</Filter>
+    </ClInclude>
+    <ClInclude Include="BT\Condition.h">
+      <Filter>Game\ActorControllers\BT</Filter>
+    </ClInclude>
+    <ClInclude Include="Experiment3HTNActorController.h">
+      <Filter>Game\ActorControllers\Experiments</Filter>
+    </ClInclude>
+    <ClInclude Include="Experiment1BTActorController.h">
+      <Filter>Game\ActorControllers\Experiments</Filter>
+    </ClInclude>
+    <ClInclude Include="Experiment1HTNActorController.h">
+      <Filter>Game\ActorControllers\Experiments</Filter>
+    </ClInclude>
+    <ClInclude Include="Experiment3BTActorController.h">
+      <Filter>Game\ActorControllers\Experiments</Filter>
+    </ClInclude>
+    <ClInclude Include="HTNActorController.h">
+      <Filter>Game\ActorControllers\HTNControllers</Filter>
+    </ClInclude>
+    <ClInclude Include="StateMachineActorController.h">
+      <Filter>Game\ActorControllers\FSMControllers</Filter>
+    </ClInclude>
+    <ClInclude Include="BTActorController.h">
+      <Filter>Game\ActorControllers\BTControllers</Filter>
+    </ClInclude>
+    <ClInclude Include="BoidActorController.h">
+      <Filter>Game\ActorControllers\SwarmControllers</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

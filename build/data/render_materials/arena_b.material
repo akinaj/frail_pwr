@@ -1,0 +1,234 @@
+material "grid-8w-arena_b_slave1"
+{
+	receive_shadows on
+	technique grid-8w-arena_b_slave1_technique
+	{
+		pass grid-8w-arena_b_slave1_standard
+		{
+			ambient 1 1 1 1
+			diffuse 1 1 1 1
+			specular 0 0 0 0 25.5
+			emissive 0 0 0 1
+
+			texture_unit grid-8w-arena_b_slave1_Diffuse#0
+			{
+				texture grid-8w.png
+				tex_coord_set 0
+				colour_op modulate
+
+				filtering anisotropic
+				max_anisotropy 8
+			}
+		}
+
+		pass
+		{
+   			scene_blend modulate
+   			depth_func equal
+			
+   			texture_unit
+   			{
+   				texture arena_b-lm.png
+				tex_coord_set 1
+				
+				filtering anisotropic
+				max_anisotropy 8
+  			}
+		}
+	}
+}
+material "grid-8f-arena_b_slave1"
+{
+	receive_shadows on
+	technique grid-8f-arena_b_slave1_technique
+	{
+		pass grid-8f-arena_b_slave1_standard
+		{
+			ambient 1 1 1 1
+			diffuse 1 1 1 1
+			specular 0 0 0 0 25.5
+			emissive 0 0 0 1
+
+			texture_unit grid-8f-arena_b_slave1_Diffuse#0
+			{
+				texture grid-8f.png
+				tex_coord_set 0
+				colour_op modulate
+
+				filtering anisotropic
+				max_anisotropy 8
+			}
+		}
+
+		pass
+		{
+   			scene_blend modulate
+   			depth_func equal
+			
+   			texture_unit
+   			{
+   				texture arena_b-lm.png
+				tex_coord_set 1
+				
+				filtering anisotropic
+				max_anisotropy 8
+  			}
+		}
+	}
+}
+material "grid-2w-arena_b_slave1"
+{
+	receive_shadows on
+	technique grid-2w-arena_b_slave1_technique
+	{
+		pass grid-2w-arena_b_slave1_standard
+		{
+			ambient 1 1 1 1
+			diffuse 1 1 1 1
+			specular 0 0 0 0 25.5
+			emissive 0 0 0 1
+
+			texture_unit grid-2w-arena_b_slave1_Diffuse#0
+			{
+				texture grid-2w.png
+				tex_coord_set 0
+				colour_op modulate
+
+				filtering anisotropic
+				max_anisotropy 8
+			}
+		}
+
+		pass
+		{
+   			scene_blend modulate
+   			depth_func equal
+			
+   			texture_unit
+   			{
+   				texture arena_b-lm.png
+				tex_coord_set 1
+				
+				filtering anisotropic
+				max_anisotropy 8
+  			}
+		}
+	}
+}
+material "grid-1w-arena_b_slave1"
+{
+	receive_shadows on
+	technique grid-1w-arena_b_slave1_technique
+	{
+		pass grid-1w-arena_b_slave1_standard
+		{
+			ambient 1 1 1 1
+			diffuse 1 1 1 1
+			specular 0 0 0 0 25.5
+			emissive 0 0 0 1
+
+			texture_unit grid-1w-arena_b_slave1_Diffuse#0
+			{
+				texture grid-1w.png
+				tex_coord_set 0
+				colour_op modulate
+
+				filtering anisotropic
+				max_anisotropy 8
+			}
+		}
+
+		pass
+		{
+   			scene_blend modulate
+   			depth_func equal
+			
+   			texture_unit
+   			{
+   				texture arena_b-lm.png
+				tex_coord_set 1
+				
+				filtering anisotropic
+				max_anisotropy 8
+  			}
+		}
+	}
+}
+material "grid-.5w-arena_b_slave1"
+{
+	receive_shadows on
+	technique grid-.5w-arena_b_slave1_technique
+	{
+		pass grid-.5w-arena_b_slave1_standard
+		{
+			ambient 1 1 1 1
+			diffuse 1 1 1 1
+			specular 0 0 0 0 25.5
+			emissive 0 0 0 1
+
+			texture_unit grid-.5w-arena_b_slave1_Diffuse#0
+			{
+				texture grid-.5w.png
+				tex_coord_set 0
+				colour_op modulate
+
+				filtering anisotropic
+				max_anisotropy 8
+			}
+		}
+
+		pass
+		{
+   			scene_blend modulate
+   			depth_func equal
+			
+   			texture_unit
+   			{
+   				texture arena_b-lm.png
+				tex_coord_set 1
+				
+				filtering anisotropic
+				max_anisotropy 8
+  			}
+		}
+	}
+}
+material "grid-8wr-arena_b_slave1"
+{
+	receive_shadows on
+	technique grid-8wr-arena_b_slave1_technique
+	{
+		pass grid-8wr-arena_b_slave1_standard
+		{
+			ambient 1 1 1 1
+			diffuse 1 1 1 1
+			specular 0 0 0 0 25.5
+			emissive 0 0 0 1
+
+			texture_unit grid-8wr-arena_b_slave1_Diffuse#0
+			{
+				texture grid-8wr.png
+				tex_coord_set 0
+				colour_op modulate
+
+				filtering anisotropic
+				max_anisotropy 8
+			}
+		}
+
+		pass
+		{
+   			scene_blend modulate
+   			depth_func equal
+			
+   			texture_unit
+   			{
+   				texture arena_b-lm.png
+				tex_coord_set 1
+				
+				filtering anisotropic
+				max_anisotropy 8
+  			}
+		}
+	}
+}

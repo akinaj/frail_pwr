@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<aliases>
+	<alias>JumpFrequency 5000.0</alias>
+</aliases>
+<node type="PrioritySelector">
+	<node type="Sequence" usefulness="2.0">
+		<node type="Condition">
+			<pre>MoreEqual JumpTime JumpFrequency</pre>
+		</node>
+		<node type="Action" action="AnimJump" interruptible="0" duration="1000" />
+	</node>
+	<node type="Sequence" usefulness="2.0">
+		<node type="Condition">
+			<pre>Equal GotHit True</pre>
+		</node>
+		<node type="Action" action="AnimBackflip" interruptible="0" duration="1000" />
+	</node>
+	<node type="Sequence" usefulness="2.0">
+		<node type="Condition">
+			<pre>LessEqual EnemyDistance rngMelee</pre>
+		</node>
+		<node type="Action" action="AnimAttackMelee" duration="1500" interruptible="0" />
+		<node type="Action" action="AttackMelee" duration="50" interruptible="0" />
+	</node>
+	<node type="Action" action="Idle" usefulness="1.0" interruptible="0" duration="1000" />
+</node>

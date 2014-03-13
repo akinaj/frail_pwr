@@ -1,0 +1,8 @@
+name: actor_ai_robot_red
+mass: -1.0f
+physics_shape: capsule-shape 0.45 1.1
+mesh_name: robot.mesh
+material: RobotRed
+vis_scale: 0.02
+forward_vec: 1.0, 0.0, 0.0
+vis_offset: 0.0, -0.98, 0.0

@@ -1,0 +1,61 @@
+material "flag_red"
+{
+	receive_shadows on
+	technique flag_technique
+	{
+		pass flag_standard
+		{
+			ambient 1 1 1 1
+			diffuse 1 1 1 1
+			specular 0 0 0 0 25.5
+			emissive 0 0 0 1
+
+			texture_unit
+			{
+				texture red.png
+				tex_coord_set 0
+				colour_op modulate
+				
+				filtering anisotropic
+				max_anisotropy 8
+			}
+
+			texture_unit
+    			{
+       				anim_texture glow.png 60 2
+       				colour_op_ex modulate_x2 src_current src_texture 
+    			}
+		}
+	}
+}
+
+material "flag_blue"
+{
+	receive_shadows on
+	technique flag_technique
+	{
+		pass flag_standard
+		{
+			ambient 1 1 1 1
+			diffuse 1 1 1 1
+			specular 0 0 0 0 25.5
+			emissive 0 0 0 1
+
+			texture_unit
+			{
+				texture blue.png
+				tex_coord_set 0
+				colour_op modulate
+				
+				filtering anisotropic
+				max_anisotropy 8
+			}
+
+			texture_unit
+    			{
+       				anim_texture glow.png 60 2
+       				colour_op_ex modulate_x2 src_current src_texture 
+    			}
+		}
+	}
+}

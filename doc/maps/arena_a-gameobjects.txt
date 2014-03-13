@@ -1,0 +1,13 @@
+1. Wybuchowa beczka - klasyczny obiekt obecny w grach komputerowych; po strzeleniu w ni¹ beczka wybucha zadaj¹c obra¿enia aktorom obecnym w obszarze o ustalonym promieniu; beczki stoj¹ce obok siebie mog¹ siê ³¹czyæ w ³añcuchowe kombinacje wybuchów.
+
+2. "Krzaki" niewidzialnoœci - obiekt zajmuj¹cy pewn¹ powierzchniê; aktor po wejœciu w obszar krzaków staje siê niewidzialny z zewn¹trz (widoczne s¹ jedynie same krzaki); w przypadku gdy przeciwnik równie¿ wejdzie w te same krzaki bêdzie on móg³ jednak normalnie widzieæ aktora.
+
+3. Pole lawy - obszar zadaj¹cy aktorom obecnym w jego zasiêgu pewn¹ ustalon¹ liczbê obra¿eñ co pewien okres czasu.
+
+4. "Basen" mocy - obiekt zajmuj¹cy pewien obszar; jego dzia³anie polega na zwiêkszeniu na krótk¹ chwilê pewnych statystyk aktora; obiekt ten mo¿e byæ równie¿ zrealizowany w postaci itemu do wziêcia.
+
+5. Wybuchowe i "og³uszaj¹ce" coœ - obiekt wybuchaj¹cy po strzeleniu w niego, który razi aktorów w obszarze o ustalonym promieniu; wywo³uje na krótk¹ chwilê efekty negatywne takie jak spowolnienie poruszania siê lub utrudnienie celowania.
+
+6. Wybuchowe i "oœlepiaj¹ce" coœ - obiekt wybuchaj¹cy po strzeleniu w niego, który razi aktorów w obszarze o ustalonym promieniu; wywo³uje na krótk¹ chwilê efekty negatywne takie jak oœlepienie (czêœciowe lub pe³ne) czy te¿ wymusza poruszanie siê w losowym kierunku.
+
+7. "Sid³a" - obiekt który stawa³by siê na przemian na kilka sekund aktywny i nieaktywny; zajmowa³by on pewn¹ powierzchniê i w przypadku obecnoœci aktora w jego zasiêgu podczas fazy aktywnej obiektu, aktor zostanie unieruchomiony na krótk¹ chwilê czasu; unieruchomienie mo¿e obejmowaæ "zamro¿enie" pozycji jak równie¿ zablokowanie mo¿liwoœci rozgl¹dania siê.

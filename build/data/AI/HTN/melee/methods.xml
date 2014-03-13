@@ -1,0 +1,123 @@
+<?xml version="1.0"?>
+<aliases>
+	<!--<alias>floatExample 1000.0</alias>-->
+	<!--<alias>boolExample true</alias>-->
+	<!--<alias>sampleRange rngMelee</alias>-->
+	<alias>FBRange 10.0</alias>
+</aliases>
+<methods>
+	<method name="mthKillEnemy" usefulness="1.0" runAll="0">
+		<goals>
+			<goal>glKillEnemy</goal>
+		</goals>
+		<!--No preconditions since it is our root task-->
+		<subtasks>
+			<sub>glPatrol</sub>
+			<sub>glAttack</sub>
+		</subtasks>
+	</method>
+	<method name="mthRevealAttacker" usefulness="2.0">
+		<goals>
+			<goal>glPatrol</goal>
+		</goals>
+		<preconditions>
+			<pre>Equal IsEnemyVisible False</pre>
+			<pre>Equal IsEnemyAttack True</pre>
+		</preconditions>
+		<subtasks>
+			<sub>opRevealAttacker</sub>
+		</subtasks>
+	</method>
+	<method name="mthLastSeen" usefulness="1.5">
+		<goals>
+			<goal>glPatrol</goal>
+		</goals>
+		<preconditions>
+			<pre>Equal IsEnemyVisible False</pre>
+			<pre>Equal IsEnemySeen True</pre>
+			<pre>Equal IsSpotReached False</pre>
+		</preconditions>
+		<subtasks>
+			<sub>opExploreSpot</sub>
+		</subtasks>
+	</method>
+	<method name="mthPatrol" usefulness="1.0">
+		<goals>
+			<goal>glPatrol</goal>
+		</goals>
+		<preconditions>
+			<pre>Equal IsEnemyVisible False</pre>
+		</preconditions>
+		<subtasks>
+			<sub>opPatrol</sub>
+		</subtasks>
+	</method>
+	<method name="mthAngerMode" usefulness="4.0">
+		<goals>
+			<goal>glAttack</goal>
+		</goals>
+		<preconditions>
+			<pre>Equal IsEnemyVisible True</pre>
+			<pre>LessEqual ActorHealth HealthAMLimit</pre>
+			<pre>NotEqual IsActorAM True</pre>
+			<pre>LessEqual EnemyDistance rngMelee</pre>
+		</preconditions>
+		<subtasks>
+			<sub>animAngerMode</sub>
+			<sub>opAngerMode</sub>
+		</subtasks>
+	</method>
+	<method name="mthAttackFireball" usefulness="3.0">
+		<goals>
+			<goal>glAttack</goal>
+		</goals>
+		<preconditions>
+			<pre>Equal IsEnemyVisible True</pre>
+			<pre>Equal IsEnemyRunningAway True</pre>
+			<pre>MoreEqual EnemyDistance FBRange</pre>
+			<pre>LessEqual EnemyDistance rngFbMax</pre>
+		</preconditions>
+		<subtasks>
+			<sub>animAttackPunch</sub>
+			<sub>opAttackFireball</sub>
+		</subtasks>
+	</method>
+	<method name="mthAttackMelee" usefulness="2.0">
+		<goals>
+			<goal>glAttack</goal>
+		</goals>
+		<preconditions>
+			<pre>Equal IsEnemyVisible True</pre>
+			<pre>LessEqual EnemyDistance rngMelee</pre>
+			<pre>LessEqual EnemyDgrDiff dmgConeSize</pre>
+		</preconditions>
+		<subtasks>
+			<sub>animAttackMelee</sub>
+			<sub>opAttackMelee</sub>
+		</subtasks>
+	</method>
+	<method name="mthRotate" usefulness="1.5">
+		<goals>
+			<goal>glAttack</goal>
+		</goals>
+		<preconditions>
+			<pre>Equal IsEnemyVisible True</pre>
+			<pre>LessEqual EnemyDistance rngMelee</pre>
+		</preconditions>
+		<subtasks>
+			<sub>opRotateToEnemy</sub>
+		</subtasks>
+	</method>
+	<method name="mthReduceDistance" usefulness="1.0">
+		<goals>
+			<goal>glAttack</goal>
+		</goals>
+		<preconditions>
+			<pre>Equal IsEnemyVisible True</pre>
+			<pre>More EnemyDistance rngMelee</pre>
+		</preconditions>
+		<subtasks>
+			<sub>opReduceDistance</sub>
+		</subtasks>
+	</method>
+</methods>

@@ -1,0 +1,14 @@
+Knockback Trap - Knockback Trap
+ to pułapka, która po aktywacji odpycha aktora o 3-10 m. Początkowo pułapka jest niewidoczna. Pułapka staję się widoczna z czasem, bądź pozostaje niewidoczna przez cały okres jej trwania. Daje to szanse na większą niespodziankę. Jeżeli nikt nie wejdzie w pułapkę deaktywuje się ona po 30s. Ponowny czas aktywacji to minuta.
+
+Land Mine - Land Mine jest to widoczna pułapka, która po wejściu zadaje obrażenia od ognia. Również jest mała szansa aby zestunować aktora na 5s. Jeżeli nikt nie wejdzie w pułapkę deaktywuje się ona po 30s. Ponowny czas aktywacji to minuta.
+
+Roots - Roots jest to widoncza pułapka, która po wejściu zatrzymuje aktora na 3s. 
+
+Flasher - Flasher Trap jest to pułapka, która po wejściu oślepia aktora.
+
+Freezing Trap - Freezing Trap jest to pułapka, któa zamrażą aktora na 3s. Dodatkowo zadaje 5 pkt obrażen aktorowi.
+
+Claymore Trap - pułapka która po wejściu zadaje obrażenia aktorowi. 5-15 pkt
+
+Remove Trap - "podnoszony item", który usuwa "losową" pułapkę.

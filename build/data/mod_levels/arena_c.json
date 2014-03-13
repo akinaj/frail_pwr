@@ -1,0 +1,132 @@
+{
+    "StaticCollidableMesh" :
+    {
+        "m_meshName" : "arena_c.mesh"
+    },
+    
+    "PlayerSpawner" :
+    {
+        "m_worldSpawnPos" : [0.0, 2.0, 32.0]
+    },
+    
+    "DynamicLight" :
+    {
+        "m_worldPos" : [-200.0, 200.0, 200.0],
+        "m_diffuse" : [1.0, 1.0, 1.0, 1.0],
+        "m_specular" : [1.0, 1.0, 1.0, 1.0]
+    },
+
+    "RenderSettingsSetter" :
+    {
+        "Preset" : "Default",
+        "m_ambientLight" : [0.5, 0.5, 0.5]
+    },
+    
+    "AISpawner" :
+    {
+        "m_spawnOrigin" : [-48.0, 34.0, -48.0],
+        "m_spawnRadius" : 1.0,
+        "m_aiNum" : 1,
+        "m_presetName" : "AISandboxBoss"
+    },
+
+    "AISpawner" :
+    {
+        "m_spawnOrigin" : [-13.0, 4.0, -13.0],
+        "m_spawnRadius" : 4.0,
+        "m_aiNum" : 8,
+        "m_presetName" : "NinjaStateMachine"
+    }, 
+
+ 	"CylinderVolumeTrigger":
+	{
+		"Preset" : "teleport",
+		"ScriptName" : "arena_c/teleport.lua",
+		"Name" : "cvt_teleport",
+		"m_worldTransform.position" : [32.0, 0.0, 0.0]
+	},	
+ 	"CylinderVolumeTrigger" :
+	{
+		"Preset" : "power_lake_r8",
+		"ScriptName" : "arena_c/power_lake.lua",
+		"Name" : "cvt_power_lake_1",
+		"m_worldTransform.position" : [48.0, 0.0, 48.0]
+	},
+ 	"CylinderVolumeTrigger" :
+	{
+		"Preset" : "healing_bandage",
+		"ScriptName" : "arena_c/healing_bandage.lua",
+		"Name" : "cvt_hp",
+		"m_worldTransform.position" : [-44.0, 0.0, 44.0]
+	},
+	"CylinderVolumeTrigger" :
+	{
+		"Preset" : "healing_bandage",
+		"ScriptName" : "arena_c/healing_bandage.lua",
+		"Name" : "cvt_hp1",
+		"m_worldTransform.position" : [44.0, 0.0, -44.0]
+	},
+	"CylinderVolumeTrigger" :
+	{
+		"Preset" : "healing_bandage",
+		"ScriptName" : "arena_c/healing_bandage.lua",
+		"Name" : "cvt_hp2",
+		"m_worldTransform.position" : [-36.0, 0.0, -36.0]
+	},
+	"CylinderVolumeTrigger" :
+	{
+		"Preset" : "healing_bandage",
+		"ScriptName" : "arena_c/healing_bandage.lua",
+		"Name" : "cvt_hp3",
+		"m_worldTransform.position" : [-24.0, 8.0, -44.0]
+	},
+	"CylinderVolumeTrigger" :
+	{
+		"Preset" : "healing_bandage",
+		"ScriptName" : "arena_c/healing_bandage.lua",
+		"Name" : "cvt_hp4",
+		"m_worldTransform.position" : [-44.0, 8.0, -24.0]
+	},
+ 	"CylinderVolumeTrigger" :
+	{
+		"Preset" : "double_damage",
+		"ScriptName" : "arena_c/double_damage.lua",
+		"Name" : "cvt_dd",
+		"m_worldTransform.position" : [-20.0, 0.0, -44.0]
+	},
+ 	"ExplodingObject" :
+    {
+        "Preset" : "barrel_e_r4",
+		"Name" : "eo_b1",
+        "m_worldTransform.position" : [-25.0, 0.625, 0.0]
+    },	
+	"ExplodingObject" :
+    {
+        "Preset" : "barrel_e_r4",
+		"Name" : "eo_b2",
+        "m_worldTransform.position" : [1.0, 0.625, -28.0]
+    },	
+	"ExplodingObject" :
+    {
+        "Preset" : "barrel_e_r4",
+		"Name" : "eo_b3",
+        "m_worldTransform.position" : [39.0, 0.625, -15.0]
+    },	
+	"ExplodingObject" :
+    {
+        "Preset" : "barrel_e_r4",
+		"Name" : "eo_b4",
+        "m_worldTransform.position" : [13.0, 0.625, 18.0]
+    },	
+ 	"CylinderVolumeTrigger":
+	{
+		"Preset" : "key",
+		"Name" : "cvt_key",
+        "m_worldTransform.position" : [-30.0, 8.0, -30.0]		
+	},
+ 	"GameObject" :
+	{
+		"ScriptName" : "arena_c/coordinator.lua",
+		"m_radius" : "32.0"
+	}
+}

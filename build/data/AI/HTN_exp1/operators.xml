@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<tasks>
+	<task name="opDigGold" duration="1000" interruptible="0">
+		<outcome>
+			<out>NPCGold WinGold</out>
+		</outcome>
+	</task>
+	<task name="opGoto" interruptible="1" params="1">
+		<outcome>
+			<out>$0 True</out>
+		</outcome>
+		<interruptions>
+			<int>opBuy</int>
+		</interruptions>
+	</task>
+	<task name="opBuy" duration="1000" interruptible="0">
+		<outcome>
+			<out>$0 True</out>
+		</outcome>
+	</task>
+</tasks>

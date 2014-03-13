@@ -1,0 +1,1 @@
+Only headers required to compile mkdemo with Visual C++ 2008 SP1 are included here. If, for some reason, you need others, just download boost from boost.org.

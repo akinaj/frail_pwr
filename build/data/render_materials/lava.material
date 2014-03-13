@@ -1,0 +1,63 @@
+material "lava_r"
+{
+	receive_shadows on
+	technique lava_r_technique
+	{
+		pass lava_r_standard
+		{
+			ambient 1 1 1 1
+			diffuse 1 1 1 1
+			specular 0 0 0 0 25.5
+			emissive 0 0 0 1
+
+			texture_unit lava_r_Diffuse#0
+			{
+				texture itemscolors.png
+				tex_coord_set 0
+				colour_op modulate
+
+				filtering anisotropic
+				max_anisotropy 8
+			}
+
+			texture_unit
+    			{
+       				anim_texture glow.png 60 2
+       				colour_op_ex modulate_x2 src_current src_texture 
+    			}
+		}
+	}
+}
+material "lava"
+{
+	receive_shadows on
+	technique lava_technique
+	{
+		pass lava_standard
+		{
+			ambient 1 1 1 1
+			diffuse 1 1 1 0.9
+			specular 0 0 0 0 25.5
+			emissive 0 0 0 1
+
+			scene_blend alpha_blend
+			depth_write off
+
+			texture_unit lava_Diffuse#0
+			{
+				texture lava.png
+				tex_coord_set 0
+				colour_op modulate
+
+				filtering anisotropic
+				max_anisotropy 8
+			}
+
+			texture_unit
+    			{
+       				anim_texture transparency2.png 60 2
+       				alpha_op_ex subtract src_current src_texture
+    			}
+		}
+	}
+}

@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<tasks>
+	<task name="opPatrol" duration="3000" interruptible="1">
+		<outcome>
+			<out>IsEnemyVisible True</out>
+		</outcome>
+		<interruptions>
+			<int>opRevealAttacker</int>
+			<int>opExploreSpot</int>
+		</interruptions>
+	</task>
+	<task name="opExploreSpot" duration="250" interruptible="1">
+		<outcome>
+			<out>IsEnemyVisible True</out>
+			<out>IsSpotReached True</out>
+		</outcome>
+	</task>
+	<task name="opAttackMelee" duration="50" interruptible="0">
+		<outcome>
+			<out>IsEnemyDead True</out>
+		</outcome>
+	</task>
+	<task name="opRotateToEnemy" duration="800" interruptible="0">
+		<outcome>
+			<out>EnemyDgrDiff Zero</out>
+		</outcome>
+	</task>
+	<task name="opAttackFireball" duration="50" interruptible="0">
+		<outcome>
+			<out>IsEnemyDead True</out>
+		</outcome>
+	</task>
+	<task name="opAngerMode" duration="50" interruptible="0">
+		<outcome>
+			<out>IsEnemyDead True</out>
+		</outcome>
+	</task>
+	<task name="opReduceDistance" duration="250" interruptible="1">
+		<outcome>
+			<out>EnemyDistance Zero</out>
+		</outcome>
+	</task>
+	<task name="opRevealAttacker" duration="2000" interruptible="1">
+		<outcome>
+			<out>IsEnemyVisible True</out>
+		</outcome>
+	</task>
+	<task name="animAttackMelee" duration="1500" interruptible="0" isAnim="1"/>
+	<task name="animAttackPunch" duration="600" interruptible="0" isAnim="1"/>
+	<task name="animAngerMode" duration="1000" interruptible="0" isAnim="1"/>
+</tasks>

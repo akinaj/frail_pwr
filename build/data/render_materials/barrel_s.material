@@ -1,0 +1,60 @@
+material "barrel_s"
+{
+	receive_shadows on
+	technique barrel_s_technique
+	{
+		pass barrel_s_standard
+		{
+			ambient 1 1 1 1
+			diffuse 1 1 1 1
+			specular 0 0 0 0 25.5
+			emissive 0 0 0 1
+
+			texture_unit barrel_s_Diffuse#0
+			{
+				texture barrel_s.png
+				tex_coord_set 0
+				colour_op modulate
+
+				filtering anisotropic
+				max_anisotropy 8
+			}
+
+			texture_unit
+    			{
+       				anim_texture glow.png 60 2
+       				colour_op_ex modulate_x2 src_current src_texture 
+    			}
+		}
+	}
+}
+material "barrel_s2"
+{
+	receive_shadows on
+	technique barrel_s2_technique
+	{
+		pass barrel_s2_standard
+		{
+			ambient 1 1 1 1
+			diffuse 1 1 1 1
+			specular 0 0 0 0 25.5
+			emissive 0 0 0 1
+
+			texture_unit barrel_s2_Diffuse#0
+			{
+				texture itemscolors.png
+				tex_coord_set 0
+				colour_op modulate
+
+				filtering anisotropic
+				max_anisotropy 8
+			}
+
+			texture_unit
+    			{
+       				anim_texture glow.png 60 2
+       				colour_op_ex modulate_x2 src_current src_texture 
+    			}
+		}
+	}
+}

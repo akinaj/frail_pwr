@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "vjson", "vjson.vcxproj", "{7B996CBA-5324-4D34-908D-3D0E92EF8BDA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release_ForHybrid|Win32 = Release_ForHybrid|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7B996CBA-5324-4D34-908D-3D0E92EF8BDA}.Debug|Win32.ActiveCfg = Debug|Win32
+		{7B996CBA-5324-4D34-908D-3D0E92EF8BDA}.Debug|Win32.Build.0 = Debug|Win32
+		{7B996CBA-5324-4D34-908D-3D0E92EF8BDA}.Release_ForHybrid|Win32.ActiveCfg = Release_ForHybrid|Win32
+		{7B996CBA-5324-4D34-908D-3D0E92EF8BDA}.Release_ForHybrid|Win32.Build.0 = Release_ForHybrid|Win32
+		{7B996CBA-5324-4D34-908D-3D0E92EF8BDA}.Release|Win32.ActiveCfg = Release|Win32
+		{7B996CBA-5324-4D34-908D-3D0E92EF8BDA}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

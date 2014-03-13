@@ -1,0 +1,28 @@
+void levelVertex(float4 color : COLOR, float4 pos : POSITION, float3 normal : NORMAL, float2 coord : TEXCOORD0,
+	out float4 oPos : POSITION, out float2 oCoord : TEXCOORD0, out float3 oNormal : TEXCOORD1,
+	out float4 oOriginalPos : TEXCOORD2, out float4 oColor : COLOR, uniform float4x4 worldViewProj)
+{
+  oOriginalPos = pos;
+  oCoord = coord;
+  oNormal = normal;
+  oPos = mul(worldViewProj, pos);
+  oColor = color;
+}
+
+void levelFragment(float2 coord : TEXCOORD0, float3 normal : TEXCOORD1, float4 originalPos : TEXCOORD2, float4 color : COLOR, out float4 oColor : COLOR,
+uniform float4 lightDiffuse, uniform float4 lightDirection, uniform float4 eyePosition, uniform float4 lightSpecular, uniform float4 ambientLight)
+{
+  //oColor = float4(0.000000, 0.720000, 0.240000, 1.000000);
+  //float3 dist = length(originalPos.xyz - eyePosition.xyz)
+  oColor = float4(normal * 0.5 + float3(.5, .5, .5), 1);
+  
+//   float3 eyeDir = normalize(eyePosition.xyz - originalPos.xyz);
+//   float3 halfAngle = normalize(eyeDir - lightDirection.xyz);
+//   float3 bumpVec = normal;
+//   oColor = 2.0 * (
+// 	oColor * ambientLight +
+// 	oColor * lightDiffuse * saturate(dot(-lightDirection, bumpVec))
+// 	);
+//   oColor.a = 1;
+  //oColor = float4(1, 1, 0, 1);
+}

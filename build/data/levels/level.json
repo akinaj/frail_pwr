@@ -1,0 +1,32 @@
+{
+    "StaticCollidableMesh" :
+    {
+        "m_meshName" : "level.mesh"
+    },
+    
+    "PlayerSpawner" :
+    {
+        "m_worldSpawnPos" : { 114.3516, 10.8807, 98.7614 }
+    },
+    
+    "DynamicLight" :
+    {
+        "m_worldPos" : { 194.0, 48.0, 212.0 }
+    },
+
+    "AISpawner" :
+    {
+        "m_spawnOrigin" : { 115.0, 3.0, 79.0 },
+        "m_aiNum" : 1,
+        "m_presetName" : "UserDefault",
+        "m_conflictSide" : 2
+    },
+    
+    "AISpawner" :
+    {
+        "m_spawnOrigin" : { 80.0, 3.0, 80.0 },
+        "m_spawnRadius" : 10.0,
+        "m_aiNum" : 5,
+        "m_presetName" : "AIRedStateMachine"
+    },
+}

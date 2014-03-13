@@ -1,0 +1,12 @@
+{
+    "Class" : "Rocket",
+    
+    "Preset" :
+    {
+        "Name" : "Default",
+        "m_moveSpeed" : "30.0",
+        "m_collisionRadius" : "0.1",
+        "m_explosionRadius" : "2.0",
+        "m_explosionDmg" : "20.0"
+    },
+}

@@ -1,0 +1,231 @@
+{
+    "StaticCollidableMesh" :
+    {
+        "m_meshName" : "arena_b.mesh"
+    },
+    
+    "PlayerSpawner" :
+    {
+        "m_worldSpawnPos" : [0.0, 2.0, 22.0]
+    },
+    
+    "DynamicLight" :
+    {
+        "m_worldPos" : [200.0, 200.0, 200.0],
+        "m_diffuse" : [1.0, 1.0, 1.0, 1.0],
+        "m_specular" : [1.0, 1.0, 1.0, 1.0]
+    },
+
+    "RenderSettingsSetter" :
+    {
+        "Preset" : "Default",
+        "m_ambientLight" : [0.5, 0.5, 0.5]
+    },
+    
+    "AISpawner" :
+    {
+        "m_spawnOrigin" : [0.0, 2.0, -22.0],
+        "m_spawnRadius" : 1.0,
+        "m_aiNum" : 1,
+        "m_presetName" : "AISandboxBoss"
+    },
+ 	"CylinderVolumeTrigger" :
+	{
+		"Preset" : "knockback_trap_r2",
+		"Name" : "cvt_ktrap_1",
+		"m_worldTransform.position" : [0.0, 8.0, 12.0]
+	},	
+	"ModelObject":
+	{
+		"Preset" : "pushtrap_r1",
+		"Name" : "pushtrap_r1_1",
+		"m_worldTransform.position" : [0.0, 8.0, 12.0]
+	},
+	"CylinderVolumeTrigger" :
+	{
+		"Preset" : "knockback_trap_r2",
+		"Name" : "cvt_ktrap_2",
+		"m_worldTransform.position" : [0.0, 8.0, -12.0]
+	},	
+	"ModelObject":
+	{
+		"Preset" : "pushtrap_r1",
+		"Name" : "pushtrap_r1_2",
+		"m_worldTransform.position" : [0.0, 8.0, -12.0]
+	},
+	"CylinderVolumeTrigger" :
+	{
+		"Preset" : "knockback_trap_r2",
+		"Name" : "cvt_ktrap_3",
+		"m_worldTransform.position" : [30.0, 8.0, 0.0]
+	},	
+	"ModelObject":
+	{
+		"Preset" : "pushtrap_r1",
+		"Name" : "pushtrap_r1_3",
+		"m_worldTransform.position" : [30.0, 8.0, 0.0]
+	},
+	"CylinderVolumeTrigger" :
+	{
+		"Preset" : "knockback_trap_r2",
+		"Name" : "cvt_ktrap_4",
+		"m_worldTransform.position" : [-30.0, 8.0, -0.0]
+	},
+	"ModelObject":
+	{
+		"Preset" : "pushtrap_r1",
+		"Name" : "pushtrap_r1_4",
+		"m_worldTransform.position" : [-30.0, 8.0, -0.0]
+	},
+ 	"GameObject" :
+	{
+		"ScriptName" : "arena_b/coordinator.lua",
+		"m_radius" : "32.0"
+	},
+ 	"CylinderVolumeTrigger":
+	{
+		"Preset" : "snares_of_hatred_r2_b",
+		"Name" : "cvt_snares_of_hatred",
+		"ScriptName" : "arena_b/snare_of_hatred.lua",
+		"m_worldTransform.position" : [12.0, 8.0, 0.0]
+	},
+	"ModelObject":
+	{
+		"Preset" : "snares_r2",
+		"Name" : "snares_1_1",
+		"m_worldTransform.position" : [12.0, 8.0, 0.0]
+	},
+	"CylinderVolumeTrigger":
+	{
+		"Preset" : "snares_of_hatred_r2_b",
+		"Name" : "cvt_snares_of_hatred",
+		"ScriptName" : "arena_b/snare_of_hatred.lua",
+		"m_worldTransform.position" : [-12.0, 8.0, 0.0]
+	},
+	"ModelObject":
+	{
+		"Preset" : "snares_r2",
+		"Name" : "snares_1_2",
+		"m_worldTransform.position" : [-12.0, 8.0, 0.0]
+	},
+ 	"CylinderVolumeTrigger":
+	{
+		"Preset" : "teleport",
+		"ScriptName" : "arena_b/teleport.lua",
+		"Name" : "cvt_teleport_1",
+		"m_worldTransform.position" : [30.0, 8.0, 0.0]
+	},	
+	"ModelObject":
+	{
+		"Preset": "teleport_1",
+		"Name" : "cvt_teleport_1_1",
+		"m_worldTransform.position" : [30.0, 8.0, 0.0]
+	},
+
+	"CylinderVolumeTrigger":
+	{
+		"Preset" : "teleport",
+		"ScriptName" : "arena_b/teleport.lua",
+		"Name" : "cvt_teleport_2",
+		"m_worldTransform.position" : [-30.0, 8.0, -0.0]
+	},
+	"ModelObject":
+	{
+		"Preset" : "teleport_1",
+		"Name" : "cvt_teleport_2_1",
+		"m_worldTransform.position" : [-30.0, 8.0, -0.0]
+	},
+ 	"CylinderVolumeTrigger" :
+	{
+		"Preset" : "claymore_trap_r2",
+		"Name" : "cvt_ctrap_1",
+		"m_worldTransform.position" : [-11.0, 8.0, 11.0]
+	},	
+	"ModelObject":
+	{
+		"Preset" : "foottrap_r1",
+		"Name" : "foottrap_r1_1",
+		"m_worldTransform.position" : [-11.0, 8.0, 11.0]
+	},
+	"CylinderVolumeTrigger" :
+	{
+		"Preset" : "claymore_trap_r2",
+		"Name" : "cvt_ctrap_2",
+		"m_worldTransform.position" : [-11.0, 8.0, -11.0]
+	},	
+	"ModelObject":
+	{
+		"Preset" : "foottrap_r1",
+		"Name" : "foottrap_r1_2",
+		"m_worldTransform.position" : [-11.0, 8.0, -11.0]
+	},
+	"CylinderVolumeTrigger" :
+	{
+		"Preset" : "claymore_trap_r2",
+		"Name" : "cvt_ctrap_3",
+		"m_worldTransform.position" : [11.0, 8.0, 11.0]
+	},	
+	"ModelObject":
+	{
+		"Preset" : "foottrap_r1",
+		"Name" : "foottrap_r1_3",
+		"m_worldTransform.position" : [11.0, 8.0, 11.0]
+	},
+	"CylinderVolumeTrigger" :
+	{
+		"Preset" : "claymore_trap_r2",
+		"Name" : "cvt_ctrap_4",
+		"m_worldTransform.position" : [11.0, 8.0, -11.0]
+	},	
+	"ModelObject":
+	{
+		"Preset" : "foottrap_r1",
+		"Name" : "foottrap_r1_4",
+		"m_worldTransform.position" : [11.0, 8.0, -11.0]
+	},
+ 	"CylinderVolumeTrigger" :
+	{
+		"Preset" : "power_lake_r2",
+		"ScriptName" : "arena_b/power_lake.lua",
+		"Name" : "cvt_power_lake_1",
+		"m_worldTransform.position" : [22.0, 0.0, 0.0]
+	},
+	
+	"CylinderVolumeTrigger" :
+	{
+		"Preset" : "power_lake_r2",
+		"ScriptName" : "arena_b/power_lake.lua",
+		"Name" : "cvt_power_lake_2",
+		"m_worldTransform.position" : [-22.0, 0.0, 0.0]
+	},
+ 	"CylinderVolumeTrigger" :
+	{
+		"Preset" : "healing_bandage",
+		"Name" : "cvt_hp",
+		"m_worldTransform.position" : [0.0, 8.0, 12.0]
+	},
+	"CylinderVolumeTrigger" :
+	{
+		"Preset" : "healing_bandage",
+		"Name" : "cvt_hp1",
+		"m_worldTransform.position" : [-8.0, 10.0, -56.0]
+	},
+	"CylinderVolumeTrigger" :
+	{
+		"Preset" : "healing_bandage",
+		"Name" : "cvt_hp2",
+		"m_worldTransform.position" : [8.0, 10.0, -40.0]
+	},
+ 	"CylinderVolumeTrigger" :
+	{
+		"Preset" : "double_damage",
+		"Name" : "cvt_dd",
+		"m_worldTransform.position" : [0.0, 8.0, -12.0]
+	},
+	"CylinderVolumeTrigger" :
+	{
+		"Preset" : "double_damage",
+		"Name" : "cvt_dd1",
+		"m_worldTransform.position" : [8.0, 10.0, -56.0]
+	}
+}

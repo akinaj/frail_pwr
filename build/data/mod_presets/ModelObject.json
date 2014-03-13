@@ -1,0 +1,178 @@
+{
+	"Class" : "ModelObject",
+	
+	"Preset" :
+	{
+		"Name" : "Test1",
+		"m_worldTransform.position" : "80.0 5.0 80.0",
+		"m_worldTransform.orientation" : "0.0 0.0 0.0 1.0",
+		"m_prefabName" : "actor_ai_robot"
+	},
+    
+    "Preset" :
+    {
+        "Name" : "TestScripted",
+        "Extends" : "Test1",
+        "ScriptName" : "test_volume_trigger.lua"
+    },
+	
+	"Preset" :
+	{
+		"Name" : "test_from_script",
+		"Extends" : "Test1",
+		"ScriptName" : "test_moving_model_object.lua",
+		"m_worldTransform.position" : "40.0 10.0 20.0"
+	},
+ 	"Preset":
+	{
+		"Name" : "ribbon",
+		"m_meshName" : "barrel_e_r4.mesh"
+	},
+
+	"Preset":
+	{
+		"Extends" : "ribbon",
+		"Name" : "ribbon_2",
+		"m_meshName" : "barrel_e_r2.mesh"
+	},
+
+	"Preset":
+	{
+		"Extends" : "ribbon",
+		"Name" : "ribbon_8",
+		"m_meshName" : "barrel_e_r8.mesh"
+	},
+ 	"Preset":
+	{
+		"Name" : "barrel_ribbon",
+		"m_meshName" : "barrel_s_r4.mesh"
+	},
+
+	"Preset":
+	{
+		"Extends" : "ribbon",
+		"Name" : "barrel_ribbon_2",
+		"m_meshName" : "barrel_s_r2.mesh"
+	},
+
+	"Preset":
+	{
+		"Extends" : "ribbon",
+		"Name" : "barrel_ribbon_8",
+		"m_meshName" : "barrel_s_r8.mesh"
+	},
+ 	"Preset":
+	{
+		"Name" : "beam_ribbon",
+		"m_meshName" : "barrel_b_r4.mesh"
+	},
+
+	"Preset":
+	{
+		"Extends" : "ribbon",
+		"Name" : "beam_ribbon_2",
+		"m_meshName" : "barrel_b_r2.mesh"
+	},
+
+	"Preset":
+	{
+		"Extends" : "ribbon",
+		"Name" : "beam_ribbon_8",
+		"m_meshName" : "barrel_b_r8.mesh"
+	},
+ 	"Preset":
+	{
+		"Name" : "bilb_1",
+		"ScriptName" : "test_billboard.lua",
+        "m_meshName" : "icon1.mesh",
+        "m_worldTransform.position" : [114.3516, 2.0, 98.7614]
+	},
+	"Preset":
+	{
+		"Name" : "bilb_2",
+		"ScriptName" : "test_billboard.lua",
+        "m_meshName" : "icon2.mesh",
+        "m_worldTransform.position" : [114.3516, 2.0, 98.7614]
+	},
+	"Preset":
+	{
+		"Name" : "bilb_3",
+		"ScriptName" : "test_billboard.lua",
+        "m_meshName" : "icon3.mesh",
+        "m_worldTransform.position" : [114.3516, 2.0, 98.7614]
+	},
+	"Preset":
+	{
+		"Name" : "bilb_4",
+		"ScriptName" : "test_billboard.lua",
+        "m_meshName" : "icon4.mesh",
+        "m_worldTransform.position" : [114.3516, 2.0, 98.7614]
+	},
+	"Preset":
+	{
+		"Name" : "bilb_5",
+		"ScriptName" : "test_billboard.lua",
+        "m_meshName" : "icon5.mesh",
+        "m_worldTransform.position" : [114.3516, 2.0, 98.7614]
+	},
+	"Preset":
+	{
+		"Name" : "bilb_6",
+		"ScriptName" : "test_billboard.lua",
+        "m_meshName" : "icon6.mesh",
+        "m_worldTransform.position" : [114.3516, 2.0, 98.7614]
+	},
+ 	"Preset":
+	{
+		"Name" : "teleport_1",
+        "m_meshName" : "teleport-1.mesh",
+        "m_worldTransform.position" : [114.3516, 2.0, 98.7614]
+	},
+	"Preset":
+	{
+		"Name" : "teleport_2",
+        "m_meshName" : "teleport-2.mesh",
+        "m_worldTransform.position" : [114.3516, 2.0, 98.7614]
+	},
+	"Preset":
+	{
+		"Name" : "teleport_3",
+        "m_meshName" : "teleport-3.mesh",
+        "m_worldTransform.position" : [114.3516, 2.0, 98.7614]
+	},
+ 	"Preset":
+	{
+		"Name" : "snares_r1",
+		"m_meshName" : "spikes_r1.mesh"
+	},
+	"Preset":
+	{
+		"Name" : "snares_r2",
+		"m_meshName" : "spikes_r2.mesh"
+	},
+	"Preset":
+	{
+		"Name" : "snares_r4",
+		"m_meshName" : "spikes_r4.mesh"
+	},
+ 	"Preset":
+	{
+		"Name" : "pushtrap_r1",
+		"m_meshName" : "pushtrap_r1.mesh"
+	},
+	"Preset":
+	{
+		"Name" : "pushtrap_r05",
+		"m_meshName" : "pushtrap_r05.mesh"
+	},
+ 	"Preset":
+	{
+		"Name" : "foottrap_r1",
+		"m_meshName" : "foottrap_r1.mesh"
+	},
+	"Preset":
+	{
+		"Name" : "foottrap_r05",
+		"m_meshName" : "foottrap_r05.mesh"
+	}
+}

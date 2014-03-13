@@ -1,0 +1,276 @@
+{
+	"Class" : "ActorAI",
+	
+    ///////////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////////
+    // User-controlled AI (arrows)
+    ///////////////////////////////////////////////////////////////////////////
+	"Preset" :
+	{
+		"PresetName" : "UserDefault",
+		"m_maxSpeed" : "0.5",
+		"m_canJump" : "true",
+		"m_sightDist" : "50.0",
+		"m_horSightAngleRad" : "0.785",
+		"m_shootingRange" : "20.0",
+		"m_shootingDamage" : "25.0",
+		"m_conflictSide" : "Unknown",
+		"m_prefabName" : "actor_ai",
+        "m_characterCtrlName" : "User"
+		"m_health" : "100.0",
+		"m_maxHealth" : "100.0"
+	},
+    
+    "Preset" :
+    {
+        "PresetName" : "UserBlue",
+        "Extends" : "UserDefault",
+        "m_conflictSide" : "BlueTeam"
+    },
+	
+    ///////////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////////
+    // Base AI for controller tests
+    ///////////////////////////////////////////////////////////////////////////
+    "Preset" :
+    {
+        "PresetName" : "AIBase",
+        "m_maxSpeed" : "0.115",
+		"m_canJump" : "true",
+		"m_sightDist" : "30.0",
+		"m_horSightAngleRad" : "0.785",
+		"m_shootingRange" : "10.0",
+		"m_shootingDamage" : "10.0",
+		"m_health" : "100.0",
+		"m_maxHealth" : "100.0"
+    },
+    
+    "Preset" :
+    {
+        "PresetName" : "AIBlue",
+        "Extends" : "AIBase",
+        "m_prefabName" : "actor_ai_robot_blue",
+        "m_conflictSide" : "BlueTeam"
+    }
+    
+    "Preset" :
+    {
+        "PresetName" : "AIRed",
+        "Extends" : "AIBase",
+        "m_prefabName" : "actor_ai_robot_red",
+        "m_conflictSide" : "RedTeam"
+    }
+    
+    ///////////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////////
+    // AIs for specific controllers
+    ///////////////////////////////////////////////////////////////////////////
+    
+    // Boids
+    ///////////////////////////////////////////////////////////////////////////
+	"Preset" :
+	{
+		"PresetName" : "RobotBlueBoid",
+        "Extends" : "AIBlue",
+		"m_prefabName" : "actor_ai_robot",
+        "m_characterCtrlName" : "Boid"
+	},
+    
+    "Preset" :
+	{
+		"PresetName" : "AIBlueBoid",
+        "Extends" : "AIBlue"
+        "m_characterCtrlName" : "Boid"
+	},
+    
+    // State machine
+    ///////////////////////////////////////////////////////////////////////////
+    "Preset" : 
+    {
+        "PresetName" : "AIRedStateMachine",
+        "Extends" : "AIRed",
+        "m_characterCtrlName" : "StateMachine"
+    },
+    
+    "Preset" : 
+    {
+        "PresetName" : "AIBlueStateMachine",
+        "Extends" : "AIBlue",
+        "m_characterCtrlName" : "StateMachine"
+    },
+    
+    // Capture the flag state machine
+    ///////////////////////////////////////////////////////////////////////////
+    "Preset" : 
+    {
+        "PresetName" : "AIRedCtfSM",
+        "Extends" : "AIRed",
+		"m_sightDist" : "50.0",
+        "m_characterCtrlName" : "CtfSM"
+    },
+    
+    "Preset" : 
+    {
+        "PresetName" : "AIBlueCtfSM",
+        "Extends" : "AIBlue",
+		"m_sightDist" : "50.0",
+        "m_characterCtrlName" : "CtfSM"
+    },
+    
+    "Preset" : 
+    {
+        "PresetName" : "AIRedCtfSMDust2",
+        "Extends" : "AIRedCtfSM",
+		"m_sightDist" : "20.0",
+        "m_maxSpeed" : "0.05",
+        "m_shootingRange" : "8.0"
+    },
+    
+    "Preset" : 
+    {
+        "PresetName" : "AIBlueCtfSMDust2",
+        "Extends" : "AIBlueCtfSM",
+		"m_sightDist" : "20.0",
+        "m_maxSpeed" : "0.05",
+        "m_shootingRange" : "8.0"
+    }
+    
+    // AI Sandbox - Boss Battle
+    ///////////////////////////////////////////////////////////////////////////
+    "Preset" :
+    {
+        "PresetName" : "AISandboxBoss",
+        "Extends" : "AIBase",
+        "m_maxSpeed" : "0.05",
+        "m_canJump" : "true",
+        "m_sightDist" : "50.0",
+        "m_horSightAngleRad" : "2.3",
+		"m_shootingRange" : "25.0",
+		"m_shootingDamage" : "25.0",
+        "m_prefabName" : "actor_boss_ninja",
+        "m_conflictSide" : "BlueTeam",
+        "m_characterCtrlName" : "BT",
+        "m_rangedLaunchPosHelperName" : "Joint17",
+		"m_health" : "200.0",
+		"m_maxHealth" : "200.0",
+		"m_animMultiplierMelee" : "0.3",
+		"m_damageMultiplier" : "5.0",
+		"m_meleeConeSize" : "45.0",
+		"m_meleeRange": "3.0",
+		"m_smellRange": "5.0",
+		"m_btTreePath": "data\\AI\\BT\\melee.xml",
+		"m_htnMethodsPath": "data\\AI\\HTN\\melee\\methods.xml",
+		"m_htnOperatorsPath": "data\\AI\\HTN\\melee\\operators.xml",
+		"m_htnGoalsPath": "data\\AI\\HTN\\goals.xml",
+    },
+
+    "Preset" : 
+    {
+        "PresetName" : "NinjaStateMachine",
+        "Extends" : "AIBase",
+        "m_prefabName" : "actor_ninja_enemy",
+        "m_characterCtrlName" : "StateMachine"
+	"m_conflictSide" : "BlueTeam",
+
+        "m_maxSpeed" : "0.06",
+        "m_canJump" : "true",
+        "m_sightDist" : "15.0",
+        "m_horSightAngleRad" : "0.785",
+	"m_shootingRange" : "7.5",
+	"m_shootingDamage" : "5.0",
+    },
+
+	// Experiment 1 AI
+    ///////////////////////////////////////////////////////////////////////////
+    "Preset" : 
+    {
+        "PresetName" : "NinjaExperiment1",
+        "Extends" : "AIBase",
+        "m_prefabName" : "actor_ninja_enemy",
+        "m_characterCtrlName" : "Experiment1HTN"
+		"m_conflictSide" : "Unknown",
+        "m_maxSpeed" : "0.06",
+        "m_canJump" : "true",
+        "m_sightDist" : "15.0",
+        "m_horSightAngleRad" : "0.785",
+		"m_shootingRange" : "7.5",
+		"m_shootingDamage" : "5.0",
+		"m_btTreePath": "data\\AI\\BT\\case1.xml",
+		"m_htnMethodsPath": "data\\AI\\HTN_exp1\\methods.xml",
+		"m_htnOperatorsPath": "data\\AI\\HTN_exp1\\operators.xml",
+		"m_htnGoalsPath": "data\\AI\\HTN_exp1\\goals.xml",
+    },
+	
+	// Experiment 2 AI
+    ///////////////////////////////////////////////////////////////////////////
+    "Preset" : 
+    {
+        "PresetName" : "NinjaExperiment2",
+        "Extends" : "AIBase",
+        "m_prefabName" : "actor_ninja_enemy",
+        "m_characterCtrlName" : "Experiment1HTN"
+		"m_conflictSide" : "Unknown",
+        "m_maxSpeed" : "0.06",
+        "m_canJump" : "true",
+        "m_sightDist" : "15.0",
+        "m_horSightAngleRad" : "0.785",
+		"m_shootingRange" : "7.5",
+		"m_shootingDamage" : "5.0",
+		"m_btTreePath": "data\\AI\\BT\\case2.xml",
+		"m_htnMethodsPath": "data\\AI\\HTN_exp2\\methods.xml",
+		"m_htnOperatorsPath": "data\\AI\\HTN_exp2\\operators.xml",
+		"m_htnGoalsPath": "data\\AI\\HTN_exp2\\goals.xml",
+    },
+	
+	// Experiment 3 AI
+    ///////////////////////////////////////////////////////////////////////////
+    "Preset" : 
+    {
+        "PresetName" : "NinjaExperiment3",
+        "Extends" : "AIBase",
+        "m_prefabName" : "actor_ninja_enemy",
+        "m_characterCtrlName" : "Experiment3BT"
+		"m_conflictSide" : "BlueTeam",
+        "m_maxSpeed" : "0.06",
+        "m_canJump" : "true",
+        "m_sightDist" : "15.0",
+		"m_health" : "2000.0",
+		"m_maxHealth" : "2000.0",
+        "m_horSightAngleRad" : "0.5",
+		"m_meleeRange": "5.0",
+		"m_shootingRange" : "7.5",
+		"m_meleeConeSize" : "60.0",
+		"m_shootingDamage" : "5.0",
+		"m_btTreePath": "data\\AI\\BT\\case3.xml",
+		"m_htnMethodsPath": "data\\AI\\HTN_exp3\\methods.xml",
+		"m_htnOperatorsPath": "data\\AI\\HTN_exp3\\operators.xml",
+		"m_htnGoalsPath": "data\\AI\\HTN_exp3\\goals.xml",
+    },
+	
+    "Preset" :
+    {
+        "PresetName" : "NinjaExperimentBoss",
+        "Extends" : "AIBase",
+        "m_maxSpeed" : "0.05",
+        "m_canJump" : "true",
+        "m_sightDist" : "50.0",
+        "m_horSightAngleRad" : "2.3",
+		"m_shootingRange" : "25.0",
+		"m_shootingDamage" : "25.0",
+        "m_prefabName" : "actor_boss_ninja",
+        "m_conflictSide" : "RedTeam",
+        "m_characterCtrlName" : "BT",
+        "m_rangedLaunchPosHelperName" : "Joint17",
+		"m_health" : "200.0",
+		"m_maxHealth" : "200.0",
+		"m_animMultiplierMelee" : "0.3",
+		"m_damageMultiplier" : "5.0",
+		"m_meleeConeSize" : "45.0",
+		"m_meleeRange": "3.0",
+		"m_smellRange": "5.0",
+		"m_btTreePath": "data\\AI\\BT\\melee.xml",
+		"m_htnMethodsPath": "data\\AI\\HTN\\ranged\\methods.xml",
+		"m_htnOperatorsPath": "data\\AI\\HTN\\ranged\\operators.xml",
+		"m_htnGoalsPath": "data\\AI\\HTN\\goals.xml",
+    },
+}

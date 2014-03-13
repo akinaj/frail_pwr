@@ -1,0 +1,30 @@
+material "steel_r"
+{
+	receive_shadows on
+	technique steel_r_technique
+	{
+		pass steel_r_standard
+		{
+			ambient 1 1 1 1
+			diffuse 1 1 1 1
+			specular 0 0 0 0 25.5
+			emissive 0 0 0 1
+
+			texture_unit steel_r_Diffuse#0
+			{
+				texture itemscolors.png
+				tex_coord_set 0
+				colour_op modulate
+
+				filtering anisotropic
+				max_anisotropy 8
+			}
+
+			texture_unit
+    			{
+       				anim_texture glow.png 60 2
+       				colour_op_ex modulate_x2 src_current src_texture 
+    			}
+		}
+	}
+}

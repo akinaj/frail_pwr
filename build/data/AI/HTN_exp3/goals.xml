@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<tasks>
+	<task name="glRoot" main="1">
+		<postconditions>
+			<post>Equal Running True</post>
+		</postconditions>
+	</task>
+</tasks>

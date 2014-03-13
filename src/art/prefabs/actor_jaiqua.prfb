@@ -1,0 +1,7 @@
+name: actor_jaiqua
+mass: -1.0f
+physics_shape: capsule-shape 0.45 1.8
+mesh_name: jaiqua.mesh
+vis_scale: 0.1
+forward_vec: 0.0, 0.0, -1.0
+vis_offset: 0.0, -1.3, 0.0

@@ -1,0 +1,56 @@
+material Examples/Ninja
+{
+	technique
+	{
+		pass
+		{
+		
+			texture_unit
+			{
+				texture nskingr.jpg
+			}
+		}
+	}
+}
+material NinjaRed
+{
+	technique
+	{
+		pass
+		{
+		
+			texture_unit
+			{
+				texture nskin-red.png
+			}
+		}
+	}
+}
+material NinjaGreen
+{
+	technique
+	{
+		pass
+		{
+		
+			texture_unit
+			{
+				texture nskin-green.png
+			}
+		}
+	}
+}
+material NinjaBlue
+{
+	technique
+	{
+		pass
+		{
+		
+			texture_unit
+			{
+				texture nskin-blue.png
+			}
+		}
+	}
+}

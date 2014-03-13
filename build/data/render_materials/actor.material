@@ -1,0 +1,74 @@
+material "actor"
+{
+	receive_shadows on
+	technique actor_technique
+	{
+		pass actor_standard
+		{
+			ambient 1 1 1 1
+			diffuse 1 1 1 1
+			specular 0 0 0 0 25.5
+			emissive 0 0 0 1
+
+			texture_unit
+			{
+				texture white.png
+				tex_coord_set 0
+				colour_op modulate
+				
+				filtering anisotropic
+				max_anisotropy 8
+			}
+		}
+	}
+}
+
+material "actor_red"
+{
+	receive_shadows on
+	technique actor_technique
+	{
+		pass actor_standard
+		{
+			ambient 1 1 1 1
+			diffuse 1 1 1 1
+			specular 0 0 0 0 25.5
+			emissive 0 0 0 1
+
+			texture_unit
+			{
+				texture red.png
+				tex_coord_set 0
+				colour_op modulate
+				
+				filtering anisotropic
+				max_anisotropy 8
+			}
+		}
+	}
+}
+
+material "actor_blue"
+{
+	receive_shadows on
+	technique actor_technique
+	{
+		pass actor_standard
+		{
+			ambient 1 1 1 1
+			diffuse 1 1 1 1
+			specular 0 0 0 0 25.5
+			emissive 0 0 0 1
+
+			texture_unit
+			{
+				texture blue.png
+				tex_coord_set 0
+				colour_op modulate
+				
+				filtering anisotropic
+				max_anisotropy 8
+			}
+		}
+	}
+}

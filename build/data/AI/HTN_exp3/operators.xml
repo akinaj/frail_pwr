@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<tasks>
+	<task name="opBackflip" duration="1000" interruptible="0">
+		<outcome>
+			<out>Running True</out>
+		</outcome>
+	</task>
+	<task name="opJump" duration="1000" interruptible="0">
+		<outcome>
+			<out>Running True</out>
+		</outcome>
+	</task>
+	<task name="animAttackMelee" duration="800" interruptible="0" isAnim="1">
+		<outcome>
+			<out>Running True</out>
+		</outcome>
+	</task>
+	<task name="opAttackMelee" duration="50" interruptible="0">
+		<outcome>
+			<out>Running True</out>
+		</outcome>
+	</task>
+	<task name="opIdle" duration="1000" interruptible="0">
+		<outcome>
+			<out>Running True</out>
+		</outcome>
+	</task>
+</tasks>

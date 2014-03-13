@@ -1,0 +1,30 @@
+material "crystal"
+{
+	receive_shadows on
+	technique crystal_technique
+	{
+		pass crystal_standard
+		{
+			ambient 0.9 0.9 0.9 1
+			diffuse 1 1 1 1
+			specular 1 1 1 1 12.5
+			emissive 0 0 0 1
+
+			texture_unit crystal_Diffuse#0
+			{
+				texture itemscolors.png
+				tex_coord_set 0
+				colour_op modulate
+
+				filtering anisotropic
+				max_anisotropy 8
+			}
+
+			texture_unit
+    			{
+       				anim_texture glow.png 60 2
+       				colour_op_ex modulate_x2 src_current src_texture 
+    			}
+		}
+	}
+}

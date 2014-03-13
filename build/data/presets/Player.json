@@ -1,0 +1,15 @@
+{
+    "Class" : "Player",
+    
+    "Preset" :
+    {
+        "PresetName" : "Default",
+        "m_rangedLaunchPosHelperName" : "Joint17"
+		"m_health" : "300.0",
+		"m_maxHealth" : "300.0",
+		"m_animMultiplierMelee" : "1.0",
+		"m_damageMultiplier" : "1.0",
+		"m_meleeRange": "2.0",
+		"m_meleeConeSize" : "45.0",
+    }
+}

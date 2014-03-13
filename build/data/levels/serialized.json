@@ -1,0 +1,106 @@
+{
+    "SerializedWithIds" : 1,
+    "StaticCollidableMesh" : {
+        "ObjectID" : 0,
+        "Name" : "StaticCollidableMesh_0",
+        "ScriptName" : "",
+        "m_prefabName" : "",
+        "m_meshName" : "arena_b.mesh",
+        "m_worldTransform.position" : { 0, 0, 0 },
+        "m_worldTransform.orientation" : { 0, 0, 0, 1 },
+        "m_castsShadows" : 0
+    },
+    "PlayerSpawner" : {
+        "ObjectID" : 1,
+        "Name" : "PlayerSpawner_1",
+        "ScriptName" : "",
+        "m_worldSpawnPos" : { -6.7, 2, 23 },
+        "m_alreadySpawned" : 1,
+        "m_spawnedPlayer" : 5,
+        "m_playerPrefab" : "actor_ninja"
+    },
+    "DynamicLight" : {
+        "ObjectID" : 2,
+        "Name" : "DynamicLight_2",
+        "ScriptName" : "",
+        "m_worldPos" : { 194, 100, 212 }
+    },
+    "AISpawner" : {
+        "ObjectID" : 3,
+        "Name" : "AISpawner_3",
+        "ScriptName" : "",
+        "m_spawnOrigin" : { 0, 2, 0 },
+        "m_spawnRadius" : 1,
+        "m_aiNum" : 1,
+        "m_presetName" : "AISandboxBoss",
+        "m_conflictSide" : 0,
+        "m_alreadySpawned" : 1
+    },
+    "Player" : {
+        "ObjectID" : 5,
+        "Name" : "Player",
+        "ScriptName" : "",
+        "m_prefabName" : "actor_ninja",
+        "m_meshName" : "",
+        "m_worldTransform.position" : { -0.305546, 0.00999928, -5.69035 },
+        "m_worldTransform.orientation" : { 0, 0.996353, 0, 0.0853218 },
+        "m_castsShadows" : 1,
+        "m_maxSpeed" : 0.12,
+        "m_canJump" : 1,
+        "m_sightDist" : -1,
+        "m_horSightAngleRad" : 0,
+        "m_visibleInSightQueries" : 1,
+        "m_shootingRange" : 20,
+        "m_shootingDamage" : 25,
+        "m_currentDir" : { 0, 0, 0 },
+        "m_physicsStepHeight" : 0.1,
+        "m_jumpSpeed" : 7.5,
+        "m_conflictSide" : "RedTeam",
+        "m_health" : 100
+    },
+    "CtfMgr" : {
+        "ObjectID" : 6,
+        "Name" : "CtfMgr_6",
+        "ScriptName" : ""
+    },
+    "BulletManager" : {
+        "ObjectID" : 7,
+        "Name" : "BulletManager_7",
+        "ScriptName" : ""
+    },
+    "ActorAI" : {
+        "ObjectID" : 8,
+        "Name" : "AISandboxBoss",
+        "ScriptName" : "",
+        "m_prefabName" : "actor_boss_ninja",
+        "m_meshName" : "",
+        "m_worldTransform.position" : { 3.21753, -2155.98, -3.417 },
+        "m_worldTransform.orientation" : { 0, 0.478438, 0, 0.878121 },
+        "m_castsShadows" : 1,
+        "m_maxSpeed" : 0.05,
+        "m_canJump" : 1,
+        "m_sightDist" : 30,
+        "m_horSightAngleRad" : 0.785,
+        "m_visibleInSightQueries" : 1,
+        "m_shootingRange" : 10,
+        "m_shootingDamage" : 10,
+        "m_currentDir" : { -0.00163476, 0, -0.00105487 },
+        "m_physicsStepHeight" : 0.1,
+        "m_jumpSpeed" : 7.5,
+        "m_conflictSide" : "BlueTeam",
+        "m_health" : 100,
+        "m_teamNumber" : 0,
+        "m_characterCtrlName" : "StateMachine"
+    },
+    "CylinderVolumeTrigger" : {
+        "ObjectID" : 9,
+        "Name" : "land_mine_4",
+        "ScriptName" : "",
+        "m_prefabName" : "",
+        "m_meshName" : "",
+        "m_worldTransform.position" : { 0, 0, -6 },
+        "m_worldTransform.orientation" : { 0, 0, 0, 1 },
+        "m_castsShadows" : 1,
+        "m_radius" : 1
+    }
+}

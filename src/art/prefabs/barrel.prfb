@@ -1,0 +1,4 @@
+name: barrel1
+mass: 5.0
+physics_shape: cylinder-shape 0.8 1
+mesh_name: barrel.mesh

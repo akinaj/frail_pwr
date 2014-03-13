@@ -1,0 +1,63 @@
+material "cloud_r"
+{
+	receive_shadows on
+	technique cloud_r_technique
+	{
+		pass cloud_r_standard
+		{
+			ambient 1 1 1 1
+			diffuse 1 1 1 1
+			specular 0 0 0 0 25.5
+			emissive 0 0 0 1
+
+			texture_unit cloud_r_Diffuse#0
+			{
+				texture itemscolors.png
+				tex_coord_set 0
+				colour_op modulate
+
+				filtering anisotropic
+				max_anisotropy 8
+			}
+
+			texture_unit
+    			{
+       				anim_texture glow.png 60 2
+       				colour_op_ex modulate_x2 src_current src_texture 
+    			}
+		}
+	}
+}
+material "cloud"
+{
+	receive_shadows on
+	technique cloud_technique
+	{
+		pass cloud_standard
+		{
+			ambient 1 1 1 1
+			diffuse 1 1 1 0.85
+			specular 0 0 0 0 25.5
+			emissive 0 0 0 1
+
+			scene_blend alpha_blend
+			depth_write off
+
+			texture_unit cloud_Diffuse#0
+			{
+				texture cloud.png
+				tex_coord_set 0
+				colour_op modulate
+
+				filtering anisotropic
+				max_anisotropy 8
+			}
+
+			texture_unit
+    			{
+       				anim_texture transparency2.png 60 2
+       				alpha_op_ex subtract src_current src_texture
+    			}
+		}
+	}
+}

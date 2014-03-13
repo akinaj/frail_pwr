@@ -1,0 +1,181 @@
+material "camouflagew-inside"
+{
+	receive_shadows on
+	technique camouflagew-inside_technique
+	{
+		pass camouflagew-inside_standard
+		{
+			ambient 1 1 1 1
+			diffuse 1 1 1 0.65
+			specular 0 0 0 0 25.5
+			emissive 0 0 0 1
+
+			scene_blend alpha_blend
+			depth_write off
+
+			texture_unit camouflagew-inside_Diffuse#0
+			{
+				texture camouflagew.png
+				tex_coord_set 0
+				colour_op modulate
+			}
+
+			texture_unit
+    			{
+       				anim_texture transparency2.png 60 2
+       				alpha_op_ex subtract src_current src_texture
+    			}
+		}
+	}
+}
+material "camouflage1-inside"
+{
+	receive_shadows on
+	technique camouflage1-inside_technique
+	{
+		pass camouflage1-inside_standard
+		{
+			ambient 1 1 1 1
+			diffuse 1 1 1 0.65
+			specular 0 0 0 0 25.5
+			emissive 0 0 0 1
+
+			scene_blend alpha_blend
+			depth_write off
+
+			texture_unit camouflage1-inside_Diffuse#0
+			{
+				texture camouflage1.png
+				tex_coord_set 0
+				colour_op modulate
+			}
+
+			texture_unit
+    			{
+       				anim_texture transparency2.png 60 2
+       				alpha_op_ex subtract src_current src_texture
+    			}
+		}
+	}
+}
+material "camouflage2-inside"
+{
+	receive_shadows on
+	technique camouflage2-inside_technique
+	{
+		pass camouflage2-inside_standard
+		{
+			ambient 1 1 1 1
+			diffuse 1 1 1 0.65
+			specular 0 0 0 0 25.5
+			emissive 0 0 0 1
+
+			scene_blend alpha_blend
+			depth_write off
+
+			texture_unit camouflage2-inside_Diffuse#0
+			{
+				texture camouflage2.png
+				tex_coord_set 0
+				colour_op modulate
+			}
+
+			texture_unit
+    			{
+       				anim_texture transparency2.png 60 2
+       				alpha_op_ex subtract src_current src_texture
+    			}
+		}
+	}
+}
+material "camouflagew"
+{
+	receive_shadows on
+	technique camouflagew_technique
+	{
+		pass camouflagew_standard
+		{
+			ambient 1 1 1 1
+			diffuse 1 1 1 0.95
+			specular 0 0 0 0 25.5
+			emissive 0 0 0 1
+
+			scene_blend alpha_blend
+			depth_write off
+
+			texture_unit camouflagew_Diffuse#0
+			{
+				texture camouflagew.png
+				tex_coord_set 0
+				colour_op modulate
+			}
+
+			texture_unit
+    			{
+       				anim_texture transparency2.png 60 2
+       				alpha_op_ex subtract src_current src_texture
+    			}
+		}
+	}
+}
+material "camouflage1"
+{
+	receive_shadows on
+	technique camouflage1_technique
+	{
+		pass camouflage1_standard
+		{
+			ambient 1 1 1 1
+			diffuse 1 1 1 0.95
+			specular 0 0 0 0 25.5
+			emissive 0 0 0 1
+
+			scene_blend alpha_blend
+			depth_write off
+
+			texture_unit camouflage1_Diffuse#0
+			{
+				texture camouflage1.png
+				tex_coord_set 0
+				colour_op modulate
+			}
+
+			texture_unit
+    			{
+       				anim_texture transparency2.png 60 2
+       				alpha_op_ex subtract src_current src_texture
+    			}
+		}
+	}
+}
+material "camouflage2"
+{
+	receive_shadows on
+	technique camouflage2_technique
+	{
+		pass camouflage2_standard
+		{
+			ambient 1 1 1 1
+			diffuse 1 1 1 0.95
+			specular 0 0 0 0 25.5
+			emissive 0 0 0 1
+
+			scene_blend alpha_blend
+			depth_write off
+
+			texture_unit camouflage2_Diffuse#0
+			{
+				texture camouflage2.png
+				tex_coord_set 0
+				colour_op modulate
+			}
+
+			texture_unit
+    			{
+       				anim_texture transparency2.png 60 2
+       				alpha_op_ex subtract src_current src_texture
+    			}
+		}
+	}
+}
+

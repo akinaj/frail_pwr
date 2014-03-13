@@ -1,0 +1,8 @@
+name: actor_ninja
+mass: -1.0f
+physics_shape: capsule-shape 0.45 1.1
+mesh_name: ninja.mesh
+material: NinjaGreen
+vis_scale: 0.01
+forward_vec: 0.0, 0.0, -1.0
+vis_offset: 0.0, -0.98, 0.0

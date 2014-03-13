@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<tasks>
+	<task name="glKillEnemy" main="1">
+		<postconditions>
+			<post>Equal IsEnemyVisible True</post>
+			<post>Equal IsEnemyDead True</post>
+		</postconditions>
+	</task>
+	<task name="glPatrol">
+		<postconditions>
+			<post>Equal IsEnemyVisible True</post>
+		</postconditions>
+	</task>
+	<task name="glAttack">
+		<postconditions>
+			<post>Equal IsEnemyDead True</post>
+		</postconditions>
+	</task>
+</tasks>
