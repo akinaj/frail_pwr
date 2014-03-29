@@ -264,7 +264,11 @@ public:
     void hitMelee();
     void hitFireball(const mkVec3& targetPos);
     void hitAngerMode();
+    bool hasBuff() const { return m_buff; }
+    bool isInPowerLake() const { return m_powerLake; }
 private:
+    bool m_buff;
+    bool m_powerLake;
     float m_maxSpeed;
     bool m_canJump;
     float m_sightDist;

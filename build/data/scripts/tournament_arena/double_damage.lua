@@ -4,7 +4,8 @@ angle = 1
 
 function onTouched(aktor)	
 	if IsDerivedOrExactClass(aktor:GetObject(), "Character") then
-		SetFieldValue(aktor:GetObject(), "m_shootingDamage", GetFieldValue(aktor:GetObject(), "m_shootingDamage") * 2)		
+		SetFieldValue(aktor:GetObject(), "m_damageMultiplier", GetFieldValue(aktor:GetObject(), "m_damageMultiplier") * 2)
+		SetFieldValue(aktor:GetObject(), "m_buff", true)			
 		bilboard = CreateObject(this, "ModelObject", "bilb_2")
 		name = GetObjectName(this)
 		SetFieldValue(bilboard:GetObject(), "Name", "bilb"..name)

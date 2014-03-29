@@ -16,6 +16,7 @@ src/deps/vjson/Debug/*
 src/deps/vjson/Release/*
 src/deps/vjson/Release_ForHybrid/*
 
+build/data/DONOTUPLOAD/
 build/ogre.cfg
 build/bin/mkdemo_d.exe
 tools/maze_gen/*.bullet

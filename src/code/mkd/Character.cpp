@@ -36,6 +36,8 @@ START_RTTI_INIT(Character);
     FIELD_VEC3(m_visStartOffset);
     FIELD_FLOAT(m_bodyScale);
     FIELD_ENUM_GEN(m_conflictSide, EConflictSide);
+    FIELD_BOOL(m_buff);
+    FIELD_BOOL(m_powerLake);
 }
 END_RTTI_INIT();
 
@@ -161,6 +163,8 @@ Character::Character()
     m_forcedAnimStart = -1.f;
 
     m_wasDead = false;
+    m_buff = false;
+    m_powerLake = false;
 
     m_animDurations["Attack3"] = 650.f;
     m_animDurations["Attack1"] = 550.f;

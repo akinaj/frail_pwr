@@ -1,14 +1,19 @@
  -- Script for power lake. Author: Sebastian Łasisz
 
 last_healing_times = {}
-heal_period = 2.0
+heal_period = 1.0
 healing_per_second = 10
 
-function onTouched(touched_object)	
+function onTouched(touched_object)
 	if IsDerivedOrExactClass(touched_object:GetObject(), "Character") then		
 		name = GetObjectName(this)
 		name2 = GetObjectName(touched_object:GetObject())
 		bilboard = FindObject("bilb"..name..name2)
+		
+		if IsDerivedOrExactClass(touched_object:GetObject(), "Character") then
+			SetFieldValue(touched_object:GetObject(), "m_powerLake", true)
+		end		
+		
 		if not bilboard:IsValid() then
 			bilboard = CreateObject(this, "ModelObject", "bilb_1")
 			name = GetObjectName(this)
@@ -43,7 +48,7 @@ end
 
 function onUpdate()
 	objects_in_radius = FindObjectsInRadius(GetWorldPosition(this), 8)
-	objects_in_radius2 = FindObjectsInRadius(GetWorldPosition(this), 16)
+	objects_in_radius2 = FindObjectsInRadius(GetWorldPosition(this), 100)
 	delete = true
 	obj = FindObject(GetObjectName(this))
 	for i,v in ipairs(objects_in_radius2) do
@@ -63,11 +68,25 @@ function onUpdate()
 			delete2 = true
 			for k,z in ipairs(objects_in_radius) do	
 				if IsDerivedOrExactClass(z:GetObject(), "Character") then		
-						delete2 = false
+						delete2 = false	
 				end
 			end
 			if delete2 then
 				DestroyObject(obj:GetObject())
 			end
 		end
+	
+	delete = true
+	for i,v in ipairs(objects_in_radius2) do
+		if IsDerivedOrExactClass(v:GetObject(), "Character") then
+			for j,x in ipairs(objects_in_radius) do	
+				if IsDerivedOrExactClass(x:GetObject(), "Character") then
+					delete = false
+				end
+			end
+			if delete then
+				SetFieldValue(v:GetObject(), "m_powerLake", false)
+			end
+		end
+	end
 end

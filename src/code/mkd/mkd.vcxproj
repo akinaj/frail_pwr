@@ -217,6 +217,8 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Hybrid|Win32'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="SampleBTActorController.cpp" />
+    <ClCompile Include="SampleHTNActorController.cpp" />
     <ClCompile Include="utils.cpp" />
     <ClCompile Include="rtti\FieldInfo.cpp" />
     <ClCompile Include="rtti\PresetMgr.cpp" />
@@ -295,6 +297,8 @@
     <ClInclude Include="pch.h" />
     <ClInclude Include="PhysicsObjectUserData.h" />
     <ClInclude Include="Prefab.h" />
+    <ClInclude Include="SampleBTActorController.h" />
+    <ClInclude Include="SampleHTNActorController.h" />
     <ClInclude Include="settings.h" />
     <ClInclude Include="Types.h" />
     <ClInclude Include="utils.h" />

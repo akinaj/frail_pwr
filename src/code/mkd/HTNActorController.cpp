@@ -4,6 +4,9 @@
 
 HTNActorController::HTNActorController( ActorAI* ai ) : IActorController(ai)
 {
+    m_planner = new HTN::Planner();
+    m_planner->init(getAI()->getHtnMethodsPath(),getAI()->getHtnOperatorsPath(),getAI()->getHtnGoalsPath());
+
     //actions////////////////////////////////////////////////////////////////////////
     m_actions["opPatrol"] = &HTNActorController::actionPatrol;
     m_actions["opAttackMelee"] = &HTNActorController::actionAttackMelee;
@@ -19,8 +22,6 @@ HTNActorController::HTNActorController( ActorAI* ai ) : IActorController(ai)
     m_actions["animAttackPunch"] = &HTNActorController::animAttackPunch;
     m_actions["animAngerMode"] = &HTNActorController::animAngerMode;
 
-    m_isTaskExecuted = false;
-    m_interrupted = false;
     m_isAttacked = false;
     m_enemyRunningAway = false;
     m_prevEnemyDist = 1000.f;
@@ -28,8 +29,7 @@ HTNActorController::HTNActorController( ActorAI* ai ) : IActorController(ai)
     m_prevDistSum = 0.f;
     m_angerMode = false;
     m_enemyLastPos = mkVec3::ZERO;
-
-    m_currentIdx = 0;
+    m_target = NULL;
 }
 
 HTNActorController::~HTNActorController(){
@@ -39,10 +39,7 @@ HTNActorController::~HTNActorController(){
 //////////////////////////////////////////////////////////////////////////
 
 void HTNActorController::onCreate(){
-    m_planner = new HTN::Planner();
-    m_planner->init(getAI()->getHtnMethodsPath(),getAI()->getHtnOperatorsPath(),getAI()->getHtnGoalsPath());
-
-    getAI()->setDirection(mkVec3::UNIT_Z);
+    getAI()->setDirection(mkVec3::ZERO-mkVec3::UNIT_Z);
     //ai_specific////////////////////////////////////////////////////////////////////////
     m_planner->setStateFloat("rngMelee",getAI()->getMeleeRange());
     m_planner->setStateFloat("rngFbMax",getAI()->getShootingRange());
@@ -58,7 +55,6 @@ void HTNActorController::onCreate(){
     m_planner->setStateBool("IsSpotReached",false);
     m_planner->setStateFloat("EnemyDistance",FLT_MAX);
     m_planner->setStateFloat("ActorHealth",0.f);
-    m_planner->setStateFloat("HealthAMLimit",0.f);
     m_planner->setStateFloat("EnemyDgrDiff",0.f);
 
     Ogre::LogManager::getSingleton().logMessage("HTN controller created!");
@@ -71,7 +67,26 @@ void HTNActorController::onTakeDamage(const SDamageInfo& dmg_info){
 
 void HTNActorController::onUpdate(float dt){
     updateWorldState(dt);
-    executePlan(m_planner->getPlan(getAI()->getHtnMethodsPath(),getAI()->getHtnOperatorsPath(),getAI()->getHtnGoalsPath()), dt);
+
+    std::vector<HTN::pTask> plan = m_planner->getPlan(getAI()->getHtnMethodsPath(),getAI()->getHtnOperatorsPath(),getAI()->getHtnGoalsPath());
+    HTN::pOperator newTask;
+    HTN::PlanResult result = m_planner->resolvePlan(plan, dt, newTask);
+
+    switch (result)
+    {
+    case HTN::PLAN_EMPTYPLAN:
+        getAI()->setSpeed(0.f);
+        break;
+    case HTN::PLAN_INTERRUPTED:
+        getAI()->stopSmoothChangeDir();
+        executeTask(newTask);
+        break;
+    case HTN::PLAN_NEW:
+        executeTask(newTask);
+        break;
+    case HTN::PLAN_RUNNING:
+        break;
+    }
 }
 
 void HTNActorController::onDebugDraw(){
@@ -89,27 +104,27 @@ void HTNActorController::onDie()
 
 void HTNActorController::updateWorldState(float dt){
     if(m_isAttacked)
-        m_planner->getWorldState()["IsEnemyAttack"] = true;
+        m_planner->setStateBool("IsEnemyAttack",true);
     else
-        m_planner->getWorldState()["IsEnemyAttack"] = false;
-
-    m_planner->getWorldState()["ActorHealth"] = getAI()->getHealth();
-    m_planner->getWorldState()["IsActorAM"] = m_angerMode;
+        m_planner->setStateBool("IsEnemyAttack",false);
+    
+    m_planner->setStateFloat("ActorHealth",getAI()->getHealth());
+    m_planner->setStateBool("IsActorAM",m_angerMode);
 
     m_target = getAI()->findClosestEnemyInSight();
-    m_planner->getWorldState()["IsEnemyVisible"] = m_target ? true : false;
+    m_planner->setStateBool("IsEnemyVisible",m_target ? true : false);
     if(m_target){
         float angleDiff = (float)(getAI()->getCharToEnemyAngle(m_target->getSimPos()).valueDegrees());
-        m_planner->getWorldState()["EnemyDgrDiff"] = angleDiff;
+        m_planner->setStateFloat("EnemyDgrDiff",angleDiff);
         ActorAI *targetAI = dynamic_cast<ActorAI*>(m_target);
         Player *targetPlayer = dynamic_cast<Player*>(m_target);
         if(targetAI)
-            m_planner->getWorldState()["IsEnemyDead"] = targetAI->getHealth() > 0.f ? false : true;
+            m_planner->setStateBool("IsEnemyDead",targetAI->getHealth() > 0.f ? false : true);
         else if(targetPlayer)
-            m_planner->getWorldState()["IsEnemyDead"] = targetPlayer->getHealth() > 0.f ? false : true;
+            m_planner->setStateBool("IsEnemyDead",targetPlayer->getHealth() > 0.f ? false : true);
 
         float enemyDistance = (float)(m_target->getSimPos() - getAI()->getSimPos()).length();
-        m_planner->getWorldState()["EnemyDistance"] = enemyDistance;
+        m_planner->setStateFloat("EnemyDistance",enemyDistance);
 
         m_prevDistSum += enemyDistance - m_prevEnemyDist;
         m_prevEnemyDist = enemyDistance;
@@ -124,102 +139,30 @@ void HTNActorController::updateWorldState(float dt){
             m_prevEnemyDistTime = 0.5f;
         }
 
-        m_planner->getWorldState()["IsEnemyRunningAway"] = m_enemyRunningAway;
+        m_planner->setStateBool("IsEnemyRunningAway",m_enemyRunningAway);
 
         m_enemyLastPos = m_target->getSimPos();
-        m_planner->getWorldState()["IsEnemySeen"] = true;
+        m_planner->setStateBool("IsEnemySeen",true);
     } else {
-        m_planner->getWorldState()["IsEnemyVisible"] = false;
-        m_planner->getWorldState()["IsEnemyDead"] = false;
-        m_planner->getWorldState()["EnemyDistance"] = 1000.f;
-        m_planner->getWorldState()["EnemyDistanceDiff"] = 0.f;
-        m_planner->getWorldState()["IsEnemyRunningAway"] = false;
-        m_planner->getWorldState()["EnemyDgrDiff"] = 0.f;
+        m_planner->setStateBool("IsEnemyVisible",false);
+        m_planner->setStateBool("IsEnemyDead",false);
+        m_planner->setStateBool("IsEnemyRunningAway",false);
+        m_planner->setStateFloat("EnemyDistance",1000.f);
+        m_planner->setStateFloat("EnemyDistanceDiff",0.f);
+        m_planner->setStateFloat("EnemyDgrDiff",0.f);
     }
 
     if((float)(m_enemyLastPos - getAI()->getSimPos()).length() < 3.f){
-        m_planner->getWorldState()["IsSpotReached"] = true;
-        m_planner->getWorldState()["IsEnemySeen"] = false;
+        m_planner->setStateBool("IsSpotReached",true);
+        m_planner->setStateBool("IsEnemySeen",false);
     } else {
-        m_planner->getWorldState()["IsSpotReached"] = false;
-    }
-}
-
-void HTNActorController::executePlan(std::vector<HTN::pTask>& plan, float dt){
-    if(plan.size() == 0){
-        getAI()->setSpeed(0.f);
-        return;
-    }
-
-    if(m_currentIdx >= plan.size())
-        m_currentIdx = 0;
-
-    if(m_currentIdx > 0 && plan[m_currentIdx-1] != m_currentTask)
-        m_currentIdx = 0;
-
-    HTN::pOperator nextTask = boost::dynamic_pointer_cast<HTN::Operator>(plan[m_currentIdx]);
-    if(m_currentTask && m_currentTask->isInterruptible()){
-        if(!outcomeValidation(m_currentTask) || isOperatorInterrupted(m_currentTask, nextTask))
-            m_interrupted = true;
-    }
-
-    if(m_interrupted)
-        getAI()->stopSmoothChangeDir();
-
-    if(!m_isTaskExecuted || m_interrupted){
-        if(nextTask->isAnim())
-            ++m_currentIdx;
-        else
-            m_currentIdx = 0;
-
-        if(m_interrupted){
-            m_interrupted = false;
-            //Ogre::LogManager::getSingleton().logMessage("+++Interrupted+++");
-        }
-
-        m_taskDuration = nextTask->getDuration()/1000;
-        executeTask(nextTask);
-        m_isTaskExecuted = true;
-    } else {
-        m_taskDuration = m_taskDuration - dt;
-        if(m_taskDuration <= 0)
-            m_isTaskExecuted = false;
+        m_planner->setStateBool("IsSpotReached",false);
     }
 }
 
 void HTNActorController::executeTask(HTN::pOperator nextTask){
-    //Ogre::LogManager::getSingleton().logMessage(nextTask->getName());
     ctrlrAction action = m_actions[nextTask->getName()];
     (this->*action)(nextTask->getDuration());
-    m_currentTask = nextTask;
-}
-
-bool HTNActorController::outcomeValidation(HTN::pOperator op){
-    std::vector<std::pair<std::string, std::string>> outcomeVect = op->getOutcome();
-
-    bool result;
-    for(size_t i=0; i<outcomeVect.size(); ++i){
-        notEqual(worldStateValue(outcomeVect[i].first),worldStateValue(outcomeVect[i].second), result);
-        if(!result)
-            return false;
-    }
-
-    return true;
-}
-
-aiVariant HTNActorController::worldStateValue(std::string name) const{
-    return m_planner->getStateVariant(name);
-}
-
-bool HTNActorController::isOperatorInterrupted(HTN::pOperator current, HTN::pOperator next){
-    std::vector<std::string> interruptions = current->getInterruptions();
-
-    for(size_t i=0; i<interruptions.size(); ++i){
-        if(std::strcmp(next->getName().c_str(), interruptions[i].c_str()) == 0)
-            return true;
-    }
-
-    return false;
 }
 
 //----------actions----------

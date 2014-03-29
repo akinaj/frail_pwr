@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<tasks>
+	<task name="glKillEnemy" main="1">
+		<postconditions>
+			<post>Equal IsEnemyVisible False</post>
+		</postconditions>
+	</task>
+</tasks>

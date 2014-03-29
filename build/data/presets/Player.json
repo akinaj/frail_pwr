@@ -5,8 +5,8 @@
     {
         "PresetName" : "Default",
         "m_rangedLaunchPosHelperName" : "Joint17"
-		"m_health" : "300.0",
-		"m_maxHealth" : "300.0",
+		"m_health" : "200.0",
+		"m_maxHealth" : "200.0",
 		"m_animMultiplierMelee" : "1.0",
 		"m_damageMultiplier" : "1.0",
 		"m_meleeRange": "2.0",
@@ -19,5 +19,6 @@
         "m_visStartOffset" : "0.0 -0.98 0.0",
         "m_bodyScale" : "0.01",
         "m_overrideMaterialName" : "NinjaGreen"
+		"m_conflictSide" : "Unknown",
     }
 }

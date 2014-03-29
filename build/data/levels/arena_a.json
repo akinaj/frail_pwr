@@ -20,7 +20,7 @@
         "m_spawnOrigin" : { -30.0, 2.0, -20.0 },
         "m_spawnRadius" : 1.0,
         "m_aiNum" : 1,
-        "m_presetName" : "AISandboxBoss"
+        "m_presetName" : "FRAILBoss"
     },
     
     "DynamicLight" :

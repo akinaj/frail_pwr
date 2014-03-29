@@ -1,17 +1,27 @@
 #pragma once
 #include "HTN\Parser.h"
 
+class HTNActorController;
+
 namespace HTN {
-	typedef std::map<std::string, aiVariant> State;
+    enum PlanResult {
+        PLAN_INTERRUPTED,
+        PLAN_EMPTYPLAN,
+        PLAN_RUNNING,
+        PLAN_NEW,
+    };
 
-	class Planner{
-	public:
-		Planner();
-		~Planner();
+    typedef std::map<std::string, aiVariant> State;
 
-		void init(const mkString& methodsPath, const mkString& operatorsPath, const mkString& goalsPath);
-		std::vector<pTask> getPlan(const std::string& methodsPath,const std::string& operatorsPath,const std::string& goalsPath);
-		State& getWorldState() { return m_worldState; }
+    class Planner{
+    public:
+        Planner();
+        ~Planner();
+
+        void init(const mkString& methodsPath, const mkString& operatorsPath, const mkString& goalsPath);
+        std::vector<pTask> getPlan(const std::string& methodsPath,const std::string& operatorsPath,const std::string& goalsPath);
+        State& getWorldState() { return m_worldState; }
+        PlanResult resolvePlan(std::vector<HTN::pTask>& plan, float dt, HTN::pOperator& newTask);
 
         bool contains( std::string key );
         void setStateVec3( std::string key, mkVec3 vec3 );
@@ -22,17 +32,25 @@ namespace HTN {
         float getStateFloat( std::string key, bool& isValid );
         void setStateVariant( std::string key, aiVariant val );
         aiVariant getStateVariant( std::string key );
-	private:
-		Parser *m_parser;
-		std::vector<pTask> m_goals;
-		std::vector<pMethod> m_methods;
-		std::vector<pTask> m_operators;
-		State m_worldState;
+    private:
+        Parser *m_parser;
+        std::vector<pTask> m_goals;
+        std::vector<pMethod> m_methods;
+        std::vector<pTask> m_operators;
+        State m_worldState;
 
-		bool seekPlan(pTask task, std::vector<pTask>& plan, State& state);
-		pTask getMainGoal() const;
-		bool isOperator(pTask task);
-		std::vector<pMethod> findMethodsForGoal(pTask goal);
-		bool isGoalSatisfied(State& state, pGoal goal);
-	};
+        int m_currentIdx;
+        float m_taskDuration;
+        bool m_isTaskExecuted;
+        HTN::pOperator m_currentTask;
+
+        bool seekPlan(pTask task, std::vector<pTask>& plan, State& state);
+        pTask getMainGoal() const;
+        bool isOperator(pTask task);
+        std::vector<pMethod> findMethodsForGoal(pTask goal);
+        bool isGoalSatisfied(State& state, pGoal goal);
+
+        bool outcomeValidation(HTN::pOperator op);
+        bool isOperatorInterrupted(HTN::pOperator current, HTN::pOperator next);
+    };
 }

@@ -258,6 +258,12 @@
     <ClCompile Include="CylinderVolumeTrigger.cpp">
       <Filter>Game</Filter>
     </ClCompile>
+    <ClCompile Include="SampleHTNActorController.cpp">
+      <Filter>Game\ActorControllers\HTNControllers</Filter>
+    </ClCompile>
+    <ClCompile Include="SampleBTActorController.cpp">
+      <Filter>Game\ActorControllers\BTControllers</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="contrib\DebugDrawer.h">
@@ -469,6 +475,12 @@
     </ClInclude>
     <ClInclude Include="CylinderVolumeTrigger.h">
       <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="SampleHTNActorController.h">
+      <Filter>Game\ActorControllers\HTNControllers</Filter>
+    </ClInclude>
+    <ClInclude Include="SampleBTActorController.h">
+      <Filter>Game\ActorControllers\BTControllers</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

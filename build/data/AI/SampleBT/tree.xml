@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<aliases>
+	<!--<alias>floatExample 1000.0</alias>-->
+	<!--<alias>boolExample true</alias>-->
+	<!--<alias>sampleRange rngMelee</alias>-->
+</aliases>
+<node type="Sequence" usefulness="1.0">
+	<node type="Condition">
+		<pre>Equal IsEnemyVisible True</pre>
+	</node>
+	<node type="Action" action="AnimAttackMelee" duration="1500" interruptible="0" />
+	<node type="Action" action="AttackMelee" duration="50" interruptible="0" />
+</node>

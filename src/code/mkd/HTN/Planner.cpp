@@ -4,6 +4,9 @@
 namespace HTN {
     Planner::Planner(){
         m_parser = new Parser();
+
+        m_isTaskExecuted = false;
+        m_currentIdx = 0;
     }
     Planner::~Planner(){
         delete m_parser;
@@ -242,5 +245,72 @@ namespace HTN {
     aiVariant Planner::getStateVariant( std::string key )
     {
         return m_worldState[key];
+    }
+
+    //////////////////////////////////////////////////////////////////////////
+
+    PlanResult Planner::resolvePlan(std::vector<HTN::pTask>& plan, float dt, HTN::pOperator& newTask){
+        bool interrupted = false;
+
+        if(plan.size() == 0){
+            return PLAN_EMPTYPLAN;
+        }
+
+        if(m_currentIdx >= plan.size() || (m_currentIdx > 0 && plan[m_currentIdx-1] != m_currentTask))
+            m_currentIdx = 0;
+
+        HTN::pOperator nextTask = boost::dynamic_pointer_cast<HTN::Operator>(plan[m_currentIdx]);
+        if(m_currentTask && m_currentTask->isInterruptible()){
+            if(!outcomeValidation(m_currentTask) || isOperatorInterrupted(m_currentTask, nextTask))
+                interrupted = true;
+        }
+
+        if(!m_isTaskExecuted || interrupted){
+            if(nextTask->isAnim())
+                ++m_currentIdx;
+            else
+                m_currentIdx = 0;
+
+            m_taskDuration = nextTask->getDuration()/1000;
+            m_currentTask = nextTask;
+            m_isTaskExecuted = true;
+
+            newTask = nextTask;
+
+            if(interrupted)
+                return PLAN_INTERRUPTED;
+            else
+                return PLAN_NEW;
+        } else {
+            m_taskDuration = m_taskDuration - dt;
+            if(m_taskDuration <= 0)
+                m_isTaskExecuted = false;
+
+            return PLAN_RUNNING;
+        }
+    }
+
+    bool Planner::outcomeValidation(HTN::pOperator op){
+        std::vector<std::pair<std::string, std::string>> outcomeVect = op->getOutcome();
+
+        bool result;
+        for(size_t i=0; i<outcomeVect.size(); ++i){
+            notEqual(getStateVariant(outcomeVect[i].first),getStateVariant(outcomeVect[i].second), result);
+            if(!result)
+                return false;
+        }
+
+        return true;
+    }
+
+    bool Planner::isOperatorInterrupted(HTN::pOperator current, HTN::pOperator next){
+        std::vector<std::string> interruptions = current->getInterruptions();
+
+        for(size_t i=0; i<interruptions.size(); ++i){
+            if(std::strcmp(next->getName().c_str(), interruptions[i].c_str()) == 0)
+                return true;
+        }
+
+        return false;
     }
 }

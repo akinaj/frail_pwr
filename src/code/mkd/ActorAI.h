@@ -54,6 +54,18 @@ public:
     mkString getHtnGoalsPath() const { return m_htnGoalsPath; }
 
     Character* findClosestEnemyInSight() const;
+
+    bool isSeenByEnemy(Character* enemy) const;
+    bool isInShootingRange(Character* enemy) const;
+    bool isObjectAvailable(std::string objectName) const;
+    bool isMedkitAvailable() const;
+    bool isBuffAvailable() const;
+    mkVec3 getObjectPosition(std::string objectName) const;
+    mkVec3 getMedkitPosition() const;
+    mkVec3 getBuffPosition() const;
+    mkVec3 getPowerLakePosition() const;
+    std::vector<ModelObject*> getBarrels() const;
+
 protected:
     void updateSpottedActors();
 

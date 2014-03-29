@@ -11,7 +11,9 @@
 #include "CtfSMActorController.h"
 #include "BoidActorController.h"
 #include "HTNActorController.h"
+#include "SampleHTNActorController.h"
 #include "BTActorController.h"
+#include "SampleBTActorController.h"
 #include "Experiment1BTActorController.h"
 #include "Experiment1HTNActorController.h"
 #include "Experiment3HTNActorController.h"
@@ -34,7 +36,9 @@ IActorController* ActorControllerFactory::create( const mkString& controller_id,
     CREATE_CONTROLLER(CtfSM);
     CREATE_CONTROLLER(Boid);
     CREATE_CONTROLLER(HTN);
+    CREATE_CONTROLLER(SampleHTN);
     CREATE_CONTROLLER(BT);
+    CREATE_CONTROLLER(SampleBT);
     CREATE_CONTROLLER(Experiment1HTN);
     CREATE_CONTROLLER(Experiment1BT);
     CREATE_CONTROLLER(Experiment3HTN);

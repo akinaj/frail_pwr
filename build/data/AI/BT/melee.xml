@@ -51,7 +51,7 @@
 					<pre>LessEqual EnemyDistance rngMelee</pre>
 					<pre>LessEqual EnemyDgrDiff dmgConeSize</pre>
 				</node>
-				<node type="Action" action="AnimAttackMelee" duration="3000" interruptible="0" />
+				<node type="Action" action="AnimAttackMelee" duration="1500" interruptible="0" />
 				<node type="Action" action="AttackMelee" duration="50" interruptible="0" />
 			</node>
 			<node type="Action" action="Rotate" usefulness="1.5" duration="800" interruptible="0">

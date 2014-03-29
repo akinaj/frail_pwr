@@ -104,10 +104,16 @@ end
 		for i,v in ipairs(objects_in_radius) do
 			if IsDerivedOrExactClass(v:GetObject(), "Character") then
 				pos_act = GetWorldPosition(v:GetObject())
-				SetWorldPosition(bilboard:GetObject(), (pos_act + mkVec3.new(0.0, 2.1, 0.0)))
+				if IsDerivedOrExactClass(v:GetObject(), "Player") then
+					SetWorldPosition(bilboard:GetObject(), (pos_act+mkVec3.new(0, 2.5 ,0)))		
+				end
+				if IsDerivedOrExactClass(v:GetObject(), "ActorAI") then
+					SetWorldPosition(bilboard:GetObject(), (pos_act+mkVec3.new(0, 4.7 ,0)))	
+				end
 				if (dd_timer + 5 < GetTime()) and dont_t then
 					dont_t = false
-					SetFieldValue(v:GetObject(), "m_shootingDamage", GetFieldValue(v:GetObject(), "m_shootingDamage") / 2)	
+					SetFieldValue(v:GetObject(), "m_damageMultiplier", GetFieldValue(v:GetObject(), "m_damageMultiplier") / 2)
+					SetFieldValue(v:GetObject(), "m_buff", false)
 					DestroyObject(bilboard:GetObject())						
 				end
 			end

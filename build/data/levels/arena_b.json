@@ -27,7 +27,7 @@
         "m_spawnOrigin" : { 0.0, 2.0, -22.0 },
         "m_spawnRadius" : 1.0,
         "m_aiNum" : 1,
-        "m_presetName" : "AISandboxBoss"
+        "m_presetName" : "FRAILBoss"
     },
 //KNOCKBACK TRAPS
 	"CylinderVolumeTrigger" :

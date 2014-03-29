@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<tasks>
+	<task name="opAttackMelee" duration="1500" interruptible="0">
+		<outcome>
+			<out>IsEnemyVisible False</out>
+		</outcome>
+	</task>
+</tasks>

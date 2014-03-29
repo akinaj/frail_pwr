@@ -143,51 +143,8 @@
         "m_maxSpeed" : "0.05",
         "m_shootingRange" : "8.0"
     }
-    
-    // AI Sandbox - Boss Battle
-    ///////////////////////////////////////////////////////////////////////////
-    "Preset" :
-    {
-        "PresetName" : "AISandboxBoss",
-        "Extends" : "AIBase",
-        "m_maxSpeed" : "0.05",
-        "m_canJump" : "true",
-        "m_sightDist" : "50.0",
-        "m_horSightAngleRad" : "2.3",
-		"m_shootingRange" : "25.0",
-		"m_shootingDamage" : "25.0",
-        "m_prefabName" : "actor_boss_ninja",
-        "m_conflictSide" : "BlueTeam",
-        "m_characterCtrlName" : "BT",
-        "m_rangedLaunchPosHelperName" : "Joint17",
-		"m_health" : "200.0",
-		"m_maxHealth" : "200.0",
-		"m_animMultiplierMelee" : "0.3",
-		"m_damageMultiplier" : "5.0",
-		"m_meleeConeSize" : "45.0",
-		"m_meleeRange": "3.0",
-		"m_smellRange": "5.0",
-		"m_btTreePath": "data\\AI\\BT\\melee.xml",
-		"m_htnMethodsPath": "data\\AI\\HTN\\melee\\methods.xml",
-		"m_htnOperatorsPath": "data\\AI\\HTN\\melee\\operators.xml",
-		"m_htnGoalsPath": "data\\AI\\HTN\\goals.xml",
-        "m_sightDist" : "30.0",
-        "m_horSightAngleRad" : "0.785",
-		"m_shootingRange" : "10.0",
-		"m_shootingDamage" : "10.0",
-        "m_conflictSide" : "BlueTeam",
-        "m_characterCtrlName" : "StateMachine",
-        "m_rangedLaunchPosHelperName" : "Joint17",
-        "m_collisionCapsuleRadius" : "0.8",
-        "m_collisionCapsuleHeight" : "2.8",
-        "m_meshName" : "ninja.mesh",
-        "m_visStartForwardVector" : "0.0 0.0 -1.0",
-        "m_visStartOffset" : "0.0 -2.2 0.0",
-        "m_bodyScale" : "0.022",
-        "m_overrideMaterialName" : "NinjaBlue"
-    },
-
-    "Preset" : 
+	
+	    "Preset" : 
     {
         "PresetName" : "NinjaStateMachine",
         "Extends" : "AIBase",
@@ -229,6 +186,14 @@
 		"m_htnMethodsPath": "data\\AI\\HTN_exp1\\methods.xml",
 		"m_htnOperatorsPath": "data\\AI\\HTN_exp1\\operators.xml",
 		"m_htnGoalsPath": "data\\AI\\HTN_exp1\\goals.xml",
+		
+		"m_collisionCapsuleRadius" : "0.45",
+        "m_collisionCapsuleHeight" : "1.1",
+        "m_meshName" : "ninja.mesh",
+        "m_visStartForwardVector" : "0.0 0.0 -1.0",
+        "m_visStartOffset" : "0.0 -0.98 0.0",
+        "m_bodyScale" : "0.01",
+        "m_overrideMaterialName" : "NinjaBlue"
     },
 	
 	// Experiment 2 AI
@@ -250,6 +215,14 @@
 		"m_htnMethodsPath": "data\\AI\\HTN_exp2\\methods.xml",
 		"m_htnOperatorsPath": "data\\AI\\HTN_exp2\\operators.xml",
 		"m_htnGoalsPath": "data\\AI\\HTN_exp2\\goals.xml",
+		
+		"m_collisionCapsuleRadius" : "0.45",
+        "m_collisionCapsuleHeight" : "1.1",
+        "m_meshName" : "ninja.mesh",
+        "m_visStartForwardVector" : "0.0 0.0 -1.0",
+        "m_visStartOffset" : "0.0 -0.98 0.0",
+        "m_bodyScale" : "0.01",
+        "m_overrideMaterialName" : "NinjaBlue"
     },
 	
 	// Experiment 3 AI
@@ -275,6 +248,14 @@
 		"m_htnMethodsPath": "data\\AI\\HTN_exp3\\methods.xml",
 		"m_htnOperatorsPath": "data\\AI\\HTN_exp3\\operators.xml",
 		"m_htnGoalsPath": "data\\AI\\HTN_exp3\\goals.xml",
+		
+		"m_collisionCapsuleRadius" : "0.45",
+        "m_collisionCapsuleHeight" : "1.1",
+        "m_meshName" : "ninja.mesh",
+        "m_visStartForwardVector" : "0.0 0.0 -1.0",
+        "m_visStartOffset" : "0.0 -0.98 0.0",
+        "m_bodyScale" : "0.01",
+        "m_overrideMaterialName" : "NinjaBlue"
     },
 	
     "Preset" :
@@ -302,6 +283,14 @@
 		"m_htnMethodsPath": "data\\AI\\HTN\\ranged\\methods.xml",
 		"m_htnOperatorsPath": "data\\AI\\HTN\\ranged\\operators.xml",
 		"m_htnGoalsPath": "data\\AI\\HTN\\goals.xml",
+		
+		"m_collisionCapsuleRadius" : "0.45",
+        "m_collisionCapsuleHeight" : "1.1",
+        "m_meshName" : "ninja.mesh",
+        "m_visStartForwardVector" : "0.0 0.0 -1.0",
+        "m_visStartOffset" : "0.0 -0.98 0.0",
+        "m_bodyScale" : "0.01",
+        "m_overrideMaterialName" : "NinjaRed"
     },
     
     // AI scripted in Lua
@@ -311,4 +300,71 @@
         "PresetName" : "AIScripted",
         "Extends" : "AIBlue"
     }
+    
+    // AI Sandbox - Boss Battle
+    ///////////////////////////////////////////////////////////////////////////
+    "Preset" :
+    {
+        "PresetName" : "FRAILBoss",
+        "m_maxSpeed" : "0.05",
+        "m_canJump" : "true",
+        "m_sightDist" : "100.0",
+        "m_horSightAngleRad" : "1.8",
+		"m_shootingRange" : "25.0",
+        "m_prefabName" : "actor_boss_ninja",
+        "m_conflictSide" : "RedTeam",
+        "m_characterCtrlName" : "HTN",
+        "m_rangedLaunchPosHelperName" : "Joint17",
+		"m_health" : "200.0",
+		"m_maxHealth" : "200.0",
+		"m_damageMultiplier" : "5.0",
+		"m_meleeConeSize" : "45.0",
+		"m_meleeRange": "3.0",
+		"m_smellRange": "5.0",
+		"m_btTreePath": "data\\AI\\BT\\melee.xml",
+		"m_htnMethodsPath": "data\\AI\\HTN\\melee\\methods.xml",
+		"m_htnOperatorsPath": "data\\AI\\HTN\\melee\\operators.xml",
+		"m_htnGoalsPath": "data\\AI\\HTN\\goals.xml",
+        "m_collisionCapsuleRadius" : "0.8",
+        "m_collisionCapsuleHeight" : "2.8",
+        "m_meshName" : "ninja.mesh",
+        "m_visStartForwardVector" : "0.0 0.0 -1.0",
+        "m_visStartOffset" : "0.0 -2.2 0.0",
+        "m_bodyScale" : "0.022",
+        "m_overrideMaterialName" : "NinjaRed"
+    },
+	
+	// Sample AI
+	///////////////////////////////////////////////////////////////////////////
+	"Preset" :
+    {
+        "PresetName" : "TournamentBoss",
+        "Extends" : "AIBase",
+        "m_maxSpeed" : "0.05",
+        "m_canJump" : "true",
+        "m_sightDist" : "100.0",
+        "m_horSightAngleRad" : "1.8",
+		"m_shootingRange" : "30.0",
+        "m_prefabName" : "actor_boss_ninja",
+        "m_characterCtrlName" : "SampleBT",
+        "m_rangedLaunchPosHelperName" : "Joint17",
+		"m_health" : "200.0",
+		"m_maxHealth" : "200.0",
+		"m_damageMultiplier" : "5.0",
+		"m_meleeConeSize" : "45.0",
+		"m_meleeRange": "3.0",
+		"m_smellRange": "5.0",
+		"m_btTreePath": "data\\AI\\SampleBT\\tree.xml",
+		"m_htnMethodsPath": "data\\AI\\SampleHTN\\methods.xml",
+		"m_htnOperatorsPath": "data\\AI\\SampleHTN\\operators.xml",
+		"m_htnGoalsPath": "data\\AI\\SampleHTN\\goals.xml",
+        "m_conflictSide" : "BlueTeam",
+        "m_collisionCapsuleRadius" : "0.8",
+        "m_collisionCapsuleHeight" : "2.8",
+        "m_meshName" : "ninja.mesh",
+        "m_visStartForwardVector" : "0.0 0.0 -1.0",
+        "m_visStartOffset" : "0.0 -2.2 0.0",
+        "m_bodyScale" : "0.022",
+        "m_overrideMaterialName" : "NinjaBlue"
+    },
 }

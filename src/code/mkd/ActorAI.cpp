@@ -1,7 +1,7 @@
 /***********************************
- * mkdemo 2011-2013                *
- * author: Maciej Kurowski 'kurak' *
- ***********************************/
+* mkdemo 2011-2013                *
+* author: Maciej Kurowski 'kurak' *
+***********************************/
 #include "pch.h"
 #include "utils.h"
 #include "Game.h"
@@ -167,9 +167,9 @@ void ActorAI::drawSight()
             colour = Ogre::ColourValue::Blue;
 
         DebugDrawer::getSingleton().drawLine(my_pos, pos, colour);
-//         const mkVec3 rel_pos = pos - my_pos;
-//         const mkVec3 arrow_end = my_pos + rel_pos * 0.75f;
-//        DebugDrawer::getSingleton().drawArrow(my_pos, arrow_end, Ogre::ColourValue::White);
+        //         const mkVec3 rel_pos = pos - my_pos;
+        //         const mkVec3 arrow_end = my_pos + rel_pos * 0.75f;
+        //        DebugDrawer::getSingleton().drawArrow(my_pos, arrow_end, Ogre::ColourValue::White);
     }
 }
 
@@ -211,7 +211,7 @@ void ActorAI::setController( IActorController* ctrlr )
 
     if (m_controller)
         m_controller->setAI(NULL);
-    
+
     m_controller = ctrlr;
 }
 
@@ -313,6 +313,8 @@ mkVec3 ActorAI::getRespawnPos() const
 void ActorAI::addHealth( float val )
 {
     m_health += val;
+    if (m_health > m_maxHealth)
+        m_health = m_maxHealth;
 }
 
 float ActorAI::getHealth() const
@@ -329,7 +331,7 @@ Character* ActorAI::findClosestEnemyInSight() const
 {
     const CharacterVec& spotted_actors = getSpottedActors();
     Character* chosen = NULL;
-    float minActorDistance = getSightDist()+1.f;
+    float minActorDistance = getSightDist();
     float currentActorDistance = 0.f;
     for (size_t i = 0; i < spotted_actors.size(); ++i)
     {
@@ -345,3 +347,94 @@ Character* ActorAI::findClosestEnemyInSight() const
 
     return chosen;
 }
+
+bool ActorAI::isSeenByEnemy( Character* enemy ) const
+{
+    if(!enemy)
+        return false;
+
+    if(enemy->isPositionVisible(getSimPos()))
+        return true;
+    else
+        return false;
+
+    return false;
+}
+
+bool ActorAI::isInShootingRange( Character* enemy ) const
+{
+    if(!enemy)
+        return false;
+
+    if((getSimPos() - enemy->getSimPos()).length() < enemy->getShootingRange())
+        return true;
+
+    return false;
+}
+
+//TOURNAMENT ARENA//////////////////////////////////////////////////////////////////////////
+bool ActorAI::isObjectAvailable( std::string objectName ) const
+{
+    Level* level = getLevel();
+    if(level->findObjectByName(objectName))
+        return true;
+
+    return false;
+}
+
+bool ActorAI::isMedkitAvailable() const
+{
+    return isObjectAvailable("cvt_hp");
+}
+
+bool ActorAI::isBuffAvailable() const
+{
+    return isObjectAvailable("cvt_dd");
+}
+
+mkVec3 ActorAI::getObjectPosition( std::string objectName ) const
+{
+    ModelObject *model = dynamic_cast<ModelObject *>(getLevel()->findObjectByName(objectName));
+    if (NULL != model)
+    {
+        return model->getWorldPosition();
+    }
+
+    return mkVec3::ZERO;
+}
+
+mkVec3 ActorAI::getMedkitPosition() const
+{
+    return getObjectPosition("cvt_hp");
+}
+
+mkVec3 ActorAI::getBuffPosition() const
+{
+    return getObjectPosition("cvt_dd");
+}
+
+mkVec3 ActorAI::getPowerLakePosition() const
+{
+    return getObjectPosition("cvt_power_lake_1");
+}
+
+std::vector<ModelObject*> ActorAI::getBarrels() const
+{
+    std::vector<ModelObject*> resVect;
+    ModelObject *model = dynamic_cast<ModelObject *>(getLevel()->findObjectByName("eo_b1"));
+    if(NULL != model)
+        resVect.push_back(model);
+    model = dynamic_cast<ModelObject *>(getLevel()->findObjectByName("eo_b2"));
+    if(NULL != model)
+        resVect.push_back(model);
+    model = dynamic_cast<ModelObject *>(getLevel()->findObjectByName("eo_b3"));
+    if(NULL != model)
+        resVect.push_back(model);
+    model = dynamic_cast<ModelObject *>(getLevel()->findObjectByName("eo_b4"));
+    if(NULL != model)
+        resVect.push_back(model);
+
+    return resVect;
+}
+
+//TOURNAMENT ARENA//////////////////////////////////////////////////////////////////////////

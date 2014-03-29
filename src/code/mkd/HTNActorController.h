@@ -1,6 +1,5 @@
 #pragma once
 #include "IActorController.h"
-#include "Game.h"
 #include "Player.h"
 #include "utils.h"
 #include "HTN\Planner.h"
@@ -8,7 +7,7 @@
 class HTNActorController : public IActorController
 {
 public:
-	typedef bool (HTNActorController::*ctrlrAction)(float);
+    typedef bool (HTNActorController::*ctrlrAction)(float);
 
 	explicit HTNActorController(ActorAI* ai);
 	~HTNActorController();
@@ -19,29 +18,20 @@ public:
 	virtual void onDebugDraw();
     virtual void onDie();
 private:
-	std::map<std::string, ctrlrAction> m_actions;
-	HTN::Planner *m_planner;
-	Character *m_target;
-	HTN::pOperator m_currentTask;
+    std::map<std::string, ctrlrAction> m_actions;
+    HTN::Planner *m_planner;
+    Character *m_target;
     mkVec3 m_enemyLastPos;
-    int m_currentIdx;
-	float m_taskDuration;
-	bool m_isTaskExecuted;
-	bool m_interrupted;
-	bool m_isAttacked;
-	mkVec3 m_attackDir;
+    bool m_isAttacked;
+    mkVec3 m_attackDir;
     bool m_enemyRunningAway;
     float m_prevEnemyDist;
     float m_prevDistSum;
     float m_prevEnemyDistTime;
     bool m_angerMode;
 
-	void executePlan(std::vector<HTN::pTask>& plan, float dt);
-	void executeTask(HTN::pOperator op);
-	void updateWorldState(float dt);
-    bool outcomeValidation(HTN::pOperator op);
-    aiVariant worldStateValue(std::string name) const;
-    bool isOperatorInterrupted(HTN::pOperator current, HTN::pOperator next);
+    void updateWorldState(float dt);
+    void executeTask(HTN::pOperator op);
 
 	//----------actions----------
 	bool actionPatrol(float duration);

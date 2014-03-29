@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<aliases>
+	<!--<alias>floatExample 1000.0</alias>-->
+	<!--<alias>boolExample true</alias>-->
+	<!--<alias>sampleRange rngMelee</alias>-->
+</aliases>
+<methods>
+	<method name="mthAttackMelee" usefulness="1.0">
+		<goals>
+			<goal>glKillEnemy</goal>
+		</goals>
+		<preconditions>
+			<pre>Equal IsEnemyVisible True</pre>
+		</preconditions>
+		<subtasks>
+			<sub>opAttackMelee</sub>
+		</subtasks>
+	</method>
+</methods>
