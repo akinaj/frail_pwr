@@ -33,6 +33,7 @@ public:
     virtual bool isDead() const { return m_health <= 0.f; }
     void revive();
 
+    //CTF only
     bool pickUpFlag(EConflictSide::TYPE flag_owner);
     void dropFlag();
     bool isCarryingFlag() const;
@@ -41,6 +42,7 @@ public:
 
     void setTeamNumber(int val) { m_teamNumber = val; }
     int getTeamNumber() const { return m_teamNumber; }
+    //CTF only end
 
     void drawSensesInfo();
 
@@ -57,10 +59,8 @@ public:
 
     bool isSeenByEnemy(Character* enemy) const;
     bool isInShootingRange(Character* enemy) const;
-    bool isObjectAvailable(std::string objectName) const;
     bool isMedkitAvailable() const;
     bool isBuffAvailable() const;
-    mkVec3 getObjectPosition(std::string objectName) const;
     mkVec3 getMedkitPosition() const;
     mkVec3 getBuffPosition() const;
     mkVec3 getPowerLakePosition() const;

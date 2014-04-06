@@ -40,15 +40,6 @@
     <Filter Include="Game\Objects\CTF">
       <UniqueIdentifier>{46d6ff57-b16d-4f44-976d-30a472c50342}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\ActorControllers\HTN">
-      <UniqueIdentifier>{4a2ed27c-8564-4a89-b992-d19aa508f5ac}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game\ActorControllers\BT">
-      <UniqueIdentifier>{8caf0c79-5fc9-4d2c-be1f-5f999a13d611}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game\ActorControllers\Experiments">
-      <UniqueIdentifier>{e0d464c6-b5cf-4ad0-97c1-4540b4ca653b}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Game\ActorControllers\HTNControllers">
       <UniqueIdentifier>{a3897c2a-5601-4ab7-b776-388376276fc3}</UniqueIdentifier>
     </Filter>
@@ -60,6 +51,18 @@
     </Filter>
     <Filter Include="Game\ActorControllers\SwarmControllers">
       <UniqueIdentifier>{eeecc544-0674-4a7c-baf0-2b8bcc8c4567}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\ActorControllers\HTNControllers\HTN">
+      <UniqueIdentifier>{4a2ed27c-8564-4a89-b992-d19aa508f5ac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\ActorControllers\BTControllers\BT">
+      <UniqueIdentifier>{8caf0c79-5fc9-4d2c-be1f-5f999a13d611}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\ActorControllers\Other">
+      <UniqueIdentifier>{fa2c5acd-2dc6-4879-bf34-6a51cdcec81f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\ActorControllers\ExperimentalControllers">
+      <UniqueIdentifier>{e0d464c6-b5cf-4ad0-97c1-4540b4ca653b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -141,15 +144,6 @@
     <ClCompile Include="Level.cpp">
       <Filter>Game\Level</Filter>
     </ClCompile>
-    <ClCompile Include="CtfSMActorController.cpp">
-      <Filter>Game\ActorControllers</Filter>
-    </ClCompile>
-    <ClCompile Include="TestActorController.cpp">
-      <Filter>Game\ActorControllers</Filter>
-    </ClCompile>
-    <ClCompile Include="UserActorController.cpp">
-      <Filter>Game\ActorControllers</Filter>
-    </ClCompile>
     <ClCompile Include="ActorControllerFactory.cpp">
       <Filter>Game\ActorControllers\Factory</Filter>
     </ClCompile>
@@ -193,55 +187,55 @@
       <Filter>Game\Objects\CTF</Filter>
     </ClCompile>
     <ClCompile Include="htn\Goal.cpp">
-      <Filter>Game\ActorControllers\HTN</Filter>
+      <Filter>Game\ActorControllers\HTNControllers\HTN</Filter>
     </ClCompile>
     <ClCompile Include="htn\Method.cpp">
-      <Filter>Game\ActorControllers\HTN</Filter>
+      <Filter>Game\ActorControllers\HTNControllers\HTN</Filter>
     </ClCompile>
     <ClCompile Include="htn\Operator.cpp">
-      <Filter>Game\ActorControllers\HTN</Filter>
+      <Filter>Game\ActorControllers\HTNControllers\HTN</Filter>
     </ClCompile>
     <ClCompile Include="htn\Planner.cpp">
-      <Filter>Game\ActorControllers\HTN</Filter>
+      <Filter>Game\ActorControllers\HTNControllers\HTN</Filter>
     </ClCompile>
     <ClCompile Include="htn\Task.cpp">
-      <Filter>Game\ActorControllers\HTN</Filter>
+      <Filter>Game\ActorControllers\HTNControllers\HTN</Filter>
     </ClCompile>
     <ClCompile Include="BT\Behavior.cpp">
-      <Filter>Game\ActorControllers\BT</Filter>
+      <Filter>Game\ActorControllers\BTControllers\BT</Filter>
     </ClCompile>
     <ClCompile Include="BT\Composite.cpp">
-      <Filter>Game\ActorControllers\BT</Filter>
+      <Filter>Game\ActorControllers\BTControllers\BT</Filter>
     </ClCompile>
     <ClCompile Include="BT\Decorator.cpp">
-      <Filter>Game\ActorControllers\BT</Filter>
+      <Filter>Game\ActorControllers\BTControllers\BT</Filter>
     </ClCompile>
     <ClCompile Include="BT\Parser.cpp">
-      <Filter>Game\ActorControllers\BT</Filter>
+      <Filter>Game\ActorControllers\BTControllers\BT</Filter>
     </ClCompile>
     <ClCompile Include="htn\Parser.cpp">
-      <Filter>Game\ActorControllers\HTN</Filter>
+      <Filter>Game\ActorControllers\HTNControllers\HTN</Filter>
     </ClCompile>
     <ClCompile Include="BT\Actions.cpp">
-      <Filter>Game\ActorControllers\BT</Filter>
+      <Filter>Game\ActorControllers\BTControllers\BT</Filter>
     </ClCompile>
     <ClCompile Include="BT\BlackBoard.cpp">
-      <Filter>Game\ActorControllers\BT</Filter>
+      <Filter>Game\ActorControllers\BTControllers\BT</Filter>
     </ClCompile>
     <ClCompile Include="BT\Condition.cpp">
-      <Filter>Game\ActorControllers\BT</Filter>
+      <Filter>Game\ActorControllers\BTControllers\BT</Filter>
     </ClCompile>
     <ClCompile Include="Experiment1BTActorController.cpp">
-      <Filter>Game\ActorControllers\Experiments</Filter>
+      <Filter>Game\ActorControllers\ExperimentalControllers</Filter>
     </ClCompile>
     <ClCompile Include="Experiment1HTNActorController.cpp">
-      <Filter>Game\ActorControllers\Experiments</Filter>
+      <Filter>Game\ActorControllers\ExperimentalControllers</Filter>
     </ClCompile>
     <ClCompile Include="Experiment3BTActorController.cpp">
-      <Filter>Game\ActorControllers\Experiments</Filter>
+      <Filter>Game\ActorControllers\ExperimentalControllers</Filter>
     </ClCompile>
     <ClCompile Include="Experiment3HTNActorController.cpp">
-      <Filter>Game\ActorControllers\Experiments</Filter>
+      <Filter>Game\ActorControllers\ExperimentalControllers</Filter>
     </ClCompile>
     <ClCompile Include="HTNActorController.cpp">
       <Filter>Game\ActorControllers\HTNControllers</Filter>
@@ -263,6 +257,18 @@
     </ClCompile>
     <ClCompile Include="SampleBTActorController.cpp">
       <Filter>Game\ActorControllers\BTControllers</Filter>
+    </ClCompile>
+    <ClCompile Include="CtfSMActorController.cpp">
+      <Filter>Game\ActorControllers\FSMControllers</Filter>
+    </ClCompile>
+    <ClCompile Include="TestActorController.cpp">
+      <Filter>Game\ActorControllers\Other</Filter>
+    </ClCompile>
+    <ClCompile Include="UserActorController.cpp">
+      <Filter>Game\ActorControllers\Other</Filter>
+    </ClCompile>
+    <ClCompile Include="BossFSMActorController.cpp">
+      <Filter>Game\ActorControllers\FSMControllers</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -359,16 +365,7 @@
     <ClInclude Include="Level.h">
       <Filter>Game\Level</Filter>
     </ClInclude>
-    <ClInclude Include="CtfSMActorController.h">
-      <Filter>Game\ActorControllers</Filter>
-    </ClInclude>
     <ClInclude Include="IActorController.h">
-      <Filter>Game\ActorControllers</Filter>
-    </ClInclude>
-    <ClInclude Include="TestActorController.h">
-      <Filter>Game\ActorControllers</Filter>
-    </ClInclude>
-    <ClInclude Include="UserActorController.h">
       <Filter>Game\ActorControllers</Filter>
     </ClInclude>
     <ClInclude Include="ActorControllerFactory.h">
@@ -411,55 +408,55 @@
       <Filter>Game\Objects\CTF</Filter>
     </ClInclude>
     <ClInclude Include="htn\Goal.h">
-      <Filter>Game\ActorControllers\HTN</Filter>
+      <Filter>Game\ActorControllers\HTNControllers\HTN</Filter>
     </ClInclude>
     <ClInclude Include="htn\Method.h">
-      <Filter>Game\ActorControllers\HTN</Filter>
+      <Filter>Game\ActorControllers\HTNControllers\HTN</Filter>
     </ClInclude>
     <ClInclude Include="htn\Operator.h">
-      <Filter>Game\ActorControllers\HTN</Filter>
+      <Filter>Game\ActorControllers\HTNControllers\HTN</Filter>
     </ClInclude>
     <ClInclude Include="htn\Planner.h">
-      <Filter>Game\ActorControllers\HTN</Filter>
+      <Filter>Game\ActorControllers\HTNControllers\HTN</Filter>
     </ClInclude>
     <ClInclude Include="htn\Task.h">
-      <Filter>Game\ActorControllers\HTN</Filter>
+      <Filter>Game\ActorControllers\HTNControllers\HTN</Filter>
     </ClInclude>
     <ClInclude Include="BT\Behavior.h">
-      <Filter>Game\ActorControllers\BT</Filter>
+      <Filter>Game\ActorControllers\BTControllers\BT</Filter>
     </ClInclude>
     <ClInclude Include="BT\Composite.h">
-      <Filter>Game\ActorControllers\BT</Filter>
+      <Filter>Game\ActorControllers\BTControllers\BT</Filter>
     </ClInclude>
     <ClInclude Include="BT\Decorator.h">
-      <Filter>Game\ActorControllers\BT</Filter>
+      <Filter>Game\ActorControllers\BTControllers\BT</Filter>
     </ClInclude>
     <ClInclude Include="BT\Parser.h">
-      <Filter>Game\ActorControllers\BT</Filter>
+      <Filter>Game\ActorControllers\BTControllers\BT</Filter>
     </ClInclude>
     <ClInclude Include="htn\Parser.h">
-      <Filter>Game\ActorControllers\HTN</Filter>
+      <Filter>Game\ActorControllers\HTNControllers\HTN</Filter>
     </ClInclude>
     <ClInclude Include="BT\Actions.h">
-      <Filter>Game\ActorControllers\BT</Filter>
+      <Filter>Game\ActorControllers\BTControllers\BT</Filter>
     </ClInclude>
     <ClInclude Include="BT\BlackBoard.h">
-      <Filter>Game\ActorControllers\BT</Filter>
+      <Filter>Game\ActorControllers\BTControllers\BT</Filter>
     </ClInclude>
     <ClInclude Include="BT\Condition.h">
-      <Filter>Game\ActorControllers\BT</Filter>
+      <Filter>Game\ActorControllers\BTControllers\BT</Filter>
     </ClInclude>
     <ClInclude Include="Experiment3HTNActorController.h">
-      <Filter>Game\ActorControllers\Experiments</Filter>
+      <Filter>Game\ActorControllers\ExperimentalControllers</Filter>
     </ClInclude>
     <ClInclude Include="Experiment1BTActorController.h">
-      <Filter>Game\ActorControllers\Experiments</Filter>
+      <Filter>Game\ActorControllers\ExperimentalControllers</Filter>
     </ClInclude>
     <ClInclude Include="Experiment1HTNActorController.h">
-      <Filter>Game\ActorControllers\Experiments</Filter>
+      <Filter>Game\ActorControllers\ExperimentalControllers</Filter>
     </ClInclude>
     <ClInclude Include="Experiment3BTActorController.h">
-      <Filter>Game\ActorControllers\Experiments</Filter>
+      <Filter>Game\ActorControllers\ExperimentalControllers</Filter>
     </ClInclude>
     <ClInclude Include="HTNActorController.h">
       <Filter>Game\ActorControllers\HTNControllers</Filter>
@@ -481,6 +478,18 @@
     </ClInclude>
     <ClInclude Include="SampleBTActorController.h">
       <Filter>Game\ActorControllers\BTControllers</Filter>
+    </ClInclude>
+    <ClInclude Include="CtfSMActorController.h">
+      <Filter>Game\ActorControllers\FSMControllers</Filter>
+    </ClInclude>
+    <ClInclude Include="UserActorController.h">
+      <Filter>Game\ActorControllers\Other</Filter>
+    </ClInclude>
+    <ClInclude Include="TestActorController.h">
+      <Filter>Game\ActorControllers\Other</Filter>
+    </ClInclude>
+    <ClInclude Include="BossFSMActorController.h">
+      <Filter>Game\ActorControllers\FSMControllers</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

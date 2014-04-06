@@ -1167,6 +1167,16 @@ void Character::runAnimation( const mkString& animName, float duration )
     }
 }
 
+void Character::runAnimation( const mkString& animName, float duration, float animDuration )
+{
+    if(duration > 0.f && animDuration > 0.f){
+        m_forcedAnim = animName;
+        m_forcedAnimDuration = duration;
+        m_forcedDt = animDuration / duration;
+        m_forcedAnimStart = getTimeMs();
+    }
+}
+
 void Character::hitMelee()
 {
     float dmg_radius = m_meleeRange+1.f;
@@ -1252,4 +1262,24 @@ void Character::hitAngerMode()
 float Character::getBodyScale() const
 {
     return m_bodyScale;
+}
+
+bool Character::isObjectAvailable( std::string objectName ) const
+{
+    Level* level = getLevel();
+    if(level->findObjectByName(objectName))
+        return true;
+
+    return false;
+}
+
+mkVec3 Character::getObjectPosition( std::string objectName ) const
+{
+    ModelObject *model = dynamic_cast<ModelObject *>(getLevel()->findObjectByName(objectName));
+    if (NULL != model)
+    {
+        return model->getWorldPosition();
+    }
+
+    return mkVec3::ZERO;
 }

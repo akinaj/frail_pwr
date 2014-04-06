@@ -373,15 +373,6 @@ bool ActorAI::isInShootingRange( Character* enemy ) const
 }
 
 //TOURNAMENT ARENA//////////////////////////////////////////////////////////////////////////
-bool ActorAI::isObjectAvailable( std::string objectName ) const
-{
-    Level* level = getLevel();
-    if(level->findObjectByName(objectName))
-        return true;
-
-    return false;
-}
-
 bool ActorAI::isMedkitAvailable() const
 {
     return isObjectAvailable("cvt_hp");
@@ -390,17 +381,6 @@ bool ActorAI::isMedkitAvailable() const
 bool ActorAI::isBuffAvailable() const
 {
     return isObjectAvailable("cvt_dd");
-}
-
-mkVec3 ActorAI::getObjectPosition( std::string objectName ) const
-{
-    ModelObject *model = dynamic_cast<ModelObject *>(getLevel()->findObjectByName(objectName));
-    if (NULL != model)
-    {
-        return model->getWorldPosition();
-    }
-
-    return mkVec3::ZERO;
 }
 
 mkVec3 ActorAI::getMedkitPosition() const

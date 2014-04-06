@@ -165,8 +165,12 @@ public:
     float getSmellRange() const { return m_smellRange; }
 
     void runAnimation(const mkString& animName, float duration);
+    void runAnimation(const mkString& animName, float duration, float animDuration);
 
     float getBodyScale() const;
+
+    bool isObjectAvailable(std::string objectName) const;
+    mkVec3 getObjectPosition(std::string objectName) const;
 private:
     void smoothChangeDirection();
     void smoothRotate();

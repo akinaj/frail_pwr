@@ -159,7 +159,7 @@
       <AdditionalOptions>/Zm150 %(AdditionalOptions)</AdditionalOptions>
       <Optimization>Disabled</Optimization>
       <IntrinsicFunctions>false</IntrinsicFunctions>
-      <AdditionalIncludeDirectories>..\..\deps\ogre\include;..\..\deps\vjson\;..\..\deps\bullet\include;..\..\deps\luajit-2.0.2\include;..\..\deps\ogre_deps;.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\deps\pugixml-1.2\src;..\..\deps\ogre_deps\boost;..\..\deps\ogre\include;..\..\deps\vjson\;..\..\deps\bullet\include;..\..\deps\luajit-2.0.2\include;..\..\deps\ogre_deps;.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;ENABLE_ASSERTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
@@ -171,9 +171,9 @@
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>OgreMain.lib;OIS.lib;LinearMath.lib;BulletCollision.lib;BulletDynamics.lib;BulletWorldImporter.lib;BulletFileLoader.lib;vjson_for_hybrid.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>pugixml.lib;OgreMain.lib;OIS.lib;LinearMath.lib;BulletCollision.lib;BulletDynamics.lib;BulletWorldImporter.lib;BulletFileLoader.lib;vjson.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>$(OutDir)mkdemo.exe</OutputFile>
-      <AdditionalLibraryDirectories>..\..\deps\ogre\lib;..\..\deps\bullet\lib;..\..\deps\vjson;..\..\deps\luajit-2.0.2\lib;..\..\deps\ogre_deps\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\..\deps\pugixml-1.2;..\..\deps\ogre_deps\lib;..\..\deps\ogre\lib;..\..\deps\bullet\lib;..\..\deps\vjson;..\..\deps\luajit-2.0.2\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <IgnoreSpecificDefaultLibraries>LIBCMT;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
@@ -185,6 +185,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BossFSMActorController.cpp" />
     <ClCompile Include="BTActorController.cpp" />
     <ClCompile Include="BT\Actions.cpp" />
     <ClCompile Include="BT\Behavior.cpp" />
@@ -268,6 +269,7 @@
     <ClCompile Include="ctf\TeamFlag.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BossFSMActorController.h" />
     <ClInclude Include="BTActorController.h" />
     <ClInclude Include="BT\Actions.h" />
     <ClInclude Include="BT\Behavior.h" />
