@@ -171,6 +171,10 @@ public:
 
     bool isObjectAvailable(std::string objectName) const;
     mkVec3 getObjectPosition(std::string objectName) const;
+
+    mkVec3 getMovementDir() const { return m_movementDir; }
+    void setMovementDir(mkVec3 val) { m_movementDir = val; }
+    void resetMovementDir() { m_movementDir == mkVec3::ZERO }
 private:
     void smoothChangeDirection();
     void smoothRotate();
@@ -225,6 +229,7 @@ private:
     mkVec3 m_size;
 
     mkVec3 m_currentDir;
+    mkVec3 m_movementDir;
     float m_currentSpeed;
 
     SensorCollisionContainer m_sensorCollisions;

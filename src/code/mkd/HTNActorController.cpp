@@ -176,7 +176,6 @@ bool HTNActorController::actionPatrol(float duration){
 
     size_t steps = 40;
     getAI()->startSmoothChangeDir(new_direction, steps, duration/2);
-    //getAI()->setDirection(new_direction);
     getAI()->setSpeed(0.5f);
 
     return true;

@@ -105,6 +105,7 @@ const btVector3 ogre_to_bullet(const mkVec3& vec);
 Character::Character()
 {
     m_currentDir = mkVec3::ZERO;
+    m_movementDir = mkVec3::ZERO;
 
     m_physicsNode = NULL;
     m_playerPhysicsController = NULL;
@@ -289,7 +290,12 @@ void Character::updateComponents()
 {
     if (m_currentSpeed > 0.001f && !isDead())
     {
-        btVector3 movement_vec = ogre_to_bullet(m_currentDir);
+        //btVector3 movement_vec = ogre_to_bullet(m_currentDir);
+        btVector3 movement_vec;
+        if(m_movementDir == mkVec3::ZERO)
+            movement_vec = ogre_to_bullet(m_currentDir);
+        else
+            movement_vec = ogre_to_bullet(m_movementDir);
         movement_vec.safeNormalize();
         movement_vec = movement_vec * m_currentSpeed; // speed in m/s (no mul by time delta, physics engine handles that)
         m_playerPhysicsController->setWalkDirection(movement_vec);
