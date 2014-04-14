@@ -44,7 +44,7 @@ private:
     bool actionExploreSpot(float duration);
     bool actionKeepDistance(float duration);
     //////////////////////////////////////////////////////////////////////////
-    bool animAttackMelee(float duration);
-    bool animAttackPunch(float duration);
     bool animAngerMode(float duration);
+    bool animAttackMelee(float duration);
+    bool animAttackFireball(float duration);
 };

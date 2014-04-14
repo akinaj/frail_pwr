@@ -1183,6 +1183,12 @@ void Character::runAnimation( const mkString& animName, float duration, float an
     }
 }
 
+void Character::stopAnimation()
+{
+    m_forcedAnimStart = 0.f;
+}
+
+
 void Character::hitMelee()
 {
     float dmg_radius = m_meleeRange+1.f;

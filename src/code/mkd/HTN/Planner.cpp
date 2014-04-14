@@ -7,6 +7,7 @@ namespace HTN {
 
         m_isTaskExecuted = false;
         m_currentIdx = 0;
+        m_lastTaskReached = false;
     }
     Planner::~Planner(){
         delete m_parser;
@@ -38,26 +39,36 @@ namespace HTN {
         State state = m_worldState;
         pTask mainGoal = getMainGoal();
         if(mainGoal){
+            //WHOLE PLAN
             while(!isGoalSatisfied(state, boost::dynamic_pointer_cast<Goal>(mainGoal))){
                 smallPlan.clear();
-                if(seekPlan(mainGoal, smallPlan, state))
+                if(seekPlan(mainGoal, smallPlan, state)){
+                    smallPlan[smallPlan.size()-1]->setLast(true);
                     plan.insert(plan.end(), smallPlan.begin(), smallPlan.end());
+                }
 
                 if(plan.empty()){
-                    Ogre::LogManager::getSingleton().logMessage("Cannot create HTN plan!");
+                    Ogre::LogManager::getSingleton().logMessage("Cannot create HTN plan or done! Check AI model in xml files!");
                     break;
                 }
             }
 
+            //PLAN_DEBUG////////////////////////////////////////////////////////////////////////
             std::stringstream ss;
             for(size_t i=0; i<plan.size(); ++i){
+                if(plan[i]->isLast())
+                    ss << "!";
                 ss << plan[i]->getName() << " ";
                 for(size_t j=0; j<plan[i]->getParameters().size(); ++j){
                     ss << plan[i]->getParameters()[j] << " ";
                 }
                 ss << ";";
             }
-            Ogre::LogManager::getSingleton().logMessage(ss.str());
+            if(ss.str() != m_lastPlanDebug){
+                Ogre::LogManager::getSingleton().logMessage(ss.str());
+                m_lastPlanDebug = ss.str();
+            }
+            ///////////////////////////////////////////////////////////////////////////////////
         }
 
         return plan;
@@ -93,9 +104,9 @@ namespace HTN {
 
             stateBackup = state;
 
+            subOps.clear();
             if(!methods[i]->getRunAll()){
                 possibility = false;
-                subOps.clear();
                 for(size_t j=0; j<subtasks.size(); j++){
                     if(seekPlan(subtasks[j],subOps,state)){
                         possibility = true;
@@ -103,7 +114,6 @@ namespace HTN {
                 }
             } else {
                 possibility = true;
-                subOps.clear();
                 for(size_t j=0; j<subtasks.size(); j++){
                     if(!seekPlan(subtasks[j],subOps,state)){
                         possibility = false;
@@ -251,25 +261,47 @@ namespace HTN {
 
     PlanResult Planner::resolvePlan(std::vector<HTN::pTask>& plan, float dt, HTN::pOperator& newTask){
         bool interrupted = false;
+        //bool newPlan = false;
+        //if(plan != m_executedPlan)
+        //    newPlan = true;
 
         if(plan.size() == 0){
             return PLAN_EMPTYPLAN;
         }
 
-        if(m_currentIdx >= plan.size() || (m_currentIdx > 0 && plan[m_currentIdx-1] != m_currentTask))
+        //if out of array
+        //if(m_currentIdx >= plan.size())
+        //    m_currentIdx = 0;
+        //if partial plan ending reached
+        if(m_currentTask && m_currentTask->isLast()){
             m_currentIdx = 0;
+            m_lastTaskReached = true;
+        }
+        //if(newPlan)
+        //    m_currentIdx = 0;
 
-        HTN::pOperator nextTask = boost::dynamic_pointer_cast<HTN::Operator>(plan[m_currentIdx]);
+
+        HTN::pOperator nextTask;
+        HTN::pOperator nextNewTask = boost::dynamic_pointer_cast<HTN::Operator>(plan[0]);
+
+        if(m_executedPlan.size() > m_currentIdx && !m_lastTaskReached)
+            nextTask = boost::dynamic_pointer_cast<HTN::Operator>(m_executedPlan[m_currentIdx]);
+        else
+            nextTask = nextNewTask;
+
+        //interruptions
         if(m_currentTask && m_currentTask->isInterruptible()){
-            if(!outcomeValidation(m_currentTask) || isOperatorInterrupted(m_currentTask, nextTask))
+            if(isOperatorInterrupted(m_currentTask, nextNewTask) || !outcomeValidation(m_currentTask)){
                 interrupted = true;
+                m_currentIdx = 0;
+                nextTask = nextNewTask;
+            }
         }
 
+        m_lastTaskReached = false;
+
         if(!m_isTaskExecuted || interrupted){
-            if(nextTask->isAnim())
-                ++m_currentIdx;
-            else
-                m_currentIdx = 0;
+            ++m_currentIdx;
 
             m_taskDuration = nextTask->getDuration()/1000;
             m_currentTask = nextTask;
@@ -277,6 +309,7 @@ namespace HTN {
 
             newTask = nextTask;
 
+            m_executedPlan = plan;
             if(interrupted)
                 return PLAN_INTERRUPTED;
             else

@@ -27,7 +27,7 @@ BTActorController::~BTActorController()
 
 void BTActorController::onCreate()
 {
-    getAI()->setDirection(mkVec3::UNIT_Z);
+    getAI()->lookAt(mkVec3::ZERO);
     m_bb->setStateFloat("rngFbMax", getAI()->getShootingRange());
     m_bb->setStateFloat("rngMelee", getAI()->getMeleeRange());
     m_bb->setStateFloat("HealthAMLimit", getAI()->getMaxHealth()/2);

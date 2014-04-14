@@ -78,7 +78,7 @@
 			<pre>LessEqual EnemyDistance rngFbMax</pre>
 		</preconditions>
 		<subtasks>
-			<sub>animAttackPunch</sub>
+			<sub>animAttackFireball</sub>
 			<sub>opAttackFireball</sub>
 		</subtasks>
 	</method>
@@ -103,6 +103,7 @@
 		<preconditions>
 			<pre>Equal IsEnemyVisible True</pre>
 			<pre>LessEqual EnemyDistance rngMelee</pre>
+			<pre>More EnemyDgrDiff dmgConeSize</pre>
 		</preconditions>
 		<subtasks>
 			<sub>opRotateToEnemy</sub>

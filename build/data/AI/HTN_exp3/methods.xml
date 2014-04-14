@@ -3,7 +3,7 @@
 	<alias>JumpFrequency 5000.0</alias>
 </aliases>
 <methods>
-	<method name="mthReactOnHit" usefulness="2.0" runAll="0">
+	<method name="mthReactOnHit" usefulness="2.0">
 		<goals>
 			<goal>glRoot</goal>
 		</goals>
@@ -14,7 +14,7 @@
 			<sub>opBackflip</sub>
 		</subtasks>
 	</method>
-	<method name="mthJump" usefulness="2.0" runAll="0">
+	<method name="mthJump" usefulness="2.0">
 		<goals>
 			<goal>glRoot</goal>
 		</goals>
@@ -25,7 +25,7 @@
 			<sub>opJump</sub>
 		</subtasks>
 	</method>
-	<method name="mthAttack" usefulness="2.0" runAll="0">
+	<method name="mthAttack" usefulness="2.0">
 		<goals>
 			<goal>glRoot</goal>
 		</goals>
@@ -33,11 +33,10 @@
 			<pre>LessEqual EnemyDistance rngMelee</pre>
 		</preconditions>
 		<subtasks>
-			<sub>animAttackMelee</sub>
 			<sub>opAttackMelee</sub>
 		</subtasks>
 	</method>
-	<method name="mthIdle" usefulness="1.0" runAll="0">
+	<method name="mthIdle" usefulness="1.0">
 		<goals>
 			<goal>glRoot</goal>
 		</goals>

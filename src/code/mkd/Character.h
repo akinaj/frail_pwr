@@ -166,6 +166,7 @@ public:
 
     void runAnimation(const mkString& animName, float duration);
     void runAnimation(const mkString& animName, float duration, float animDuration);
+    void stopAnimation();
 
     float getBodyScale() const;
 
@@ -174,7 +175,7 @@ public:
 
     mkVec3 getMovementDir() const { return m_movementDir; }
     void setMovementDir(mkVec3 val) { m_movementDir = val; }
-    void resetMovementDir() { m_movementDir == mkVec3::ZERO }
+    void resetMovementDir() { m_movementDir == mkVec3::ZERO; }
 private:
     void smoothChangeDirection();
     void smoothRotate();

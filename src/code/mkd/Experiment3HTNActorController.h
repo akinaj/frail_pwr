@@ -31,16 +31,11 @@ private:
     bool m_gotHit;
     float m_jumpTime;
     //////////////////////////////////////////////////////////////////////////
-    void executePlan(std::vector<HTN::pTask>& plan, float dt);
     void executeTask(HTN::pOperator op);
     void updateWorldState(float dt);
-    bool outcomeValidation(HTN::pOperator op);
-    aiVariant worldStateValue(std::string name) const;
-    bool isOperatorInterrupted(HTN::pOperator current, HTN::pOperator next);
 
     //----------actions----------
     bool actionIdle(HTN::pOperator op);
-    bool animAttackMelee(HTN::pOperator op);
     bool actionAttackMelee(HTN::pOperator op);
     bool actionBackflip(HTN::pOperator op);
     bool actionJump(HTN::pOperator op);

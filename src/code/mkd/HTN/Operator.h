@@ -4,7 +4,7 @@
 namespace HTN {
 	class Operator : public Task {
 	public:
-		Operator(std::string& name, float duration, bool isInterruptible, bool isAnim);
+		Operator(std::string& name, float duration, bool isInterruptible);
         Operator( Operator& other );
         virtual ~Operator();
         virtual Operator* clone();
@@ -18,9 +18,7 @@ namespace HTN {
 		bool isInterruptible() const { return m_isInterruptible; }
         std::vector<std::string>& getInterruptions() { return m_interruptVect; }
         void addInterruption(std::string& operatorName);
-        bool isAnim() const { return m_isAnim; }
 	private:
-        bool m_isAnim;
         float m_duration;
 		bool m_isInterruptible;
 		std::vector<std::pair<std::string, std::string>> m_outcome;

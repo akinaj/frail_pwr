@@ -10,12 +10,7 @@
 			<out>Running True</out>
 		</outcome>
 	</task>
-	<task name="animAttackMelee" duration="800" interruptible="0" isAnim="1">
-		<outcome>
-			<out>Running True</out>
-		</outcome>
-	</task>
-	<task name="opAttackMelee" duration="50" interruptible="0">
+	<task name="opAttackMelee" duration="1000" interruptible="0">
 		<outcome>
 			<out>Running True</out>
 		</outcome>

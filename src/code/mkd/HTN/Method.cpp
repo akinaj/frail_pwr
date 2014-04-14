@@ -25,7 +25,8 @@ namespace HTN {
                 pTask newTask(m_subtasks[i]->clone());
                 newTask->replaceParameters(parameters);
                 boost::shared_ptr<Operator> op = boost::dynamic_pointer_cast<HTN::Operator>(newTask);
-                op->replaceOutcome(parameters);
+                if(op)
+                    op->replaceOutcome(parameters);
                 tasks[i] = newTask;
             } else {
                 tasks[i] = m_subtasks[i];

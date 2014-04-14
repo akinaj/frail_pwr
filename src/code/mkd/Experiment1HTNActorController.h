@@ -35,12 +35,8 @@ private:
     mkVec3 m_shopPosition;
     mkVec3 m_minePosition;
     //////////////////////////////////////////////////////////////////////////
-    void executePlan(std::vector<HTN::pTask>& plan, float dt);
     void executeTask(HTN::pOperator op);
     void updateWorldState(float dt);
-    bool outcomeValidation(HTN::pOperator op);
-    aiVariant worldStateValue(std::string name) const;
-    bool isOperatorInterrupted(HTN::pOperator current, HTN::pOperator next);
 
     //----------actions----------
     bool actionGoto(HTN::pOperator op);

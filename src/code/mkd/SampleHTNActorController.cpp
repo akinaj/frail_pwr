@@ -43,8 +43,7 @@ void SampleHTNActorController::onUpdate(float dt){
         break;
     case HTN::PLAN_INTERRUPTED:
         getAI()->stopSmoothChangeDir();
-        executeTask(newTask);
-        break;
+        getAI()->stopAnimation();
     case HTN::PLAN_NEW:
         executeTask(newTask);
         break;

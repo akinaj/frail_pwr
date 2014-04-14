@@ -44,7 +44,25 @@ void Experiment1HTNActorController::onTakeDamage(const SDamageInfo& dmg_info){
 
 void Experiment1HTNActorController::onUpdate(float dt){
     updateWorldState(dt);
-    executePlan(m_planner->getPlan(getAI()->getHtnMethodsPath(),getAI()->getHtnOperatorsPath(),getAI()->getHtnGoalsPath()), dt);
+
+    std::vector<HTN::pTask> plan = m_planner->getPlan(getAI()->getHtnMethodsPath(),getAI()->getHtnOperatorsPath(),getAI()->getHtnGoalsPath());
+    HTN::pOperator newTask;
+    HTN::PlanResult result = m_planner->resolvePlan(plan, dt, newTask);
+
+    switch (result)
+    {
+    case HTN::PLAN_EMPTYPLAN:
+        getAI()->setSpeed(0.f);
+        break;
+    case HTN::PLAN_INTERRUPTED:
+        getAI()->stopSmoothChangeDir();
+        getAI()->stopAnimation();
+    case HTN::PLAN_NEW:
+        executeTask(newTask);
+        break;
+    case HTN::PLAN_RUNNING:
+        break;
+    }
 }
 
 void Experiment1HTNActorController::onDebugDraw(){
@@ -78,81 +96,11 @@ void Experiment1HTNActorController::updateWorldState(float dt){
         m_planner->setStateBool("Mine",false);
 }
 
-void Experiment1HTNActorController::executePlan(std::vector<HTN::pTask>& plan, float dt){
-    if(plan.size() == 0){
-        getAI()->setSpeed(0.f);
-        return;
-    }
-
-    if(m_currentIdx >= plan.size())
-        m_currentIdx = 0;
-
-    if(m_currentIdx > 0 && plan[m_currentIdx-1] != m_currentTask)
-        m_currentIdx = 0;
-
-    HTN::pOperator nextTask = boost::dynamic_pointer_cast<HTN::Operator>(plan[m_currentIdx]);
-    if(m_currentTask && m_currentTask->isInterruptible()){
-        if(!outcomeValidation(m_currentTask) || isOperatorInterrupted(m_currentTask, nextTask))
-            m_interrupted = true;
-    }
-
-    if(m_interrupted)
-        getAI()->stopSmoothChangeDir();
-
-    if(!m_isTaskExecuted || m_interrupted){
-        if(nextTask->isAnim())
-            ++m_currentIdx;
-        else
-            m_currentIdx = 0;
-
-        if(m_interrupted){
-            m_interrupted = false;
-            //Ogre::LogManager::getSingleton().logMessage("+++Interrupted+++");
-        }
-
-        m_taskDuration = nextTask->getDuration()/1000;
-        executeTask(nextTask);
-        m_isTaskExecuted = true;
-    } else {
-        m_taskDuration = m_taskDuration - dt;
-        if(m_taskDuration <= 0)
-            m_isTaskExecuted = false;
-    }
-}
-
 void Experiment1HTNActorController::executeTask(HTN::pOperator nextTask){
     //Ogre::LogManager::getSingleton().logMessage(nextTask->getName());
     ctrlrAction action = m_actions[nextTask->getName()];
     (this->*action)(nextTask);
     m_currentTask = nextTask;
-}
-
-bool Experiment1HTNActorController::outcomeValidation(HTN::pOperator op){
-    std::vector<std::pair<std::string, std::string>> outcomeVect = op->getOutcome();
-
-    bool result;
-    for(size_t i=0; i<outcomeVect.size(); ++i){
-        notEqual(worldStateValue(outcomeVect[i].first),worldStateValue(outcomeVect[i].second), result);
-        if(!result)
-            return false;
-    }
-
-    return true;
-}
-
-aiVariant Experiment1HTNActorController::worldStateValue(std::string name) const{
-    return m_planner->getStateVariant(name);
-}
-
-bool Experiment1HTNActorController::isOperatorInterrupted(HTN::pOperator current, HTN::pOperator next){
-    std::vector<std::string> interruptions = current->getInterruptions();
-
-    for(size_t i=0; i<interruptions.size(); ++i){
-        if(std::strcmp(next->getName().c_str(), interruptions[i].c_str()) == 0)
-            return true;
-    }
-
-    return false;
 }
 
 //----------actions----------
@@ -197,6 +145,7 @@ bool Experiment1HTNActorController::actionDigGold( HTN::pOperator op )
 bool Experiment1HTNActorController::actionBuy( HTN::pOperator op )
 {
     bool isValid = true;
+    //gold should be checked to avoid negative gold balance
     m_npcGold -= m_planner->getStateFloat(op->getParameters()[1], isValid);
     if (op->getParameters()[0] == "Pickaxe")
     {

@@ -2,14 +2,11 @@
 #include "Experiment3HTNActorController.h"
 #include "contrib/DebugDrawer.h"
 
-#define SPOT_RADIUS 5.f
-
 Experiment3HTNActorController::Experiment3HTNActorController( ActorAI* ai ) : IActorController(ai)
 {
     //actions////////////////////////////////////////////////////////////////////////
     m_actions["opBackflip"] = &Experiment3HTNActorController::actionBackflip;
     m_actions["opJump"] = &Experiment3HTNActorController::actionJump;
-    m_actions["animAttackMelee"] = &Experiment3HTNActorController::animAttackMelee;
     m_actions["opAttackMelee"] = &Experiment3HTNActorController::actionAttackMelee;
     m_actions["opIdle"] = &Experiment3HTNActorController::actionIdle;
 
@@ -44,9 +41,25 @@ void Experiment3HTNActorController::onTakeDamage(const SDamageInfo& dmg_info){
 
 void Experiment3HTNActorController::onUpdate(float dt){
     updateWorldState(dt);
-    
+
     std::vector<HTN::pTask> plan = m_planner->getPlan(getAI()->getHtnMethodsPath(),getAI()->getHtnOperatorsPath(),getAI()->getHtnGoalsPath());
-    executePlan(plan, dt);
+    HTN::pOperator newTask;
+    HTN::PlanResult result = m_planner->resolvePlan(plan, dt, newTask);
+
+    switch (result)
+    {
+    case HTN::PLAN_EMPTYPLAN:
+        getAI()->setSpeed(0.f);
+        break;
+    case HTN::PLAN_INTERRUPTED:
+        getAI()->stopSmoothChangeDir();
+        getAI()->stopAnimation();
+    case HTN::PLAN_NEW:
+        executeTask(newTask);
+        break;
+    case HTN::PLAN_RUNNING:
+        break;
+    }
 }
 
 void Experiment3HTNActorController::onDebugDraw(){
@@ -71,81 +84,11 @@ void Experiment3HTNActorController::updateWorldState(float dt){
     }
 }
 
-void Experiment3HTNActorController::executePlan(std::vector<HTN::pTask>& plan, float dt){
-    if(plan.size() == 0){
-        getAI()->setSpeed(0.f);
-        return;
-    }
-
-    if(m_currentIdx >= plan.size())
-        m_currentIdx = 0;
-
-    if(m_currentIdx > 0 && plan[m_currentIdx-1] != m_currentTask)
-        m_currentIdx = 0;
-
-    HTN::pOperator nextTask = boost::dynamic_pointer_cast<HTN::Operator>(plan[m_currentIdx]);
-    if(m_currentTask && m_currentTask->isInterruptible()){
-        if(!outcomeValidation(m_currentTask) || isOperatorInterrupted(m_currentTask, nextTask))
-            m_interrupted = true;
-    }
-
-    if(m_interrupted)
-        getAI()->stopSmoothChangeDir();
-
-    if(!m_isTaskExecuted || m_interrupted){
-        if(nextTask->isAnim())
-            ++m_currentIdx;
-        else
-            m_currentIdx = 0;
-
-        if(m_interrupted){
-            m_interrupted = false;
-            //Ogre::LogManager::getSingleton().logMessage("+++Interrupted+++");
-        }
-
-        m_taskDuration = nextTask->getDuration()/1000;
-        executeTask(nextTask);
-        m_isTaskExecuted = true;
-    } else {
-        m_taskDuration = m_taskDuration - dt;
-        if(m_taskDuration <= 0)
-            m_isTaskExecuted = false;
-    }
-}
-
 void Experiment3HTNActorController::executeTask(HTN::pOperator nextTask){
     //Ogre::LogManager::getSingleton().logMessage(nextTask->getName());
     ctrlrAction action = m_actions[nextTask->getName()];
     (this->*action)(nextTask);
     m_currentTask = nextTask;
-}
-
-bool Experiment3HTNActorController::outcomeValidation(HTN::pOperator op){
-    std::vector<std::pair<std::string, std::string>> outcomeVect = op->getOutcome();
-
-    bool result;
-    for(size_t i=0; i<outcomeVect.size(); ++i){
-        notEqual(worldStateValue(outcomeVect[i].first),worldStateValue(outcomeVect[i].second), result);
-        if(!result)
-            return false;
-    }
-
-    return true;
-}
-
-aiVariant Experiment3HTNActorController::worldStateValue(std::string name) const{
-    return m_planner->getStateVariant(name);
-}
-
-bool Experiment3HTNActorController::isOperatorInterrupted(HTN::pOperator current, HTN::pOperator next){
-    std::vector<std::string> interruptions = current->getInterruptions();
-
-    for(size_t i=0; i<interruptions.size(); ++i){
-        if(std::strcmp(next->getName().c_str(), interruptions[i].c_str()) == 0)
-            return true;
-    }
-
-    return false;
 }
 
 //----------actions----------
@@ -159,15 +102,9 @@ bool Experiment3HTNActorController::actionIdle( HTN::pOperator op )
     return true;
 }
 
-bool Experiment3HTNActorController::animAttackMelee( HTN::pOperator op )
-{
-    getAI()->runAnimation("Attack3",op->getDuration());
-    getAI()->setSpeed(0.f);
-    return true;
-}
-
 bool Experiment3HTNActorController::actionAttackMelee( HTN::pOperator op )
 {
+    getAI()->runAnimation("Attack3",op->getDuration());
     getAI()->hitMelee();
     getAI()->setSpeed(0.f);
     return true;

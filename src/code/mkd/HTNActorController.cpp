@@ -17,10 +17,10 @@ HTNActorController::HTNActorController( ActorAI* ai ) : IActorController(ai)
     m_actions["opAngerMode"] = &HTNActorController::actionAngerMode;
     m_actions["opExploreSpot"] = &HTNActorController::actionExploreSpot;
     m_actions["opKeepDistance"] = &HTNActorController::actionKeepDistance;
-    //animations////////////////////////////////////////////////////////////////////////
-    m_actions["animAttackMelee"] = &HTNActorController::animAttackMelee;
-    m_actions["animAttackPunch"] = &HTNActorController::animAttackPunch;
+    //////////////////////////////////////////////////////////////////////////
     m_actions["animAngerMode"] = &HTNActorController::animAngerMode;
+    m_actions["animAttackFireball"] = &HTNActorController::animAttackFireball;
+    m_actions["animAttackMelee"] = &HTNActorController::animAttackMelee;
 
     m_isAttacked = false;
     m_enemyRunningAway = false;
@@ -39,7 +39,7 @@ HTNActorController::~HTNActorController(){
 //////////////////////////////////////////////////////////////////////////
 
 void HTNActorController::onCreate(){
-    getAI()->setDirection(mkVec3::ZERO-mkVec3::UNIT_Z);
+    getAI()->lookAt(mkVec3::ZERO);
     //ai_specific////////////////////////////////////////////////////////////////////////
     m_planner->setStateFloat("rngMelee",getAI()->getMeleeRange());
     m_planner->setStateFloat("rngFbMax",getAI()->getShootingRange());
@@ -79,8 +79,7 @@ void HTNActorController::onUpdate(float dt){
         break;
     case HTN::PLAN_INTERRUPTED:
         getAI()->stopSmoothChangeDir();
-        executeTask(newTask);
-        break;
+        getAI()->stopAnimation();
     case HTN::PLAN_NEW:
         executeTask(newTask);
         break;
@@ -207,6 +206,8 @@ bool HTNActorController::actionAttackMelee(float duration){
 bool HTNActorController::actionAttackFireball(float duration){
     if(!m_target)
         return false;
+
+    
     getAI()->hitFireball(m_target->getSimPos());
     getAI()->setSpeed(0.f);
     return true;
@@ -241,7 +242,6 @@ bool HTNActorController::actionAngerMode(float duration){
         return false;
 
     getAI()->hitAngerMode();
-    getAI()->setSpeed(0.f);
     m_angerMode = true;
     return true;
 }
@@ -279,23 +279,35 @@ bool HTNActorController::actionKeepDistance(float duration)
     return false;
 }
 
-bool HTNActorController::animAttackMelee( float duration )
-{
-    getAI()->runAnimation("Attack3",duration);
-    getAI()->setSpeed(0.f);
-    return true;
-}
-
-bool HTNActorController::animAttackPunch( float duration )
-{
-    getAI()->runAnimation("Attack1",duration);
-    getAI()->setSpeed(0.f);
-    return true;
-}
-
 bool HTNActorController::animAngerMode( float duration )
 {
+    if(!m_target)
+        return false;
+
     getAI()->runAnimation("HighJump",duration);
     getAI()->setSpeed(0.f);
+
+    return true;
+}
+
+bool HTNActorController::animAttackMelee( float duration )
+{
+    if(!m_target)
+        return false;
+
+    getAI()->runAnimation("Attack3",duration);
+    getAI()->setSpeed(0.f);
+
+    return true;
+}
+
+bool HTNActorController::animAttackFireball( float duration )
+{
+    if(!m_target)
+        return false;
+
+    getAI()->runAnimation("Attack1",duration);
+    getAI()->setSpeed(0.f);
+
     return true;
 }

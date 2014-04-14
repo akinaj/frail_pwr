@@ -80,7 +80,7 @@
 			<pre>LessEqual EnemyDgrDiff FireballCone</pre>
 		</preconditions>
 		<subtasks>
-			<sub>animAttackPunch</sub>
+			<sub>animAttackFireball</sub>
 			<sub>opAttackFireball</sub>
 		</subtasks>
 	</method>

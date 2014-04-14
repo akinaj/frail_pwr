@@ -2,7 +2,7 @@
 #include "HTN\Task.h"
 
 namespace HTN {
-	Task::Task(){}
+	Task::Task(){ m_last = false; }
 	Task::~Task(){}
 
     void Task::setTempValues(State& state)

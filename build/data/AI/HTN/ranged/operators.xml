@@ -50,7 +50,11 @@
 			<out>IsEnemyDead True</out>
 		</outcome>
 	</task>
-	<task name="animAttackMelee" duration="1500" interruptible="0" isAnim="1"/>
-	<task name="animAttackPunch" duration="500" interruptible="0" isAnim="1"/>
-	<task name="animAngerMode" duration="1000" interruptible="0" isAnim="1"/>
+	<task name="animAngerMode" duration="1200" interruptible="0"/>
+	<task name="animAttackFireball" duration="400" interruptible="0"/>
+	<task name="animAttackMelee" duration="1500" interruptible="1">
+		<interruptions>
+			<int>opRotateToEnemy</int>
+		</interruptions>
+	</task>
 </tasks>

@@ -20,7 +20,7 @@
 			<out>IsEnemyDead True</out>
 		</outcome>
 	</task>
-	<task name="opRotateToEnemy" duration="800" interruptible="0">
+	<task name="opRotateToEnemy" duration="500" interruptible="0">
 		<outcome>
 			<out>EnemyDgrDiff Zero</out>
 		</outcome>
@@ -35,17 +35,24 @@
 			<out>IsEnemyDead True</out>
 		</outcome>
 	</task>
-	<task name="opReduceDistance" duration="250" interruptible="1">
+	<task name="opReduceDistance" duration="300" interruptible="1">
 		<outcome>
 			<out>EnemyDistance Zero</out>
 		</outcome>
+		<interruptions>
+			<int>animAttackMelee</int>
+		</interruptions>
 	</task>
 	<task name="opRevealAttacker" duration="2000" interruptible="1">
 		<outcome>
 			<out>IsEnemyVisible True</out>
 		</outcome>
 	</task>
-	<task name="animAttackMelee" duration="1500" interruptible="0" isAnim="1"/>
-	<task name="animAttackPunch" duration="600" interruptible="0" isAnim="1"/>
-	<task name="animAngerMode" duration="1000" interruptible="0" isAnim="1"/>
+	<task name="animAngerMode" duration="1200" interruptible="0"/>
+	<task name="animAttackFireball" duration="600" interruptible="0"/>
+	<task name="animAttackMelee" duration="1200" interruptible="1">
+		<interruptions>
+			<int>opRotateToEnemy</int>
+		</interruptions>
+	</task>
 </tasks>

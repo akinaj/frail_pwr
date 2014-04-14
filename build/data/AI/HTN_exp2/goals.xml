@@ -3,13 +3,18 @@
 	<task name="glGetGold" main="1">
 		<postconditions>
 			<post>MoreEqual NPCGold WinGold</post>
+			<post>Equal Pickaxe True</post>
+			<post>Equal Helmet True</post>
+			<post>Equal Lantern True</post>
 		</postconditions>
 	</task>
-	<task name="glDigGold">
+	<task name="glDigGold"/>
+	<task name="glBuy" />
+	<task name="glBuyItem" />
+	<task name="glGoto" />
+	<task name="glDig" >
 		<postconditions>
 			<post>MoreEqual NPCGold WinGold</post>
 		</postconditions>
 	</task>
-	<task name="glBuy" />
-	<task name="glGoto" />
 </tasks>

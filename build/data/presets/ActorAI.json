@@ -232,7 +232,7 @@
         "PresetName" : "NinjaExperiment3",
         "Extends" : "AIBase",
         "m_prefabName" : "actor_ninja_enemy",
-        "m_characterCtrlName" : "Experiment3BT"
+        "m_characterCtrlName" : "Experiment3HTN"
 		"m_conflictSide" : "BlueTeam",
         "m_maxSpeed" : "0.06",
         "m_canJump" : "true",
@@ -301,7 +301,7 @@
         "Extends" : "AIBlue"
     }
     
-    // AI Sandbox - Boss Battle
+    // FRAIL - Boss Battle
     ///////////////////////////////////////////////////////////////////////////
     "Preset" :
     {
@@ -310,7 +310,40 @@
         "m_canJump" : "true",
         "m_sightDist" : "100.0",
         "m_horSightAngleRad" : "1.8",
-		"m_shootingRange" : "25.0",
+		"m_shootingRange" : "30.0",
+        "m_prefabName" : "actor_boss_ninja",
+        "m_conflictSide" : "BlueTeam",
+        "m_characterCtrlName" : "HTN",
+        "m_rangedLaunchPosHelperName" : "Joint17",
+		"m_health" : "200.0",
+		"m_maxHealth" : "200.0",
+		"m_damageMultiplier" : "5.0",
+		"m_meleeConeSize" : "45.0",
+		"m_meleeRange": "3.0",
+		"m_smellRange": "5.0",
+		"m_btTreePath": "data\\AI\\BT\\melee.xml",
+		"m_htnMethodsPath": "data\\AI\\HTN\\melee\\methods.xml",
+		"m_htnOperatorsPath": "data\\AI\\HTN\\melee\\operators.xml",
+		"m_htnGoalsPath": "data\\AI\\HTN\\goals.xml",
+        "m_collisionCapsuleRadius" : "0.8",
+        "m_collisionCapsuleHeight" : "2.8",
+        "m_meshName" : "ninja.mesh",
+        "m_visStartForwardVector" : "0.0 0.0 -1.0",
+        "m_visStartOffset" : "0.0 -2.2 0.0",
+        "m_bodyScale" : "0.022",
+        "m_overrideMaterialName" : "NinjaRed"
+    },
+	
+	// FRAIL - Reference boss
+    ///////////////////////////////////////////////////////////////////////////
+    "Preset" :
+    {
+        "PresetName" : "FRAILReference",
+        "m_maxSpeed" : "0.05",
+        "m_canJump" : "true",
+        "m_sightDist" : "100.0",
+        "m_horSightAngleRad" : "1.8",
+		"m_shootingRange" : "30.0",
         "m_prefabName" : "actor_boss_ninja",
         "m_conflictSide" : "RedTeam",
         "m_characterCtrlName" : "HTN",

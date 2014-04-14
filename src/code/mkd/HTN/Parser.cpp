@@ -146,7 +146,6 @@ namespace HTN {
         std::string taskName;
         float duration = 20.f;
         bool interruptible = true;
-        bool isAnim = false;
         std::vector<std::string> outSplit(2);
 
         pugi::xml_node xmlTasks = m_xmlDoc->child("tasks");
@@ -160,10 +159,8 @@ namespace HTN {
                 duration = (float)atof(xmlTask.attribute("duration").value());
             if(!xmlTask.attribute("interruptible").empty())
                 interruptible = std::string(xmlTask.attribute("interruptible").value()) != "0";
-            if(!xmlTask.attribute("isAnim").empty())
-                isAnim = std::string(xmlTask.attribute("isAnim").value()) != "0";
 
-            pTask task(new Operator(taskName, duration, interruptible, isAnim));
+            pTask task(new Operator(taskName, duration, interruptible));
             operators.push_back(task);
 
             for(pugi::xml_node outcome = xmlTask.child("outcome").first_child(); outcome; outcome = outcome.next_sibling()){

@@ -19,6 +19,6 @@
         "m_visStartOffset" : "0.0 -0.98 0.0",
         "m_bodyScale" : "0.01",
         "m_overrideMaterialName" : "NinjaGreen"
-		"m_conflictSide" : "Unknown",
+		"m_conflictSide" : "RedTeam",
     }
 }

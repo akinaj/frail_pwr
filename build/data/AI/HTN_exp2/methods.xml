@@ -11,22 +11,66 @@
 			<goal>glGetGold</goal>
 		</goals>
 		<subtasks>
-			<sub>glBuy Pickaxe PickaxePrice</sub>
-			<sub>glBuy Helmet HelmetPrice</sub>
 			<sub>glBuy Lantern LanternPrice</sub>
+			<sub>glBuy Helmet HelmetPrice</sub>
+			<sub>glBuy Pickaxe PickaxePrice</sub>
 			<sub>glDigGold</sub>
 		</subtasks>
 	</method>
-	<method name="mthDigGold" usefulness="1.0" runAll="0">
+	<method name="mthDigGoldPickaxe" usefulness="4.0" runAll="0">
 		<goals>
 			<goal>glDigGold</goal>
 		</goals>
 		<preconditions>
 			<pre>Less NPCGold WinGold</pre>
+			<pre>Equal Lantern True</pre>
 		</preconditions>
 		<subtasks>
+			<sub>glDig</sub>
 			<sub>glGoto Mine</sub>
-			<sub>opDigGold</sub>
+		</subtasks>
+	</method>
+	<method name="mthDigGoldPickaxe" usefulness="1.0" runAll="0">
+		<goals>
+			<goal>glDigGold</goal>
+		</goals>
+		<preconditions>
+			<pre>Less NPCGold WinGold</pre>
+			<pre>Less NPCGold PickaxePrice</pre>
+		</preconditions>
+		<subtasks>
+			<sub>glDig</sub>
+			<sub>glGoto Mine</sub>
+		</subtasks>
+	</method>
+	<method name="mthDigGoldHelmet" usefulness="2.0" runAll="0">
+		<goals>
+			<goal>glDigGold</goal>
+		</goals>
+		<preconditions>
+			<pre>Less NPCGold WinGold</pre>
+			<pre>Equal Pickaxe True</pre>
+			<pre>MoreEqual NPCGold PickaxePrice</pre>
+			<pre>Less NPCGold HelmetPrice</pre>
+		</preconditions>
+		<subtasks>
+			<sub>glDig</sub>
+			<sub>glGoto Mine</sub>
+		</subtasks>
+	</method>
+	<method name="mthDigGoldLantern" usefulness="3.0" runAll="0">
+		<goals>
+			<goal>glDigGold</goal>
+		</goals>
+		<preconditions>
+			<pre>Less NPCGold WinGold</pre>
+			<pre>Equal Helmet True</pre>
+			<pre>MoreEqual NPCGold HelmetPrice</pre>
+			<pre>Less NPCGold LanternPrice</pre>
+		</preconditions>
+		<subtasks>
+			<sub>glDig</sub>
+			<sub>glGoto Mine</sub>
 		</subtasks>
 	</method>
 	<method name="mthBuy" usefulness="2.0" runAll="0">
@@ -38,8 +82,8 @@
 			<pre>MoreEqual NPCGold $1</pre>
 		</preconditions>
 		<subtasks>
+			<sub>glBuyItem $0 $1</sub>
 			<sub>glGoto Shop</sub>
-			<sub>opBuy $0 $1</sub>
 		</subtasks>
 	</method>
 	<method name="mthGoto">
@@ -51,6 +95,29 @@
 		</preconditions>
 		<subtasks>
 			<sub>opGoto $0</sub>
+		</subtasks>
+	</method>
+	<method name="mthBuyItem">
+		<goals>
+			<goal>glBuyItem</goal>
+		</goals>
+		<preconditions>
+			<pre>MoreEqual NPCGold $1</pre>
+			<pre>Equal Shop True</pre>
+		</preconditions>
+		<subtasks>
+			<sub>opBuy $0 $1</sub>
+		</subtasks>
+	</method>
+	<method name="mthDigGold">
+		<goals>
+			<goal>glDig</goal>
+		</goals>
+		<preconditions>
+			<pre>Equal Mine True</pre>
+		</preconditions>
+		<subtasks>
+			<sub>opDigGold</sub>
 		</subtasks>
 	</method>
 </methods>

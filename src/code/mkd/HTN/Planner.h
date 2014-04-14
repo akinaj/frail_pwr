@@ -38,6 +38,9 @@ namespace HTN {
         std::vector<pMethod> m_methods;
         std::vector<pTask> m_operators;
         State m_worldState;
+        std::vector<HTN::pTask> m_executedPlan;
+        bool m_lastTaskReached;
+        mkString m_lastPlanDebug;
 
         int m_currentIdx;
         float m_taskDuration;
