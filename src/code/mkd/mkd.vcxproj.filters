@@ -270,6 +270,9 @@
     <ClCompile Include="BossFSMActorController.cpp">
       <Filter>Game\ActorControllers\FSMControllers</Filter>
     </ClCompile>
+    <ClCompile Include="SampleFSMActorController.cpp">
+      <Filter>Game\ActorControllers\FSMControllers</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="contrib\DebugDrawer.h">
@@ -489,6 +492,9 @@
       <Filter>Game\ActorControllers\Other</Filter>
     </ClInclude>
     <ClInclude Include="BossFSMActorController.h">
+      <Filter>Game\ActorControllers\FSMControllers</Filter>
+    </ClInclude>
+    <ClInclude Include="SampleFSMActorController.h">
       <Filter>Game\ActorControllers\FSMControllers</Filter>
     </ClInclude>
   </ItemGroup>

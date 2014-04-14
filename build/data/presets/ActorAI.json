@@ -313,7 +313,7 @@
 		"m_shootingRange" : "30.0",
         "m_prefabName" : "actor_boss_ninja",
         "m_conflictSide" : "BlueTeam",
-        "m_characterCtrlName" : "HTN",
+        "m_characterCtrlName" : "BT",
         "m_rangedLaunchPosHelperName" : "Joint17",
 		"m_health" : "200.0",
 		"m_maxHealth" : "200.0",

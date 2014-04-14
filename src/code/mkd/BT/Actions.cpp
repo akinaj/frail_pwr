@@ -34,6 +34,11 @@ namespace BT {
         m_conditions.push_back(condition);
     }
 
+    void Action::addInterruption(Condition* condition)
+    {
+        m_interruptions.push_back(condition);
+    }
+
     bool Action::validateConditions(BlackBoard* bb)
     {
         for(size_t i=0; i<m_conditions.size(); ++i){
@@ -41,6 +46,15 @@ namespace BT {
                 return false;
         }
         return true;
+    }
+
+    bool Action::validateInterruptions(BlackBoard* bb)
+    {
+        for(size_t i=0; i<m_interruptions.size(); ++i){
+            if(m_interruptions[i].validateCondition(bb))
+                return true;
+        }
+        return false;
     }
 
     inline Status Action::runUntil()
@@ -57,8 +71,11 @@ namespace BT {
     inline bool Action::isValid()
     {
         if(isInterruptible()){
-            if(!validateConditions(m_bb))
+            if(!validateConditions(m_bb) || validateInterruptions(m_bb)){
+                m_AI->stopSmoothChangeDir();
+                m_AI->stopAnimation();
                 return false;
+            }
         } else {
             if(!(validateConditions(m_bb) || getStatus() == BH_RUNNING))
                 return false;

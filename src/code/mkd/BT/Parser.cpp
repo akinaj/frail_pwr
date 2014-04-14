@@ -1,13 +1,6 @@
 #include "pch.h"
 #include "Parser.h"
 
-#define CREATE_NODE(class_prefix) if (are_strings_equal_case_insensitive(controller_id, #class_prefix)) { \
-    IActorController* result = new class_prefix##ActorController(ai);   \
-    m_createdControllers.push_back(result);                             \
-    result->onCreate();                                                 \
-    return result;                                                      \
-                                        }
-
 namespace BT {
 
     Parser::Parser()
@@ -197,7 +190,11 @@ namespace BT {
             condSplit.clear();
             condSplit = splitString(condition.child_value());
             Condition* cond = new Condition(m_condMap[condSplit[0]], condSplit[1], condSplit[2]);
-            actionNode->addCondition(cond);
+            if(std::strcmp(condition.name(),"pre") == 0){
+                actionNode->addCondition(cond);
+            } else {
+                actionNode->addInterruption(cond);
+            }
         }
 
         return true;
@@ -216,6 +213,7 @@ namespace BT {
         return true;
     }
 
+    //TODO factory or RTTI
     Behavior* Parser::createNode( pugi::xml_node& xmlNode )
     {
         Behavior* result;

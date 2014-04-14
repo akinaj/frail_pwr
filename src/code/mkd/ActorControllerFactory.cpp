@@ -5,15 +5,22 @@
 #include "pch.h"
 #include "ActorControllerFactory.h"
 
+//Other/////////////////////////////////////////////////////////////////////
 #include "TestActorController.h"
 #include "StateMachineActorController.h"
 #include "UserActorController.h"
-#include "CtfSMActorController.h"
 #include "BoidActorController.h"
+//FSM///////////////////////////////////////////////////////////////////////
+#include "CtfSMActorController.h"
+#include "BossFSMActorController.h"
+#include "SampleFSMActorController.h"
+//HTN///////////////////////////////////////////////////////////////////////
 #include "HTNActorController.h"
 #include "SampleHTNActorController.h"
+//BT////////////////////////////////////////////////////////////////////////
 #include "BTActorController.h"
 #include "SampleBTActorController.h"
+//Experiments///////////////////////////////////////////////////////////////
 #include "Experiment1BTActorController.h"
 #include "Experiment1HTNActorController.h"
 #include "Experiment3HTNActorController.h"
@@ -43,6 +50,8 @@ IActorController* ActorControllerFactory::create( const mkString& controller_id,
     CREATE_CONTROLLER(Experiment1BT);
     CREATE_CONTROLLER(Experiment3HTN);
     CREATE_CONTROLLER(Experiment3BT);
+    CREATE_CONTROLLER(SampleFSM);
+    CREATE_CONTROLLER(BossFSM);
 
     MK_ASSERT_MSG(false, "Unrecognized actor controller '%s'", controller_id.c_str());
     return NULL;

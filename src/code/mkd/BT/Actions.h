@@ -14,8 +14,10 @@ namespace BT {
         virtual void onInitialize(BlackBoard* bb);
         virtual void onTerminate(Status status);
 
-        virtual bool validateConditions(BlackBoard* bb);
+        bool validateConditions(BlackBoard* bb);
+        bool validateInterruptions(BlackBoard* bb);
         void addCondition(Condition* condition);
+        void addInterruption(Condition* condition);
         size_t conditionSize() { return m_conditions.size(); }
 
         inline Status runUntil();
@@ -32,6 +34,7 @@ namespace BT {
     protected:
         ActorAI* m_AI;
         boost::ptr_vector<Condition> m_conditions;
+        boost::ptr_vector<Condition> m_interruptions;
         std::string m_name;
         float m_duration;
         bool m_interruptible;
