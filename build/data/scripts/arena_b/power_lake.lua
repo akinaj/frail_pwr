@@ -35,7 +35,7 @@ function onTouched(touched_object)
 		heal_value = healing_per_second / heal_period
 		
 		if IsDerivedOrExactClass(touched_object:GetObject(), "Character") then
-			Character.AddHealth(touched_object:GetObject(), heal_value)
+			if GetFieldValue(touched_object:GetObject(), "m_health") > 0 then Character.AddHealth(touched_object:GetObject(), heal_value) end
 		end		
 		last_healing_times[GetObjectName(touched_object:GetObject())] = GetTime()
 	end

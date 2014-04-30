@@ -110,7 +110,7 @@ end
 				if IsDerivedOrExactClass(v:GetObject(), "ActorAI") then
 					SetWorldPosition(bilboard:GetObject(), (pos_act+mkVec3.new(0, 4.7 ,0)))	
 				end
-				if (dd_timer + 5 < GetTime()) and dont_t then
+				if (dd_timer + 30 < GetTime()) and dont_t then
 					dont_t = false
 					SetFieldValue(v:GetObject(), "m_damageMultiplier", GetFieldValue(v:GetObject(), "m_damageMultiplier") / 2)
 					SetFieldValue(v:GetObject(), "m_buff", false)

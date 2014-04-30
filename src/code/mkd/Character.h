@@ -32,7 +32,6 @@ namespace EConflictSide
 
 struct SensorCollision
 {
-    char dupa;
 };
 
 struct RayCastResult
