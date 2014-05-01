@@ -14,13 +14,18 @@
 #include "rtti/PresetMgr.h"
 #include "ctf/CtfMgr.h"
 #include "Player.h"
+#include "MeshObject.h"
+#include "Contrib/OgreRecast/include/OgreRecast.h"
+#include "Contrib/OgreRecast/include/OgreDetourTileCache.h"
 
 Level::Level()
     : m_localPlayer(NULL)
     , m_currFrameFindObjectsByIdQueriesNum(0)
     , m_inDestruction(false)
+	, m_meshName("2nomansland.mesh")
 {
     m_objectsMgr.init(this);
+	//m_playerStartPos =  mkVec3(114.3516f, 10.8807f, 98.7614f);
 }
 
 Level::~Level()
@@ -38,7 +43,40 @@ bool Level::load( const mkString& desc_file_name)
         return false;
     }
 
+	initLevelNavMesh();
+
     return true;
+}
+
+void Level::initLevelNavMesh()
+{
+	Ogre::LogManager::getSingletonPtr()->logMessage("initLevelNavMesh() called");
+
+	Ogre::LogManager::getSingletonPtr()->logMessage("createEntity() called");
+	Ogre::Entity* level_mesh = g_game->getOgreSceneMgr()->createEntity("LevelMesh", m_meshName);
+
+	Ogre::LogManager::getSingletonPtr()->logMessage("createChildSceneNode() called");
+	Ogre::SceneNode* level_node = g_game->getOgreSceneMgr()->getRootSceneNode()->createChildSceneNode();
+
+	Ogre::LogManager::getSingletonPtr()->logMessage("attachObject() called");
+	level_node->attachObject(level_mesh);
+
+	level_mesh->setCastShadows(false);
+
+	this->ogreRecast = new OgreRecast(getOgreSceneMgr());
+	std::vector<Ogre::Entity* > mNavmeshEnts;
+	mNavmeshEnts.push_back(getOgreSceneMgr()->getEntity("LevelMesh"));
+	
+	
+	ogreRecast->NavMeshBuild(mNavmeshEnts);
+	ogreRecast->drawNavMesh();
+	
+	
+	OgreDetourTileCache *detourTileCache = new OgreDetourTileCache(ogreRecast);
+	detourTileCache->TileCacheBuild(mNavmeshEnts);
+	detourTileCache->drawNavMesh();
+	
+	Ogre::LogManager::getSingletonPtr()->logMessage("initLevelNavMesh() done");
 }
 
 void Level::updateRendering( float dt )
@@ -275,7 +313,10 @@ void Level::setLocalPlayer( Player* player )
 {
     m_localPlayer = player;
 
-    g_game->getCamera()->setTarget(m_localPlayer);
+	if(!g_game->isFreelookCamera()) 
+	{
+		    g_game->getCamera()->setTarget(m_localPlayer);
+	}
 }
 
 GameObject* Level::findObjectByName( const mkString& name, const rtti::TypeInfo* exact_class /*= NULL*/ ) const

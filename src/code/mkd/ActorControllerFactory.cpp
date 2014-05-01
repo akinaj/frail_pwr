@@ -26,6 +26,9 @@
 #include "Experiment3HTNActorController.h"
 #include "Experiment3BTActorController.h"
 
+//Pathfinding
+#include "PathfindingActorController.h"
+
 // TODO: remove this factory, make actor controllers ordinary GameObjects and use RTTI for instantiating controllers dynamically with their class name
 
 #define CREATE_CONTROLLER(class_prefix) if (are_strings_equal_case_insensitive(controller_id, #class_prefix)) { \
@@ -52,6 +55,7 @@ IActorController* ActorControllerFactory::create( const mkString& controller_id,
     CREATE_CONTROLLER(Experiment3BT);
     CREATE_CONTROLLER(SampleFSM);
     CREATE_CONTROLLER(BossFSM);
+	CREATE_CONTROLLER(Pathfinding);
 
     MK_ASSERT_MSG(false, "Unrecognized actor controller '%s'", controller_id.c_str());
     return NULL;

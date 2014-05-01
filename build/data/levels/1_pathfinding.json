@@ -1,0 +1,45 @@
+{
+    "StaticCollidableMesh" :
+    {
+        "m_meshName" : "2nomansland.mesh"
+    },
+    
+    "PlayerSpawner" :
+    {
+        "m_worldSpawnPos" : { 0.0, 2.0, 0.0 }
+    },
+    
+    "DynamicLight" :
+    {
+        "m_worldPos" : { 200.0, 200.0, 200.0 },
+        "m_diffuse" : { 1.0, 1.0, 1.0, 1.0 },
+        "m_specular" : { 1.0, 1.0, 1.0, 1.0 }
+    },
+
+    "RenderSettingsSetter" :
+    {
+        "Preset" : "Default",
+        "m_ambientLight" : { 0.5, 0.5, 0.5 }
+    },
+
+    "AISpawner" :
+    {
+        "m_spawnOrigin" : { 7.0, 4.0, 43.0 },
+        "m_spawnRadius" : 0.0,
+        "m_aiNum" : 1,
+        "m_presetName" : "Pathfinding"
+    }, 
+    
+    "ModelObject" :
+    {
+        "m_meshName" : "2nomansland.mesh",
+        "m_worldTransform.position" : { 0.0, 0.0, 0.0 }
+    },
+	
+	"CameraSettingsSetter" :
+	{
+		"m_freelookEnabled" : true,
+		"m_camStartAngle" : { 0.0, -1.0, 0.0 }
+		"m_camStartPos" : { 0.0, 75.0, 0.0 },
+	}
+}

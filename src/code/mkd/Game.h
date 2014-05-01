@@ -37,6 +37,9 @@ public:
     ICamera* getCamera() const { return m_playerCam; }
     bool isKeyDown(OIS::KeyCode kc) const;
 
+	bool isFreelookCamera();
+	void setFreelookCamera(const mkVec3& position , const mkVec3& orientation);
+
 private:
     void parseCmdLine(const mkString& cmd_line);
     void loadOgreResources();

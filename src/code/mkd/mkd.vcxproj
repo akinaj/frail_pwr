@@ -132,8 +132,8 @@
       <AdditionalOptions>/MP8 /Zm150 %(AdditionalOptions)</AdditionalOptions>
       <Optimization>Disabled</Optimization>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <AdditionalIncludeDirectories>..\..\deps\pugixml-1.2\src;..\..\deps\ogre_deps\boost;..\..\deps\ogre\include;..\..\deps\vjson\;..\..\deps\bullet\include;..\..\deps\luajit-2.0.2\include;..\..\deps\ogre_deps;.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\..\deps\pugixml-1.2\src;..\..\deps\ogre_deps\boost;..\..\deps\ogre\include;..\..\deps\vjson\;..\..\deps\bullet\include;..\..\deps\luajit-2.0.2\include;C:\git\frail_pwr\src\deps\ogre\include\OGRE;C:\git\frail_pwr\src\deps\ogre\include\OGRE\Plugins\BSPSceneManager;..\..\deps\ogre_deps;C:\git\frail_pwr\src\deps\recast\include;C:\git\frail_pwr\src\deps\recast\include\DebugUtils;C:\git\frail_pwr\src\deps\recast\include\Detour;C:\git\frail_pwr\src\deps\recast\include\DetourCrowd;C:\git\frail_pwr\src\deps\recast\include\DetourTileCache;C:\git\frail_pwr\src\deps\recast\include\Recast;.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_ITERATOR_DEBUG_LEVEL=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <PrecompiledHeader>
@@ -144,9 +144,9 @@
       <ObjectFileName>$(IntDir)/%(RelativeDir)/</ObjectFileName>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>pugixml.lib;OgreMain.lib;OIS.lib;LinearMath.lib;BulletCollision.lib;BulletDynamics.lib;BulletWorldImporter.lib;BulletFileLoader.lib;vjson.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>pugixml.lib;OgreMain.lib;OgreMain_d.lib;OgrePaging_d.lib;OgreProperty_d.lib;OgreRTShaderSystem_d.lib;OgreTerrain_d.lib;OIS.lib;LinearMath.lib;BulletCollision.lib;BulletDynamics.lib;BulletWorldImporter.lib;BulletFileLoader.lib;vjson.lib;DebugUtils_d.lib;Detour_d.lib;DetourCrowd_d.lib;DetourTileCache_d.lib;Recast_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>$(OutDir)mkdemo.exe</OutputFile>
-      <AdditionalLibraryDirectories>..\..\deps\pugixml-1.2;..\..\deps\ogre_deps\lib;..\..\deps\ogre\lib;..\..\deps\bullet\lib;..\..\deps\vjson;..\..\deps\luajit-2.0.2\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\..\deps\pugixml-1.2;..\..\deps\ogre_deps\lib;..\..\deps\ogre\lib;..\..\deps\bullet\lib;..\..\deps\vjson;..\..\deps\luajit-2.0.2\lib;..\..\deps\recast\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
       <OptimizeReferences>false</OptimizeReferences>
@@ -194,9 +194,17 @@
     <ClCompile Include="BT\Condition.cpp" />
     <ClCompile Include="BT\Decorator.cpp" />
     <ClCompile Include="BT\Parser.cpp" />
+    <ClCompile Include="CameraSettingsSetter.cpp" />
     <ClCompile Include="contrib\DebugDrawer.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Use</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="contrib\fastlz\fastlz.cpp" />
+    <ClCompile Include="contrib\OgreRecast\src\OgreDetourCrowd.cpp" />
+    <ClCompile Include="contrib\OgreRecast\src\OgreDetourTileCache.cpp" />
+    <ClCompile Include="contrib\OgreRecast\src\OgreRecast.cpp" />
+    <ClCompile Include="contrib\OgreRecast\src\OgreRecastNavmeshPruner.cpp" />
+    <ClCompile Include="contrib\OgreRecast\src\RecastConvexHull.cpp" />
+    <ClCompile Include="contrib\OgreRecast\src\RecastInputGeom.cpp" />
     <ClCompile Include="CylinderVolumeTrigger.cpp" />
     <ClCompile Include="Experiment1BTActorController.cpp" />
     <ClCompile Include="Experiment1HTNActorController.cpp" />
@@ -209,6 +217,8 @@
     <ClCompile Include="htn\Parser.cpp" />
     <ClCompile Include="htn\Planner.cpp" />
     <ClCompile Include="htn\Task.cpp" />
+    <ClCompile Include="MeshObject.cpp" />
+    <ClCompile Include="PathfindingActorController.cpp" />
     <ClCompile Include="PhysicsDebugDraw.cpp" />
     <ClCompile Include="Filesystem.cpp" />
     <ClCompile Include="LevelObjectsMgr.cpp" />
@@ -218,6 +228,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Hybrid|Win32'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="PrefabMgr.cpp" />
     <ClCompile Include="SampleBTActorController.cpp" />
     <ClCompile Include="SampleFSMActorController.cpp" />
     <ClCompile Include="SampleHTNActorController.cpp" />
@@ -279,7 +290,16 @@
     <ClInclude Include="BT\Condition.h" />
     <ClInclude Include="BT\Decorator.h" />
     <ClInclude Include="BT\Parser.h" />
+    <ClInclude Include="CameraSettingsSetter.h" />
     <ClInclude Include="contrib\DebugDrawer.h" />
+    <ClInclude Include="contrib\fastlz\fastlz.h" />
+    <ClInclude Include="contrib\OgreRecast\include\OgreDetourCrowd.h" />
+    <ClInclude Include="contrib\OgreRecast\include\OgreDetourTileCache.h" />
+    <ClInclude Include="contrib\OgreRecast\include\OgreRecast.h" />
+    <ClInclude Include="contrib\OgreRecast\include\OgreRecastDefinitions.h" />
+    <ClInclude Include="contrib\OgreRecast\include\OgreRecastNavmeshPruner.h" />
+    <ClInclude Include="contrib\OgreRecast\include\RecastConvexHull.h" />
+    <ClInclude Include="contrib\OgreRecast\include\RecastInputGeom.h" />
     <ClInclude Include="CylinderVolumeTrigger.h" />
     <ClInclude Include="Experiment1BTActorController.h" />
     <ClInclude Include="Experiment1HTNActorController.h" />
@@ -295,11 +315,14 @@
     <ClInclude Include="htn\Planner.h" />
     <ClInclude Include="htn\Task.h" />
     <ClInclude Include="LevelObjectsMgr.h" />
+    <ClInclude Include="MeshObject.h" />
     <ClInclude Include="mkAssert.h" />
     <ClInclude Include="ObjectRef.h" />
+    <ClInclude Include="PathfindingActorController.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="PhysicsObjectUserData.h" />
     <ClInclude Include="Prefab.h" />
+    <ClInclude Include="PrefabMgr.h" />
     <ClInclude Include="SampleBTActorController.h" />
     <ClInclude Include="SampleFSMActorController.h" />
     <ClInclude Include="SampleHTNActorController.h" />

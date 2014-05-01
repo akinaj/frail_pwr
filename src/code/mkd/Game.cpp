@@ -24,7 +24,7 @@ Game::Game()
     : m_exit(false)
     , m_freelook(false)
     , m_levelName("level")
-    , m_startWithFreelook(false)
+    , m_startWithFreelook(true)
     , m_pauseUpdates(false)
     , m_lastDt(0.f)
     , m_logicTime(0.f)
@@ -41,21 +41,19 @@ Game::~Game()
 
 bool Game::init(const mkString& cmd_line)
 {
-    rtti::TypeManager::getInstance().finishTypeRegistration();
-
-    m_presetMgr = new rtti::PresetMgr;
-    m_presetMgr->init();
-
     parseCmdLine(cmd_line);
     initRendering();
     initInput();
     initPhysics();
 
+	rtti::TypeManager::getInstance().finishTypeRegistration();
+    m_presetMgr = new rtti::PresetMgr;
+    m_presetMgr->init();
+
 #ifdef ENABLE_BULLET_DEBUG_DRAW
     g_debugPhysicsDrawer = new BtOgre::DebugDrawer(m_ogreSceneMgr->getRootSceneNode(), m_physicsWorld);
     m_physicsWorld->setDebugDrawer(g_debugPhysicsDrawer);
 #endif
-
     m_actorControllerFactory = new ActorControllerFactory;
 
     m_level = new Level();
@@ -543,4 +541,18 @@ Level* Game::getCurrentLevel() const
 float Game::getRealTimeDelta() const
 {
     return m_lastRealDt;
+}
+
+bool Game::isFreelookCamera()
+{
+	return m_freelook;
+}
+
+void Game::setFreelookCamera(const mkVec3& position , const mkVec3& orientation)
+{
+	m_freelook = true;
+	delete m_playerCam;
+	m_playerCam = new CameraFPP(m_ogreCamera, NULL);
+	m_playerCam->setPosition(position);
+	m_playerCam->setAngle(orientation);
 }

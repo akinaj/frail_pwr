@@ -29,6 +29,10 @@ public:
     virtual void move(const mkVec3& translation) = 0;
 
     virtual void setTarget(ICameraTarget* target) = 0;
+
+	// added by qmar, for start camera position setting
+	virtual void setAngle(const mkVec3& angle) = 0;
+	virtual void setPosition(const mkVec3& position) = 0;
 };
 
 class CameraFPP : public ICamera
@@ -47,6 +51,11 @@ public:
     const mkVec3 getLookatPos() const;
 
     virtual void setTarget(ICameraTarget* target);
+
+	// added by qmar, for start camera position setting
+	void setAngle(const mkVec3& angle);
+	void setPosition(const mkVec3& position);
+
 
 private:
     const mkVec3 m_forwardUnit;
@@ -80,6 +89,10 @@ public:
     void move(const mkVec3& translation) { }
 
     const mkVec3 getLookatPos() const;
+
+	// added by qmar, not needed for not freelook camera
+	void setAngle(const mkVec3& angle) {}
+	void setPosition(const mkVec3& position) {}
 
 private:
     Ogre::Camera* m_cam;

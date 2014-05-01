@@ -64,14 +64,20 @@
     <Filter Include="Game\ActorControllers\ExperimentalControllers">
       <UniqueIdentifier>{e0d464c6-b5cf-4ad0-97c1-4540b4ca653b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\ActorControllers\Pathfinding">
+      <UniqueIdentifier>{d6e538e0-8300-47ff-a5c9-357556ed82ee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contrib\DebugDrawer">
+      <UniqueIdentifier>{55bf8c68-b81d-4ae4-9c86-36774940fe90}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contrib\OgreRecast">
+      <UniqueIdentifier>{cab5db49-a8fb-46e6-9ce1-dd350b0ad8c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contrib\fastlz">
+      <UniqueIdentifier>{51c2b42f-f30e-4d98-b917-9a5213f26e8e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="contrib\DebugDrawer.cpp">
-      <Filter>Contrib</Filter>
-    </ClCompile>
-    <ClCompile Include="PhysicsDebugDraw.cpp">
-      <Filter>Contrib</Filter>
-    </ClCompile>
     <ClCompile Include="Filesystem.cpp">
       <Filter>System</Filter>
     </ClCompile>
@@ -273,11 +279,47 @@
     <ClCompile Include="SampleFSMActorController.cpp">
       <Filter>Game\ActorControllers\FSMControllers</Filter>
     </ClCompile>
+    <ClCompile Include="PhysicsDebugDraw.cpp">
+      <Filter>Contrib\DebugDrawer</Filter>
+    </ClCompile>
+    <ClCompile Include="contrib\DebugDrawer.cpp">
+      <Filter>Contrib\DebugDrawer</Filter>
+    </ClCompile>
+    <ClCompile Include="contrib\OgreRecast\src\OgreDetourCrowd.cpp">
+      <Filter>Contrib\OgreRecast</Filter>
+    </ClCompile>
+    <ClCompile Include="contrib\OgreRecast\src\OgreDetourTileCache.cpp">
+      <Filter>Contrib\OgreRecast</Filter>
+    </ClCompile>
+    <ClCompile Include="contrib\OgreRecast\src\OgreRecast.cpp">
+      <Filter>Contrib\OgreRecast</Filter>
+    </ClCompile>
+    <ClCompile Include="contrib\OgreRecast\src\OgreRecastNavmeshPruner.cpp">
+      <Filter>Contrib\OgreRecast</Filter>
+    </ClCompile>
+    <ClCompile Include="contrib\OgreRecast\src\RecastConvexHull.cpp">
+      <Filter>Contrib\OgreRecast</Filter>
+    </ClCompile>
+    <ClCompile Include="contrib\OgreRecast\src\RecastInputGeom.cpp">
+      <Filter>Contrib\OgreRecast</Filter>
+    </ClCompile>
+    <ClCompile Include="MeshObject.cpp">
+      <Filter>Game\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="PrefabMgr.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="contrib\fastlz\fastlz.cpp">
+      <Filter>Contrib\fastlz</Filter>
+    </ClCompile>
+    <ClCompile Include="PathfindingActorController.cpp">
+      <Filter>Game\ActorControllers\Pathfinding</Filter>
+    </ClCompile>
+    <ClCompile Include="CameraSettingsSetter.cpp">
+      <Filter>Game\Objects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="contrib\DebugDrawer.h">
-      <Filter>Contrib</Filter>
-    </ClInclude>
     <ClInclude Include="Filesystem.h">
       <Filter>System</Filter>
     </ClInclude>
@@ -297,9 +339,6 @@
       <Filter>System</Filter>
     </ClInclude>
     <ClInclude Include="PhysicsObjectUserData.h">
-      <Filter>System</Filter>
-    </ClInclude>
-    <ClInclude Include="Prefab.h">
       <Filter>System</Filter>
     </ClInclude>
     <ClInclude Include="settings.h">
@@ -496,6 +535,48 @@
     </ClInclude>
     <ClInclude Include="SampleFSMActorController.h">
       <Filter>Game\ActorControllers\FSMControllers</Filter>
+    </ClInclude>
+    <ClInclude Include="contrib\DebugDrawer.h">
+      <Filter>Contrib\DebugDrawer</Filter>
+    </ClInclude>
+    <ClInclude Include="contrib\OgreRecast\include\RecastInputGeom.h">
+      <Filter>Contrib\OgreRecast</Filter>
+    </ClInclude>
+    <ClInclude Include="contrib\OgreRecast\include\OgreDetourCrowd.h">
+      <Filter>Contrib\OgreRecast</Filter>
+    </ClInclude>
+    <ClInclude Include="contrib\OgreRecast\include\OgreDetourTileCache.h">
+      <Filter>Contrib\OgreRecast</Filter>
+    </ClInclude>
+    <ClInclude Include="contrib\OgreRecast\include\OgreRecast.h">
+      <Filter>Contrib\OgreRecast</Filter>
+    </ClInclude>
+    <ClInclude Include="contrib\OgreRecast\include\OgreRecastDefinitions.h">
+      <Filter>Contrib\OgreRecast</Filter>
+    </ClInclude>
+    <ClInclude Include="contrib\OgreRecast\include\OgreRecastNavmeshPruner.h">
+      <Filter>Contrib\OgreRecast</Filter>
+    </ClInclude>
+    <ClInclude Include="contrib\OgreRecast\include\RecastConvexHull.h">
+      <Filter>Contrib\OgreRecast</Filter>
+    </ClInclude>
+    <ClInclude Include="MeshObject.h">
+      <Filter>Game\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="PrefabMgr.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="Prefab.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="contrib\fastlz\fastlz.h">
+      <Filter>Contrib\fastlz</Filter>
+    </ClInclude>
+    <ClInclude Include="PathfindingActorController.h">
+      <Filter>Game\ActorControllers\Pathfinding</Filter>
+    </ClInclude>
+    <ClInclude Include="CameraSettingsSetter.h">
+      <Filter>Game\Objects</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -86,6 +86,16 @@ const mkVec3 CameraFPP::getLookatPos() const
     return m_lastLookat;
 }
 
+// added by qmar 
+void CameraFPP::setAngle(const mkVec3& angle) {
+	m_yaw = angle.x;
+	m_roll = angle.y;
+}
+
+void CameraFPP::setPosition(const mkVec3& position) {
+	m_pos = position;
+}
+
 CameraTPP::CameraTPP( Ogre::Camera* cam, ICameraTarget* target )
     : m_cam(cam)
     , m_target(target)

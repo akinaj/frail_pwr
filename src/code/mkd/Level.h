@@ -12,6 +12,11 @@ class ActorAI;
 class CtfMgr;
 class Player;
 
+// added by MK
+class OgreRecast;
+class PrefabMgr;
+class MeshObject;
+
 class Level : public rtti::IObjectProvider
 {
 public:
@@ -29,9 +34,12 @@ public:
     btDynamicsWorld* getPhysicsWorld() const;
     ActorControllerFactory* getActorControllerFactory() const;
 
+	OgreRecast *ogreRecast;
+
 private:
     void loadGameObjects(const mkString& props_file_name);
     bool isKeyDown(OIS::KeyCode kc) const;
+	mkString m_meshName;
 
 private:
     mutable int m_currFrameFindObjectsByIdQueriesNum;
@@ -44,6 +52,7 @@ private:
     void serializeGameObjects(const mkString& file_name);
 
     LevelObjectsMgr m_objectsMgr;
+		void initLevelNavMesh();
 
 public:
     GameObject* createObject(const rtti::TypeInfo* type, bool call_init = true, const mkString& preset_name = "");
