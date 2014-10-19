@@ -1,0 +1,5 @@
+1. Linker error: unresolved external symbol BT::Parser::Parser or HTN::Parser::Parser:
+Author of Behavior Tree and HTN samples in FRAIL used same file name for parser classes of both techniques.
+Default Visual Studio project settings put all object (.obj) files in same directory, so one of the files is overriden.
+Existing configurations in project files should handle this properly, but make sure that your current configuration
+has property "Object File Name" (project properties -> C/C++ -> Output Files) set to "$(IntDir)/%(RelativeDir)/"
